@@ -1,0 +1,6 @@
+export const appName = 'FQuantWeb'
+export const appDescription = 'FQuant Web Application, Quant Market A。'
+export const version = '3.0.0.0820'
+export const author = 'annodomini189'
+export const email = 'hhha@sina.com'
+export const powerby = 'Nuxt3 + QuasarUI'
