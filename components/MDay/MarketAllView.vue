@@ -171,7 +171,7 @@
   
   <div class="flex-break"></div>
   <div class="row bg-grey-1" v-if="DataMarket.mdata">
-    <!-- 北向数据 -->
+    <!-- 北向数据
     <div class="col-12 col-md">
       <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">北向数据</div>
@@ -182,7 +182,7 @@
         </div>
       </div>
     </div>
-
+     -->
     <!-- 市场资金 -->
     <div class="col-12 col-md">
      <div class="divide-y divide-dashed w-full">
@@ -205,6 +205,14 @@
         </div>
       </div>
     </div>
+
+    <!-- 高标涨跌 -->
+    <div class="col-12 col-md">
+      <div class="divide-y divide-dashed w-full">
+       
+      </div>
+    </div>
+    
     
   </div>
   <q-separator inset spaced />
@@ -250,7 +258,7 @@
   <div class="row bg-grey-1" v-if="DataMarket.mdata">
     
     <!-- 市场资金 -->
-    <div class="col-12 col-md  q-pr-sm">
+    <div class="col-5 q-pr-sm">
       <div class="divide-y divide-dashed" v-if="loading" >
         <div class="text-h6 q-pa-sm">成交金额TOP20风格</div>
         <q-table 
@@ -273,7 +281,7 @@
       </div>
     </div>
     
-    <div class="col-12 col-md q-pr-sm">
+    <div class="col q-pr-sm">
       <div class="divide-y divide-dashed w-full q-p-sm" v-if="loading" >
         <div class="text-h6 q-pa-sm">成交金额TOP10列表</div>
         <q-table
@@ -464,6 +472,7 @@ export default defineComponent({
       this.rowsDataList = res4.data.data.datalist
 
       //'https://push2.eastmoney.com/api/qt/kamt.rtmin/get?fields1=f1,f2,f3,f4&fields2=f51,f52,f53,f54,f55,f56'
+      /*
       const res5 = await http.get('https://push2.eastmoney.com/api/qt/kamt.rtmin/get?fields1=f1,f2,f3,f4&fields2=f51,f52,f53,f54,f55,f56', {})
 
       var hgt = []
@@ -480,7 +489,7 @@ export default defineComponent({
       this.lNorthAmountOption.series[0].data = hgt
       this.lNorthAmountOption.series[1].data = sgt
       this.lNorthAmountOption.series[2].data = gt
-
+      */
       //'https://push2.eastmoney.com/api/qt/stock/trends2/get?secid=133.USDCNH&fields1=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f17&fields2=f51,f53,f54,f55,f56,f57,f58'
       //const res6 = await http.get('https://push2.eastmoney.com/api/qt/stock/trends2/get?secid=133.USDCNH&fields1=f1&fields2=f51,f54', {})
 
@@ -1057,7 +1066,7 @@ export default defineComponent({
             {name:'下跌',type:'line',symbol:'none',data:[]}
           ]
     });
-
+    /*
     const lNorthAmountOption = ref({
       tooltip: {
             trigger: 'axis'
@@ -1085,7 +1094,7 @@ export default defineComponent({
             {name:'北向资金',type:'line',symbol:'none',data:[]},
           ]
     });
-
+    */
 
     const lLBInsOption = ref({
           tooltip: {
@@ -1137,8 +1146,8 @@ export default defineComponent({
       { name: '标签', align: 'center', label: '标签', field: 'tag' },
     ]);
 
-
-    return { loading:ref(), AmountOption, lAmountOption, rTemperaOption, lTemperaOption, lRateOption, lTempera5minOption, lMaeketAOption, lRateCountOption, lSHizhiR1Option, lSHizhiR2Option, lMaeketBOption, lMaeketCOption, lLBAmountOption, lLBInsOption, lNorthAmountOption, DataMarket, rowsTagList, columnsTagList, rowsDataList, columnsDataList, tab: ref('today') };
+    //lNorthAmountOption, 
+    return { loading:ref(), AmountOption, lAmountOption, rTemperaOption, lTemperaOption, lRateOption, lTempera5minOption, lMaeketAOption, lRateCountOption, lSHizhiR1Option, lSHizhiR2Option, lMaeketBOption, lMaeketCOption, lLBAmountOption, lLBInsOption, DataMarket, rowsTagList, columnsTagList, rowsDataList, columnsDataList, tab: ref('today') };
 
   }
   

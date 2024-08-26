@@ -19,9 +19,11 @@
     <v-chart class="chart" :option="marketrzrq01Option" autoresize ref="marketrzrqChart"/>
   </div>
   <q-separator inset spaced />
+  <!--北向数据
   <div class="q-pa-sm">
     <v-chart class="chart" :option="markettonOption" autoresize ref="markettonChart"/>
   </div>
+  -->
 </template>
 
 <script lang=“ts”>
@@ -86,9 +88,10 @@ export default defineComponent({
       const res6 = await http.get('https://stock.1dian.site/h5/data/market_rzrq_01.json', params)
       this.marketrzrq01Option = res6.data
 
+      /*
       const res5 = await http.get('https://stock.1dian.site/h5/data/market_ton.json', params)
       this.markettonOption = res5.data
-
+      */
 
     }
   },
@@ -99,9 +102,10 @@ export default defineComponent({
     const marketstrcountOption = ref({});
     const marketrzrq00Option = ref({});
     const marketrzrq01Option = ref({});
-    const markettonOption = ref({});
+    //const markettonOption = ref({});
     
-    return { marketamountpercentOption, martetlinestatusOption, marketstrcountOption, marketrzrq00Option, marketrzrq01Option, markettonOption};
+    return { marketamountpercentOption, martetlinestatusOption, marketstrcountOption, marketrzrq00Option, marketrzrq01Option };
+    //, markettonOption};
 
   }
   

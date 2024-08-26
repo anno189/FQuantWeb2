@@ -7,6 +7,11 @@
     <q-separator />
 
     <q-card-section style="max-height: 50vh" class="scroll">
+      <p class="text-weight-bold">v 3.0.1.0825</p>
+      <p>- 删除：盘中-实时市场-北向数据。北向数据公布时间变化。<br />
+      - 删除：盘后-综合-北向数据。北向数据公布时间变化。<br />
+
+      </p>
       <p class="text-weight-bold">v 3.0.0.0820</p>
       <p>- 重构：使用nuxt重构系统，解决及时信息通知和记录的问题<br />
       </p>

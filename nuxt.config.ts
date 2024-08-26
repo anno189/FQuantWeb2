@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { appDescription } from './constants/index'
+import { appDescription, appName } from './constants/index'
 import process from 'node:process'
 
 const sw = process.env.SW === 'true'
@@ -45,8 +45,8 @@ export default defineNuxtConfig({
     filename: sw ? 'sw.ts' : undefined,
     registerType: 'autoUpdate',
     manifest: {
-      name: 'Nuxt Vite PWA',
-      short_name: 'NuxtVitePWA',
+      name: appName,
+      short_name: appDescription,
       theme_color: '#ffffff',
       icons: [
         {
