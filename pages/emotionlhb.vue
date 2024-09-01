@@ -23,19 +23,14 @@
       :width="250"
     >
       <div class="row">
-        <LayoutLeftTabMs />
+        <LayoutLeftTabEm/>
       </div>
     </q-drawer>
 
     <q-page-container>
-      <!--<router-view name="Main"></router-view>-->
-      <MAWidthindexView />
+      <!--<MElhbView />-->
+      <MELhbView />
     </q-page-container>
-    <!--
-    <q-footer elevated class="bg-grey-8 text-white">
-      <div class="text-sm">Title</div>
-    </q-footer>
-    -->
   </q-layout>
 </template>
 

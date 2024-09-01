@@ -23,12 +23,11 @@
       :width="250"
     >
       <div class="row">
-        <LayoutLeftTab/>
+        <LayoutLeftTab />
       </div>
     </q-drawer>
 
     <q-page-container>
-      <!--<MDayEmotionView />-->
       <NuxtPage />
     </q-page-container>
     <!--
@@ -47,7 +46,6 @@ export default {
 
   setup() {
     const leftDrawerOpen = ref(false);
-
 
     return {
       leftDrawerOpen,

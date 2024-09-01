@@ -4,7 +4,6 @@ import process from 'node:process'
 
 const sw = process.env.SW === 'true'
 
-
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
@@ -19,6 +18,10 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     renderJsonPayloads: true,
     typedPages: true,
+  },
+
+  vite: {
+    logLevel: 'info',
   },
 
   ssr: false,

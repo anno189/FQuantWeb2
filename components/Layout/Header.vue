@@ -1,6 +1,6 @@
 <template>
   <q-toolbar-title>
-    FQuant Web Application
+    {{ appFullName }}
     <q-badge align="top">{{ version }}</q-badge>
   </q-toolbar-title>
 
@@ -35,7 +35,7 @@
 <script>
 import ReleaseNotes from '~/components/ReleaseNotes.vue';
 import AboutNotes from '~/components/AboutNotes.vue';
-import { version } from '~/constants'
+import { version, appFullName } from '~/constants'
 
 export default {
   components: { ReleaseNotes, AboutNotes },
@@ -73,7 +73,7 @@ export default {
       about: ref(false),
       time: ref(null),
       getToday, 
-      version
+      version, appFullName
     };
   },
 };

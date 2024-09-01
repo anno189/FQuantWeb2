@@ -1,10 +1,10 @@
 <template>
-    <div class="row">
-      <q-tabs v-model="tab" vertical class="text-red-9 text-weight-bold">
+  <div class="row">
+    <q-tabs v-model="tab" vertical class="text-red-9 text-weight-bold">
         <q-tab name="mfront" to="/marketfront" label="盘前" exact />
         <q-tab name="mbidding" to="/marketbidding" label="竞价" exact />
         <q-tab name="mdays" to="/marketdays" label="盘中" exact />
-        <q-tab name="memo" to="/emolhb" label=" 情绪" exact />
+        <q-tab name="memo" to="/emotionlhb" label=" 情绪" exact />
         <q-tab name="mafter" to="/marketatfer" label="盘后" exact />
         <q-tab name="fundowner" to="/fundowner" label="组合" exact />
         <q-tab name="mstatus" to="/marketstatus" label="市场" exact />
@@ -34,9 +34,8 @@
           </q-tab-panel>
         </q-tab-panels>
       </div>
-    </div>
+  </div>
 </template>
-
 
 <script>
 import { ref } from 'vue';
@@ -67,7 +66,7 @@ export default {
 
     
     return {
-      tab: ref('mfront'), loadData, today
+      tab: ref('memo'), loadData, today
     };
 
     

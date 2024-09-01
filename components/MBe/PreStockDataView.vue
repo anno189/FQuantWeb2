@@ -393,8 +393,8 @@ export default({
       
       const response = await http.get('https://stock.1dian.site//h5/data/mbprestockdata.json', {})
 
-      this.ones = response.data.one
-      this.twos = response.data.two
+      //this.ones = response.data.one
+      //this.twos = response.data.two
       this.three = response.data.three
 
       this.rowslimitup = response.data.lists.limitup

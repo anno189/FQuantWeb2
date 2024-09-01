@@ -23,7 +23,7 @@
       :width="250"
     >
       <div class="row">
-        <LayoutLeftTabBe/>
+        <LayoutLeftTabBe />
       </div>
     </q-drawer>
 
