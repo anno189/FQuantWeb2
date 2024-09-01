@@ -7,6 +7,10 @@
     <q-separator />
 
     <q-card-section style="max-height: 50vh" class="scroll">
+      <p class="text-weight-bold">v 3.1.1.0901</p>
+      <p>- 新增：情绪模块<br />
+      - 新增：情绪-龙虎榜-根据上板营业部的历史反馈做出统计。<br />
+      </p>
       <p class="text-weight-bold">v 3.0.1.0825</p>
       <p>- 删除：盘中-实时市场-北向数据。北向数据公布时间变化。<br />
       - 删除：盘后-综合-北向数据。北向数据公布时间变化。<br />
