@@ -16,6 +16,20 @@
     </q-item-section>
   </q-item>
   <q-separator />
+
+  <q-item 
+    clickable
+    v-ripple
+    :active="link === 'emotionlhbopen'"
+    @click="link = 'emotionlhbopen'"
+    active-class="my-menu-link"
+    to="/emotionlhbopen" exact>
+    <q-item-section>
+      <q-item-label>榜单/竞价</q-item-label>
+      <q-item-label overline>每日盘中更新</q-item-label>
+    </q-item-section>
+  </q-item>
+  <q-separator />
 </template>
 
 <script>
