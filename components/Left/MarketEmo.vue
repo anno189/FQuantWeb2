@@ -20,12 +20,40 @@
   <q-item 
     clickable
     v-ripple
+    :active="link === 'emotionlhbliopen'"
+    @click="link = 'emotionlhbliopen'"
+    active-class="my-menu-link"
+    to="/emotionlhbliopen" exact>
+    <q-item-section>
+      <q-item-label>竞价一字</q-item-label>
+      <q-item-label overline>每日 09:28 更新</q-item-label>
+    </q-item-section>
+  </q-item>
+  <q-separator />
+
+  <q-item 
+    clickable
+    v-ripple
     :active="link === 'emotionlhbopen'"
     @click="link = 'emotionlhbopen'"
     active-class="my-menu-link"
     to="/emotionlhbopen" exact>
     <q-item-section>
       <q-item-label>榜单/竞价</q-item-label>
+      <q-item-label overline>每日盘中更新</q-item-label>
+    </q-item-section>
+  </q-item>
+  <q-separator />
+
+  <q-item 
+    clickable
+    v-ripple
+    :active="link === 'emotionruntime'"
+    @click="link = 'emotionruntime'"
+    active-class="my-menu-link"
+    to="/emotionruntime" exact>
+    <q-item-section>
+      <q-item-label>盘中涨停</q-item-label>
       <q-item-label overline>每日盘中更新</q-item-label>
     </q-item-section>
   </q-item>

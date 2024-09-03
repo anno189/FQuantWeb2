@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { appDescription, appName } from './constants/index'
+import { appDescription, appName, appFullName } from './constants/index'
 import process from 'node:process'
 
 const sw = process.env.SW === 'true'
@@ -49,7 +49,7 @@ export default defineNuxtConfig({
     registerType: 'autoUpdate',
     manifest: {
       name: appName,
-      short_name: appDescription,
+      short_name: appFullName,
       theme_color: '#ffffff',
       icons: [
         {
