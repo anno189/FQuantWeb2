@@ -30,18 +30,39 @@
     <div class="text-h6 q-pa-sm">接力可能</div>
     <div class="col-12" v-if="this.loading">
       <div class="q-pa-sm">
-        <q-table
-          class="my-sticky-header-column-table"
-          dense flat bordered
-          :rows="rowzhengfankuiz"
-          :columns="columnzhengfankuiz"
-          :rows-per-page-options="[10000]"
-          row-key="name"
-        >
-        </q-table>
+        <div v-if="rowzhengfankuiz.length > 15">
+          <q-table
+            class="my-sticky-header-column-table my-sticky-header-height-table"
+            dense flat bordered
+            :rows="rowzhengfankuiz"
+            :columns="columnzhengfankuiz"
+            :rows-per-page-options="[10000]"
+            row-key="name"
+          >
+          </q-table>
+        </div>
+        <div v-else>
+          <q-table
+            class="my-sticky-header-column-table"
+            dense flat bordered
+            :rows="rowzhengfankuiz"
+            :columns="columnzhengfankuiz"
+            :rows-per-page-options="[10000]"
+            row-key="name"
+          >
+          </q-table>
+        </div>
       </div>
     </div>
   </div>
+  <div class="row bg-grey-1 q-pa-sm wrap" >
+    <template v-for="code in this.code">
+      <div class="col-2 col-md-2">
+        <q-img :src="code" /> 
+      </div>
+    </template>
+  </div>
+    
   <q-separator inset spaced/>
 
 
@@ -49,15 +70,28 @@
     <div class="text-h6 q-pa-sm">风险警示</div>
     <div class="col-12" v-if="this.loading">
       <div class="q-pa-sm">
-        <q-table
-          class="my-sticky-header-column-table"
-          dense flat bordered
-          :rows="rowzhengfankuif"
-          :columns="columnzhengfankuif"
-          :rows-per-page-options="[10000]"
-          row-key="name"
-        >
-        </q-table>
+        <div v-if="rowzhengfankuif.length > 14">
+          <q-table
+            class="my-sticky-header-column-table my-sticky-header-height-table"
+            dense flat bordered
+            :rows="rowzhengfankuif"
+            :columns="columnzhengfankuif"
+            :rows-per-page-options="[10000]"
+            row-key="name"
+          >
+          </q-table>
+        </div>
+        <div v-else>
+          <q-table
+            class="my-sticky-header-column-table"
+            dense flat bordered
+            :rows="rowzhengfankuif"
+            :columns="columnzhengfankuif"
+            :rows-per-page-options="[10000]"
+            row-key="name"
+          >
+          </q-table>
+        </div>
       </div>
     </div>
   </div>
@@ -84,6 +118,9 @@ export default defineComponent({
       this.warn = res1.data.data.lhb.warn
 
       this.rowzhengfankuiz = res1.data.data.lhb.table.z.zhengfankui
+      this.code = res1.data.data.lhb.table.z.code
+      console.log(this.code)
+
       let colz = res1.data.data.lhb.table.z.col
 
       this.columnzhengfankuiz = new Array(colz.length)
@@ -100,6 +137,13 @@ export default defineComponent({
         else
           this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: colz[i], field: colz[i], sortable: false}
       }
+
+      for (let i = 0; i <  this.code.length; i++) {
+            if (this.code[i][0] == 6)
+              this.code[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=1."+this.code[i]
+            else
+              this.code[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0."+this.code[i]
+        }
 
       this.rowzhengfankuif = res1.data.data.lhb.table.f.zhengfankui
       let colf = res1.data.data.lhb.table.f.col
@@ -125,17 +169,18 @@ export default defineComponent({
   },
 
   setup () {
-    return { rowzhengfankuiz:ref({}), columnzhengfankuiz:ref({}), rowzhengfankuif:ref({}), columnzhengfankuif:ref({}), loading:ref(), warn:ref()};
+    return { rowzhengfankuiz:ref({}), columnzhengfankuiz:ref({}), rowzhengfankuif:ref({}), columnzhengfankuif:ref({}), loading:ref(), warn:ref(), code:ref()};
   }
 });
 
 </script>
 
 <style lang="sass">
+.my-sticky-header-height-table
+  height: 500px
+
 .my-sticky-header-column-table
   /* height or max-height is important */
-  height: 550px
-
   td:first-child
     /* bg color is important for td; just specify one */
     background-color: #f5f5dc
