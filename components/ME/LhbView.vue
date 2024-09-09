@@ -56,9 +56,9 @@
     </div>
   </div>
   <div class="row bg-grey-1 q-pa-sm wrap" >
-    <template v-for="code in this.code">
+    <template v-for="zcode in this.zcode">
       <div class="col-2 col-md-2">
-        <q-img :src="code" /> 
+        <q-img :src="zcode" /> 
       </div>
     </template>
   </div>
@@ -67,10 +67,10 @@
 
 
   <div>
-    <div class="text-h6 q-pa-sm">风险警示</div>
+    <div class="text-h6 q-pa-sm">负反馈风险</div>
     <div class="col-12" v-if="this.loading">
       <div class="q-pa-sm">
-        <div v-if="rowzhengfankuif.length > 14">
+        <div v-if="rowzhengfankuif.length > 16">
           <q-table
             class="my-sticky-header-column-table my-sticky-header-height-table"
             dense flat bordered
@@ -92,6 +92,13 @@
           >
           </q-table>
         </div>
+        <div class="row bg-grey-1 q-pa-sm wrap" >
+    <template v-for="fcode in this.fcode">
+      <div class="col-2 col-md-2">
+        <q-img :src="fcode" /> 
+      </div>
+    </template>
+  </div>
       </div>
     </div>
   </div>
@@ -118,9 +125,8 @@ export default defineComponent({
       this.warn = res1.data.data.lhb.warn
 
       this.rowzhengfankuiz = res1.data.data.lhb.table.z.zhengfankui
-      this.code = res1.data.data.lhb.table.z.code
-      console.log(this.code)
-
+      this.zcode = res1.data.data.lhb.table.z.code
+      
       let colz = res1.data.data.lhb.table.z.col
 
       this.columnzhengfankuiz = new Array(colz.length)
@@ -138,14 +144,16 @@ export default defineComponent({
           this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: colz[i], field: colz[i], sortable: false}
       }
 
-      for (let i = 0; i <  this.code.length; i++) {
-            if (this.code[i][0] == 6)
-              this.code[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=1."+this.code[i]
+      for (let i = 0; i <  this.zcode.length; i++) {
+            if (this.zcode[i][0] == 6)
+              this.zcode[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=1."+this.zcode[i]
             else
-              this.code[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0."+this.code[i]
+              this.zcode[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0."+this.zcode[i]
         }
 
       this.rowzhengfankuif = res1.data.data.lhb.table.f.zhengfankui
+      this.fcode = res1.data.data.lhb.table.f.code
+      
       let colf = res1.data.data.lhb.table.f.col
 
       this.columnzhengfankuif = new Array(colf.length)
@@ -162,6 +170,14 @@ export default defineComponent({
         else
           this.columnzhengfankuif[i] = { name: colf[i], align: 'left', label: colf[i], field: colf[i], sortable: false}
       }
+
+      for (let i = 0; i <  this.fcode.length; i++) {
+            if (this.fcode[i][0] == 6)
+              this.fcode[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=1."+this.fcode[i]
+            else
+              this.fcode[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0."+this.fcode[i]
+        }
+
         
       this.loading = true;
 
@@ -169,7 +185,7 @@ export default defineComponent({
   },
 
   setup () {
-    return { rowzhengfankuiz:ref({}), columnzhengfankuiz:ref({}), rowzhengfankuif:ref({}), columnzhengfankuif:ref({}), loading:ref(), warn:ref(), code:ref()};
+    return { rowzhengfankuiz:ref({}), columnzhengfankuiz:ref({}), rowzhengfankuif:ref({}), columnzhengfankuif:ref({}), loading:ref(), warn:ref(), zcode:ref(), fcode:ref()};
   }
 });
 
@@ -177,7 +193,7 @@ export default defineComponent({
 
 <style lang="sass">
 .my-sticky-header-height-table
-  height: 500px
+  height: 560px
 
 .my-sticky-header-column-table
   /* height or max-height is important */

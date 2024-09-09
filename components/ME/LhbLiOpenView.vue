@@ -51,7 +51,7 @@ export default defineComponent({
             columnsz[i] = { name: colz[i], align: 'left', label: '代码', field: colz[i], sortable: false}
           else if ( colz[i] == 'liutongshizhi')
             columnsz[i] = { name: colz[i], align: 'left', label: '市值', field: colz[i], sortable: false}
-          else if ( colz[i] == 'liamo')
+          else if ( colz[i] == 'bid1amo')
             columnsz[i] = { name: colz[i], align: 'left', label: '封单', field: colz[i], sortable: false}
           else if ( colz[i] == 'hcount')
             columnsz[i] = { name: colz[i], align: 'left', label: '连板', field: colz[i], sortable: false}
