@@ -70,6 +70,8 @@ export default defineComponent({
             columnsz[i] = { name: colz[i], align: 'left', label: '市值', field: colz[i], sortable: false}
           else if ( colz[i] == 'hcount')
             columnsz[i] = { name: colz[i], align: 'left', label: '连板', field: colz[i], sortable: false}
+          else if ( colz[i] == 'rate')
+            columnsz[i] = { name: colz[i], align: 'left', label: '涨幅', field: colz[i], sortable: false}
           else
             columnsz[i] = { name: colz[i], align: 'left', label: colz[i], field: colz[i], sortable: false}
         }

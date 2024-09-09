@@ -140,6 +140,10 @@ export default defineComponent({
           this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: '正', field: colz[i], sortable: false}
         else if ( colz[i] == 'f1')
           this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: '负', field: colz[i], sortable: false}
+        else if ( colz[i] == 'RATE')
+          this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: '涨幅', field: colz[i], sortable: false}
+        else if ( colz[i] == 'HSZ')
+          this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: '换手率', field: colz[i], sortable: false}
         else
           this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: colz[i], field: colz[i], sortable: false}
       }

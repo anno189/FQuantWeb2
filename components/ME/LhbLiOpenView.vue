@@ -1,5 +1,5 @@
+<!--竞价一字-->
 <template>
-
   <template v-for="item in this.data" v-if="this.loading">
     <div class="text-h6 q-pa-sm"> {{ item.title }}</div>
     <div class="col-12">
@@ -15,6 +15,17 @@
         </q-table>
       </div>
     </div>
+    <q-separator inset spaced/>
+    
+    <div class="text-h6 q-pa-sm"> {{ item.title }}</div>
+    <div class="row bg-grey-1 q-pa-sm wrap" >
+      <template v-for="code in item.code">
+        <div class="col-2 col-md-2">
+          <q-img :src="code" /> 
+        </div>
+      </template>
+    </div>
+    
     <q-separator inset spaced/>
   </template>
 </template>
@@ -60,6 +71,13 @@ export default defineComponent({
         }
 
         this.data[j].columns = columnsz
+
+        for (let i = 0; i <  this.data[j].code.length; i++) {
+            if (this.data[j].code[i][0] == 6)
+              this.data[j].code[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=1."+this.data[j].code[i]
+            else
+              this.data[j].code[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0."+this.data[j].code[i]
+        }
 
       }
 
