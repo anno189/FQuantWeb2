@@ -48,6 +48,20 @@
   <q-item 
     clickable
     v-ripple
+    :active="link === 'emotionlhbopenrate'"
+    @click="link = 'emotionlhbopenrate'"
+    active-class="my-menu-link"
+    to="/emotionlhbopenrate" exact>
+    <q-item-section>
+      <q-item-label>竞价涨幅</q-item-label>
+      <q-item-label overline>每日竞价后/盘中更新</q-item-label>
+    </q-item-section>
+  </q-item>
+  <q-separator />
+
+  <q-item 
+    clickable
+    v-ripple
     :active="link === 'emotionruntime'"
     @click="link = 'emotionruntime'"
     active-class="my-menu-link"
