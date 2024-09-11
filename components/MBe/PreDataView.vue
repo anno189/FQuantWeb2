@@ -276,7 +276,7 @@ export default defineComponent({
 
       this.data = response.data.data
 
-      console.log(this.data)
+      //console.log(this.data)
       
       this.rowsHigh = response.data.data.T925.high
       this.rowsLow = response.data.data.T925.low

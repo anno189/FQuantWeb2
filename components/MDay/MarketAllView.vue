@@ -258,7 +258,7 @@
   <div class="row bg-grey-1" v-if="DataMarket.mdata">
     
     <!-- 市场资金 -->
-    <div class="col-5 q-pr-sm">
+    <div class="col-12 col-md">
       <div class="divide-y divide-dashed" v-if="loading" >
         <div class="text-h6 q-pa-sm">成交金额TOP20风格</div>
         <q-table 
@@ -281,7 +281,7 @@
       </div>
     </div>
     
-    <div class="col q-pr-sm">
+    <div class="col-12 col-md">
       <div class="divide-y divide-dashed w-full q-p-sm" v-if="loading" >
         <div class="text-h6 q-pa-sm">成交金额TOP10列表</div>
         <q-table
