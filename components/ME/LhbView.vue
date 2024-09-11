@@ -175,6 +175,14 @@ export default defineComponent({
           this.columnzhengfankuif[i] = { name: colf[i], align: 'left', label: '正', field: colf[i], sortable: false}
         else if ( colf[i] == 'f1')
           this.columnzhengfankuif[i] = { name: colf[i], align: 'left', label: '负', field: colf[i], sortable: false}
+        else if ( colz[i] == 'RATE')
+          this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: '涨幅', field: colz[i], sortable: false}
+        else if ( colz[i] == 'HSZ')
+          this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: '换手率', field: colz[i], sortable: false}
+        else if ( colz[i] == 'N3')
+          this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: '连板', field: colz[i], sortable: false}
+        else if ( colz[i] == 'step')
+          this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: '昨日涨停', field: colz[i], sortable: false}
         else
           this.columnzhengfankuif[i] = { name: colf[i], align: 'left', label: colf[i], field: colf[i], sortable: false}
       }
