@@ -144,6 +144,10 @@ export default defineComponent({
           this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: '涨幅', field: colz[i], sortable: false}
         else if ( colz[i] == 'HSZ')
           this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: '换手率', field: colz[i], sortable: false}
+        else if ( colz[i] == 'N3')
+          this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: '连板', field: colz[i], sortable: false}
+        else if ( colz[i] == 'step')
+          this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: '昨日涨停', field: colz[i], sortable: false}
         else
           this.columnzhengfankuiz[i] = { name: colz[i], align: 'left', label: colz[i], field: colz[i], sortable: false}
       }
