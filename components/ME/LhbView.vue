@@ -30,7 +30,7 @@
     <div class="text-h6 q-pa-sm">接力可能</div>
     <div class="col-12" v-if="this.loading">
       <div class="q-pa-sm">
-        <div v-if="rowzhengfankuiz.length > 15">
+        <div v-if="rowzhengfankuiz.length > 16">
           <q-table
             class="my-sticky-header-column-table my-sticky-header-height-table"
             dense flat bordered
@@ -209,7 +209,7 @@ export default defineComponent({
 
 <style lang="sass">
 .my-sticky-header-height-table
-  height: 560px
+  height: 580px
 
 .my-sticky-header-column-table
   /* height or max-height is important */
