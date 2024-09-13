@@ -8,6 +8,7 @@
         - 东方财富: {{ warn.east}}<br />
         - 开源证券: {{ warn.kaiyuan}}<br />
         - 量化: {{ warn.lianghua}}<br />
+        - 独占: {{ warn.duzhan}}<br />
         <q-separator spaced/>
         <b>游资：</b><br />
         - <span class="text-green">桑田路</span>: {{ warn.sangtianlu}}<br />
@@ -17,6 +18,7 @@
         - <span class="text-red">珍珠路</span>: {{ warn.zhenzhulu}}<br />
         - <span class="text-red">太平南路</span>: {{ warn.taipingnanlu}}<br />
         - <span class="text-red">鼓楼南路</span>: {{ warn.gulounanlu}}<br />
+        - <span class="text-red">和源路</span>: {{ warn.heyuanlu}}<br />
         <q-separator spaced/>
         <b>负反馈：</b><br />
         {{ warn.fufankui }}<br />
@@ -30,7 +32,7 @@
     <div class="text-h6 q-pa-sm">接力可能</div>
     <div class="col-12" v-if="this.loading">
       <div class="q-pa-sm">
-        <div v-if="rowzhengfankuiz.length > 16">
+        <div v-if="rowzhengfankuiz.length > 18">
           <q-table
             class="my-sticky-header-column-table my-sticky-header-height-table"
             dense flat bordered
@@ -70,7 +72,7 @@
     <div class="text-h6 q-pa-sm">负反馈风险</div>
     <div class="col-12" v-if="this.loading">
       <div class="q-pa-sm">
-        <div v-if="rowzhengfankuif.length > 16">
+        <div v-if="rowzhengfankuif.length > 18">
           <q-table
             class="my-sticky-header-column-table my-sticky-header-height-table"
             dense flat bordered
