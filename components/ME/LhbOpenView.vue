@@ -87,7 +87,8 @@ export default defineComponent({
             columnsz[i] = { name: colz[i], align: 'left', label: '涨幅', field: colz[i], sortable: false}
           else if ( colz[i] == 'hsl')
             columnsz[i] = { name: colz[i], align: 'left', label: '换手', field: colz[i], sortable: false}
-          
+          else if ( colz[i] == 'sign')
+            columnsz[i] = { name: colz[i], align: 'left', label: '提示', field: colz[i], sortable: false}
           else
             columnsz[i] = { name: colz[i], align: 'left', label: colz[i], field: colz[i], sortable: false}
         }
