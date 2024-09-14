@@ -12,7 +12,7 @@
     to="/emotionlhb" exact>
     <q-item-section>
       <q-item-label>龙虎榜</q-item-label>
-      <q-item-label overline>每日21:00更新</q-item-label>
+      <q-item-label overline>每日21:00/7:00更新</q-item-label>
     </q-item-section>
   </q-item>
   <q-separator />
@@ -39,8 +39,8 @@
     active-class="my-menu-link"
     to="/emotionlhbopen" exact>
     <q-item-section>
-      <q-item-label>榜单/竞价</q-item-label>
-      <q-item-label overline>每日盘中更新</q-item-label>
+      <q-item-label>竞价放量</q-item-label>
+      <q-item-label overline>每日9:28 更新</q-item-label>
     </q-item-section>
   </q-item>
   <q-separator />

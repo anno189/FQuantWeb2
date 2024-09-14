@@ -7,14 +7,15 @@
     <q-separator />
 
     <q-card-section style="max-height: 50vh" class="scroll">
-      <p class="text-weight-bold">v 3.1.3.0909</p>
+      <p class="text-weight-bold">v 3.1.3.0914</p>
       <p>- 新增：情绪模块<br />
       - 新增：情绪-盘中涨停。<br />
       - 新增：情绪-竞价一字。<br />
+      - 新增：情绪-竞价涨幅3%统计。<br />
       </p>
       <p class="text-weight-bold">v 3.1.2.0903</p>
       <p>- 新增：情绪模块<br />
-      - 新增：情绪-竞价-龙虎榜和竞价放量选出来的标的。<br />
+      - 新增：情绪-竞价-竞价放量选出来的标的。<br />
       </p>
       <p class="text-weight-bold">v 3.1.1.0901</p>
       <p>- 新增：情绪模块<br />
