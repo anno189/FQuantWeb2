@@ -67,6 +67,44 @@
     
   <q-separator inset spaced/>
 
+  <div>
+    <div class="text-h6 q-pa-sm">涨停未上榜</div>
+    <div class="col-12" v-if="this.loading">
+      <div class="q-pa-sm">
+        <div v-if="rowzhengfankuiw.length > 18">
+          <q-table
+            class="my-sticky-header-column-table my-sticky-header-height-table"
+            dense flat bordered
+            :rows="rowzhengfankuiw"
+            :columns="columnzhengfankuiw"
+            :rows-per-page-options="[10000]"
+            row-key="name"
+          >
+          </q-table>
+        </div>
+        <div v-else>
+          <q-table
+            class="my-sticky-header-column-table"
+            dense flat bordered
+            :rows="rowzhengfankuiw"
+            :columns="columnzhengfankuiw"
+            :rows-per-page-options="[10000]"
+            row-key="name"
+          >
+          </q-table>
+        </div>
+        <div class="row bg-grey-1 q-pa-sm wrap" >
+          <template v-for="wcode in this.wcode">
+            <div class="col-2 col-md-2">
+              <q-img :src="wcode" /> 
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <q-separator inset spaced/>
+
 
   <div>
     <div class="text-h6 q-pa-sm">负反馈风险</div>
@@ -95,12 +133,12 @@
           </q-table>
         </div>
         <div class="row bg-grey-1 q-pa-sm wrap" >
-    <template v-for="fcode in this.fcode">
-      <div class="col-2 col-md-2">
-        <q-img :src="fcode" /> 
-      </div>
-    </template>
-  </div>
+          <template v-for="fcode in this.fcode">
+            <div class="col-2 col-md-2">
+              <q-img :src="fcode" /> 
+            </div>
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -163,7 +201,7 @@ export default defineComponent({
 
       this.rowzhengfankuif = res1.data.data.lhb.table.f.zhengfankui
       this.fcode = res1.data.data.lhb.table.f.code
-      
+
       let colf = res1.data.data.lhb.table.f.col
 
       this.columnzhengfankuif = new Array(colf.length)
@@ -196,6 +234,26 @@ export default defineComponent({
               this.fcode[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0."+this.fcode[i]
         }
 
+
+      this.rowzhengfankuiw = res1.data.data.lhb.table.w.zhengfankui
+      this.wcode = res1.data.data.lhb.table.w.code
+
+      for (let i = 0; i <  this.wcode.length; i++) {
+            if (this.wcode[i][0] == 6)
+              this.wcode[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=1."+this.wcode[i]
+            else
+              this.wcode[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0."+this.wcode[i]
+        }
+
+      
+      this.columnzhengfankuiw = [
+          { name: 'code', align: 'left', label: '代码', field: 'code', sortable: false},
+          { name: 'name', align: 'left', label: '名称', field: 'name', sortable: false},
+          { name: 'RATE', align: 'left', label: '涨幅', field: 'RATE', sortable: false},
+          { name: 'HSZ', align: 'left', label: '换手', field: 'HSZ', sortable: false},
+          { name: 'step', align: 'left', label: '昨日涨停', field: 'step', sortable: false}
+        ]
+
         
       this.loading = true;
 
@@ -203,7 +261,7 @@ export default defineComponent({
   },
 
   setup () {
-    return { rowzhengfankuiz:ref({}), columnzhengfankuiz:ref({}), rowzhengfankuif:ref({}), columnzhengfankuif:ref({}), loading:ref(), warn:ref(), zcode:ref(), fcode:ref()};
+    return { rowzhengfankuiz:ref({}), columnzhengfankuiz:ref({}), rowzhengfankuif:ref({}), columnzhengfankuif:ref({}), rowzhengfankuiw:ref({}), columnzhengfankuiw:ref({}), loading:ref(), warn:ref(), zcode:ref(), fcode:ref(), wcode:ref()};
   }
 });
 

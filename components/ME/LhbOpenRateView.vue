@@ -1,18 +1,31 @@
+<!--竞价涨幅-->
 <template>
-
   <template v-for="item in this.data" v-if="this.loading">
     <div class="text-h6 q-pa-sm"> {{ item.title }}</div>
     <div class="col-12">
       <div class="q-pa-sm">
-        <q-table
-          class="my-sticky-header-column-table"
-          dense flat bordered
-          :rows="item.data"
-          :columns="item.columns"
-          :rows-per-page-options="[10000]"
-          row-key="name"
-        >
-        </q-table>
+        <div v-if="item.data.length > 18">
+          <q-table
+            class="my-sticky-header-column-table my-sticky-header-height-table"
+            dense flat bordered
+            :rows="item.data"
+            :columns="item.columns"
+            :rows-per-page-options="[10000]"
+            row-key="name"
+          >
+          </q-table>
+        </div>
+        <div v-else>
+          <q-table
+            class="my-sticky-header-column-table"
+            dense flat bordered
+            :rows="item.data"
+            :columns="item.columns"
+            :rows-per-page-options="[10000]"
+            row-key="name"
+          >
+          </q-table>
+        </div>
       </div>
     </div>
     <q-separator inset spaced/>
@@ -93,13 +106,16 @@ export default defineComponent({
   },
 
   setup () {
-    return { rowzhengfankuiz:ref({}), columnzhengfankuiz:ref({}), rowzhengfankuif:ref({}), columnzhengfankuif:ref({}), loading:ref(), warn:ref()};
+    return { loading:ref() };
   }
 });
 
 </script>
 
 <style lang="sass">
+.my-sticky-header-height-table
+  height: 580px
+
 .my-sticky-header-column-table
   
   td:first-child
