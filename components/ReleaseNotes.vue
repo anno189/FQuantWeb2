@@ -7,6 +7,9 @@
     <q-separator />
 
     <q-card-section style="max-height: 50vh" class="scroll">
+      <p class="text-weight-bold">v 3.1.4.0919</p>
+      <p>- 新增：竞价结果
+      </p>
       <p class="text-weight-bold">v 3.1.3.0914</p>
       <p>- 新增：情绪模块<br />
       - 新增：情绪-盘中涨停。<br />
