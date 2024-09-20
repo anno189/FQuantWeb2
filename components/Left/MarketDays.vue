@@ -9,7 +9,7 @@
     :active="link === 'marketdays'"
     @click="link = 'marketdays'"
     active-class="my-menu-link"
-    to="/marketdays" exact>
+    to="/days/marketdays" exact>
     <q-item-section>
       <q-item-label>实时市场</q-item-label>
       <q-item-label overline>9:30 - 15:00</q-item-label>
@@ -25,7 +25,7 @@
     :active="link === 'emotion'"
     @click="link = 'emotion'"
     active-class="my-menu-link"
-    to="/emotion" exact>
+    to="/days/emotion" exact>
     <q-item-section>
       <q-item-label>情绪</q-item-label>
       <q-item-label overline>9:30 - 15:00</q-item-label>
@@ -41,7 +41,7 @@
     :active="link === 'industrylists'"
     @click="link = 'industrylists'"
     active-class="my-menu-link"
-    to="/industrylists" exact>
+    to="/days/industrylists" exact>
     <q-item-section>
       <q-item-label>板块</q-item-label>
       <q-item-label overline>9:30 - 15:00</q-item-label>

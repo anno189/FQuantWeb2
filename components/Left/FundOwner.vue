@@ -9,7 +9,7 @@
     :active="link === 'fundowner0'"
     @click="link = 'fundowner0'"
     active-class="my-menu-link"
-    to="/fundowner0" exact>
+    to="/fund/fundowner0" exact>
     <q-item-section>
       <q-item-label>组合</q-item-label>
       <q-item-label overline>每日18:00更新</q-item-label>
@@ -26,7 +26,7 @@
     :active="link === 'fundowner1'"
     @click="link = 'fundowner1'"
     active-class="my-menu-link"
-    to="/fundowner1" exact>
+    to="/fund/fundowner1" exact>
     <q-item-section>
       <q-item-label>组合对照组</q-item-label>
       <q-item-label overline>每日18:00更新</q-item-label>
@@ -43,7 +43,7 @@
     :active="link === 'fundowner4'"
     @click="link = 'fundowner4'"
     active-class="my-menu-link"
-    to="/fundowner4" exact>
+    to="/fund/fundowner4" exact>
     <q-item-section>
       <q-item-label>组合应用组</q-item-label>
       <q-item-label overline>每日18:00更新</q-item-label>
@@ -59,7 +59,7 @@
     :active="link === 'stock'"
     @click="link = 'stock'"
     active-class="my-menu-link"
-    to="/stock" exact>
+    to="/fund/stock" exact>
     <q-item-section>
       <q-item-label>策略</q-item-label>
       <q-item-label overline>每日19:00更新</q-item-label>

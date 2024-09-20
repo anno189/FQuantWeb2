@@ -10,7 +10,7 @@
     :active="link === 'marketfront'"
     @click="link = 'marketfront'"
     active-class="my-menu-link"
-    to="/marketfront" exact>
+    to="/front/marketfront" exact>
     <q-item-section>
       <q-item-label>盘前公告</q-item-label>
       <q-item-label overline> - 9:30</q-item-label>
@@ -25,7 +25,7 @@
     :active="link === 'mfnewscctv'"
     @click="link = 'mfnewscctv'"
     active-class="my-menu-link"
-    to="/mfnewscctv" exact>
+    to="/front/mfnewscctv" exact>
     <q-item-section>
       <q-item-label>新闻联播</q-item-label>
       <q-item-label overline> - 00:00</q-item-label>
@@ -43,7 +43,7 @@
     :active="link === 'mfnewsglhzb'"
     @click="link = 'mfnewsglhzb'"
     active-class="my-menu-link"
-    to="/mfnewsglhzb" exact>
+    to="/front/mfnewsglhzb" exact>
     <q-item-section>
       <q-item-label>早盘新闻</q-item-label>
       <q-item-label overline> - 08:10</q-item-label>
@@ -58,7 +58,7 @@
     :active="link === 'mfnewsglhpqyd'"
     @click="link = 'mfnewsglhpqyd'"
     active-class="my-menu-link"
-    to="/mfnewsglhpqyd" exact>
+    to="/front/mfnewsglhpqyd" exact>
     <q-item-section>
       <q-item-label>盘前要点</q-item-label>
       <q-item-label overline> - 08:10</q-item-label>
@@ -73,7 +73,7 @@
     :active="link === 'mfthszbsd'"
     @click="link = 'mfthszbsd'"
     active-class="my-menu-link"
-    to="/mfthszbsd" exact>
+    to="/front/mfthszbsd" exact>
     <q-item-section>
       <q-item-label>早盘视点</q-item-label>
       <q-item-label overline> - 08:10</q-item-label>
@@ -88,7 +88,7 @@
     :active="link === 'mfnewsclsyszb'"
     @click="link = 'mfnewsclsyszb'"
     active-class="my-menu-link"
-    to="/mfnewsclsyszb" exact>
+    to="/front/mfnewsclsyszb" exact>
     <q-item-section>
       <q-item-label>有声早报</q-item-label>
       <q-item-label overline> - 08:10</q-item-label>
@@ -103,7 +103,7 @@
     :active="link === 'mfnewsclstzblz'"
     @click="link = 'mfnewsclstzblz'"
     active-class="my-menu-link"
-    to="/mfnewsclstzblz" exact>
+    to="/front/mfnewsclstzblz" exact>
     <q-item-section>
       <q-item-label>避雷针</q-item-label>
       <q-item-label overline> - 08:30</q-item-label>
@@ -118,7 +118,7 @@
     :active="link === 'mfnewsglhmgfp'"
     @click="link = 'mfnewsglhmgfp'"
     active-class="my-menu-link"
-    to="/mfnewsglhmgfp" exact>
+    to="/front/mfnewsglhmgfp" exact>
     <q-item-section>
       <q-item-label>隔夜美股</q-item-label>
       <q-item-label overline> - 08:10</q-item-label>
@@ -136,7 +136,7 @@
     :active="link === 'mfnewsclsmrsp'"
     @click="link = 'mfnewsclsmrsp'"
     active-class="my-menu-link"
-    to="/mfnewsclsmrsp" exact>
+    to="/front/mfnewsclsmrsp" exact>
     <q-item-section>
       <q-item-label>每日收评</q-item-label>
       <q-item-label overline> - 20:10</q-item-label>
@@ -151,7 +151,7 @@
     :active="link === 'mfnewsclsjdfp'"
     @click="link = 'mfnewsclsjdfp'"
     active-class="my-menu-link"
-    to="/mfnewsclsjdfp" exact>
+    to="/front/mfnewsclsjdfp" exact>
     <q-item-section>
       <q-item-label>焦点复盘</q-item-label>
       <q-item-label overline> - 20:10</q-item-label>
@@ -166,7 +166,7 @@
     :active="link === 'mfnewsclsztqz'"
     @click="link = 'mfnewsclsztqz'"
     active-class="my-menu-link"
-    to="/mfnewsclsztqz" exact>
+    to="/front/mfnewsclsztqz" exact>
     <q-item-section>
       <q-item-label>主题前瞻</q-item-label>
       <q-item-label overline> - 20:10</q-item-label>

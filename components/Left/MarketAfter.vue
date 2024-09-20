@@ -9,7 +9,7 @@
     :active="link === 'detail'"
     @click="link = 'detail'"
     active-class="my-menu-link"
-    to="/detail" exact>
+    to="/after/detail" exact>
     <q-item-section>
       <q-item-label>综合</q-item-label>
       <q-item-label overline>每日19:00/隔日8:00更新</q-item-label>
@@ -23,7 +23,7 @@
     :active="link === 'maemotion'"
     @click="link = 'maemotion'"
     active-class="my-menu-link"
-    to="/maemotion" exact>
+    to="/after/maemotion" exact>
     <q-item-section>
       <q-item-label>情绪</q-item-label>
       <q-item-label overline>每日19:00更新</q-item-label>
@@ -37,7 +37,7 @@
     :active="link === 'widthindex'"
     @click="link = 'widthindex'"
     active-class="my-menu-link"
-    to="/widthindex" exact>
+    to="/after/widthindex" exact>
     <q-item-section>
       <q-item-label>宽指</q-item-label>
       <q-item-label overline>每日18:00更新</q-item-label>
@@ -51,7 +51,7 @@
     :active="link === 'marketstyle'"
     @click="link = 'marketstyle'"
     active-class="my-menu-link"
-    to="/marketstyle" exact>
+    to="/after/marketstyle" exact>
     <q-item-section>
       <q-item-label>风格</q-item-label>
       <q-item-label overline>每日18:00更新</q-item-label>
@@ -65,7 +65,7 @@
     :active="link === 'industry'"
     @click="link = 'industry'"
     active-class="my-menu-link"
-    to="/industry" exact>
+    to="/after/industry" exact>
     <q-item-section>
       <q-item-label>行业</q-item-label>
       <q-item-label overline>每日19:00更新</q-item-label>
@@ -79,7 +79,7 @@
     :active="link === 'concept'"
     @click="link = 'concept'"
     active-class="my-menu-link"
-    to="/concept" exact>
+    to="/after/concept" exact>
     <q-item-section>
       <q-item-label>概念</q-item-label>
       <q-item-label overline>每日19:00更新</q-item-label>
@@ -93,7 +93,7 @@
     :active="link === 'monery'"
     @click="link = 'monery'"
     active-class="my-menu-link"
-    to="/monery" exact>
+    to="/after/monery" exact>
     <q-item-section>
       <q-item-label>资金</q-item-label>
       <q-item-label overline>每日19:00更新</q-item-label>
@@ -107,7 +107,7 @@
     :active="link === 'outer'"
     @click="link = 'outer'"
     active-class="my-menu-link"
-    to="/outer" exact>
+    to="/after/outer" exact>
     <q-item-section>
       <q-item-label>外盘</q-item-label>
       <q-item-label overline>隔日8:00更新</q-item-label>
@@ -121,7 +121,7 @@
     :active="link === 'exit'"
     @click="link = 'exit'"
     active-class="my-menu-link"
-    to="/exit" exact>
+    to="/after/exit" exact>
     <q-item-section>
       <q-item-label>退市/停牌</q-item-label>
       <q-item-label overline>每日19:00更新</q-item-label>

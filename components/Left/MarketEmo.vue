@@ -9,7 +9,7 @@
     :active="link === 'emotionlhb'"
     @click="link = 'emotionlhb'"
     active-class="my-menu-link"
-    to="/emotionlhb" exact>
+    to="/emotion/lhb" exact>
     <q-item-section>
       <q-item-label>龙虎榜</q-item-label>
       <q-item-label overline>每日21:00/7:00更新</q-item-label>
@@ -23,7 +23,7 @@
     :active="link === 'emotionlhbliopen'"
     @click="link = 'emotionlhbliopen'"
     active-class="my-menu-link"
-    to="/emotionlhbliopen" exact>
+    to="/emotion/lhbliopen" exact>
     <q-item-section>
       <q-item-label>竞价一字</q-item-label>
       <q-item-label overline>每日 09:28 更新</q-item-label>
@@ -37,7 +37,7 @@
     :active="link === 'emotionlhbopen'"
     @click="link = 'emotionlhbopen'"
     active-class="my-menu-link"
-    to="/emotionlhbopen" exact>
+    to="/emotion/lhbopen" exact>
     <q-item-section>
       <q-item-label>竞价放量</q-item-label>
       <q-item-label overline>每日9:28 更新</q-item-label>
@@ -51,7 +51,7 @@
     :active="link === 'emotionlhbopenrate'"
     @click="link = 'emotionlhbopenrate'"
     active-class="my-menu-link"
-    to="/emotionlhbopenrate" exact>
+    to="/emotion/lhbopenrate" exact>
     <q-item-section>
       <q-item-label>竞价涨幅</q-item-label>
       <q-item-label overline>每日竞价后/盘中更新</q-item-label>
@@ -65,7 +65,7 @@
     :active="link === 'emotionopenanalysis'"
     @click="link = 'emotionopenanalysis'"
     active-class="my-menu-link"
-    to="/emotionopenanalysis" exact>
+    to="/emotion/openanalysis" exact>
     <q-item-section>
       <q-item-label>竞价结果</q-item-label>
       <q-item-label overline>每日竞价后/盘中更新</q-item-label>
@@ -79,7 +79,7 @@
     :active="link === 'emotionruntime'"
     @click="link = 'emotionruntime'"
     active-class="my-menu-link"
-    to="/emotionruntime" exact>
+    to="/emotion/runtime" exact>
     <q-item-section>
       <q-item-label>盘中涨停</q-item-label>
       <q-item-label overline>每日盘中更新</q-item-label>

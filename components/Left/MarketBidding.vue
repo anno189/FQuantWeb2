@@ -8,7 +8,7 @@
     :active="link === 'mbprestock'"
     @click="link = 'mbprestock'"
     active-class="my-menu-link"
-    to="/mbprestock" exact>
+    to="/bidding/mbprestock" exact>
     <q-item-section>
       <q-item-label>竞价结果</q-item-label>
       <q-item-label overline>9:26</q-item-label>
@@ -24,7 +24,7 @@
     :active="link === 'predata'"
     @click="link = 'predata'"
     active-class="my-menu-link"
-    to="/predata" exact>
+    to="/bidding/predata" exact>
     <q-item-section>
       <q-item-label>竞价结果</q-item-label>
       <q-item-label overline>9:26</q-item-label>
@@ -39,7 +39,7 @@
     :active="link === 'enddata'"
     @click="link = 'enddata'"
     active-class="my-menu-link"
-    to="/enddata" exact>
+    to="/bidding/enddata" exact>
     <q-item-section>
       <q-item-label>收盘竞价</q-item-label>
       <q-item-label overline>15:01</q-item-label>

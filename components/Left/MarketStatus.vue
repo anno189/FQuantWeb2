@@ -9,7 +9,7 @@
     :active="link === 'marketstatus'"
     @click="link = 'marketstatus'"
     active-class="my-menu-link"
-    to="/marketstatus" exact>
+    to="/status/marketstatus" exact>
     <q-item-section>
       <q-item-label>市场状态</q-item-label>
       <!--<q-item-label overline>9:15 - 9:30</q-item-label>-->
@@ -25,7 +25,7 @@
     :active="link === 'marketindustry'"
     @click="link = 'marketindustry'"
     active-class="my-menu-link"
-    to="/marketindustry" exact>
+    to="/status/marketindustry" exact>
     <q-item-section>
       <q-item-label>行业</q-item-label>
       <!--<q-item-label overline>9:15 - 9:30</q-item-label>-->
@@ -41,7 +41,7 @@
     :active="link === 'indexscatter'"
     @click="link = 'indexscatter'"
     active-class="my-menu-link"
-    to="/indexscatter" exact>
+    to="/status/indexscatter" exact>
     <q-item-section>
       <q-item-label>指数</q-item-label>
       <q-item-label overline>宽指调整日更新，每年更新2次</q-item-label>
