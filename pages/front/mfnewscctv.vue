@@ -1,7 +1,7 @@
 <template>
 <div class="bg-grey-1">
   <!-- 外盘 -->
-  <div class="text-h6 q-pa-sm">昨日新闻联播 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge>
+  <div class="text-h6 q-pa-sm" id="昨日新闻联播">昨日新闻联播 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge>
   </div>
 
   <!-- 昨日市场 -->
@@ -30,6 +30,16 @@ export default defineComponent({
 
   mounted: function () {
     this.getServerMarketData()
+
+    const result = document.getElementsByClassName('text-h6');
+    const store = useAlinksStore()
+    const alinks = new Array()
+    
+    for (let i = 0; i <  result.length; i++) {
+            alinks.push(result[i].id)
+        }
+    store.setAlinks(alinks) 
+    
   },
   methods: {
     getServerMarketData: async function () {
@@ -38,14 +48,12 @@ export default defineComponent({
       this.ReportDate = res.data.date
 
       this.loading = true  
-
-
     }
   },
   
   setup () {
-    return { loading:ref(), ReportDate:ref(), news:ref(), editor:ref(), 
-     };
+    
+    return { loading:ref(), ReportDate:ref(), editor:ref()};
   }
   
 

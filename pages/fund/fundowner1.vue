@@ -1,16 +1,14 @@
 <template>
   <div class="bg-grey-1" v-if="loading">
-  <div class="row">
-    <div class="text-h6 q-pa-sm">菜篮子组合</div>
-  </div>
+  <div class="text-h6 q-pa-sm" id="收益曲线">菜篮子组合</div>
   <div class="row">
       <v-chart class="chart_big" :option="v1lineOption" autoresize/>
   </div>
   <q-separator inset spaced />
   <div class="flex-break"></div>
 
+  <div class="text-h6 q-pa-sm" id="持仓情况">持仓情况</div>
   <q-card class="bg-grey-1">
-    
       <q-tabs
           v-model="tab"
           dense
@@ -66,6 +64,8 @@
 
   <q-separator inset spaced />
   
+  <div class="text-h6 q-pa-sm" id="报告">报告</div>
+  
   <div class="row">
     <div v-html="rawHtml"/>
   </div>
@@ -110,6 +110,15 @@ export default defineComponent({
 
   mounted: function () {
     this.getServerMarketData()
+
+    const result = document.getElementsByClassName('text-h6');
+    const store = useAlinksStore()
+    const alinks = new Array()
+    
+    for (let i = 0; i <  result.length; i++) {
+            alinks.push(result[i].id)
+        }
+    store.setAlinks(alinks) 
   },
   methods: {
     getServerMarketData: async function () {

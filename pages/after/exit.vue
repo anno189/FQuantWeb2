@@ -148,10 +148,19 @@ export default defineComponent({
   name: 'TrendView',
   
   mounted: function () {
-    this.getData()
+    this.getServerMarketData()
+
+    const result = document.getElementsByClassName('text-h6');
+    const store = useAlinksStore()
+    const alinks = new Array()
+    
+    for (let i = 0; i <  result.length; i++) {
+            alinks.push(result[i].id)
+        }
+    store.setAlinks(alinks) 
   },
   methods: {
-    getData: async function () {
+    getServerMarketData: async function () {
       const res1 = await http.get('https://stock.1dian.site/h5/data/exitstock.json', {})
 
       this.rowsexitprice = res1.data.data.price;

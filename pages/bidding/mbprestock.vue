@@ -2,10 +2,10 @@
 <q-page style="padding-top: 46px" class="bg-grey-1">
   <q-tab-panels v-model="tab" animated>
     <q-tab-panel name="start" class="bg-grey-1">
+      <div class="text-h6 q-pa-sm" id="竞价成交">竞价成交 <q-badge outline color="primary" align="top" > {{this.date}} 09:26 更新</q-badge></div>
       <div class="row" v-if="loading">
 
         <div class="col-12 col-md">
-          <div class="text-h6 q-pa-sm">竞价情况 <q-badge outline color="primary" align="top" > {{this.date}} 09:26 更新</q-badge></div>
           <div class="text-body2 q-pa-sm">
             <b>9:25 竞价结束：</b><br />
             - 撮合成交：{{three.allamount}}亿<br />
@@ -33,11 +33,9 @@
 
       <q-separator inset spaced/>
 
+      <div class="text-h6 q-pa-sm" id="竞价情况">竞价情况 <q-badge outline color="primary" align="top" > {{this.date}} 09:28 更新</q-badge></div>
+         
       <div>
-
-        <div class="text-h6 q-pa-sm">竞价情况 <q-badge outline color="primary" align="top" > {{this.date}} 09:28 更新</q-badge></div>
-            
-
         <div class="col-12" v-if="this.rowstart">
           <div class="q-pa-sm">
             <q-table
@@ -60,7 +58,7 @@
 
       <div>
 
-        <div class="text-h6 q-pa-sm">前200板块统计 <q-badge outline color="primary" align="top" > {{this.date}} 09:28 更新</q-badge></div>
+        <div class="text-h6 q-pa-sm" id="前200板块统计">前200板块统计 <q-badge outline color="primary" align="top" > {{this.date}} 09:28 更新</q-badge></div>
             
         <div class="col-12" v-if="this.rowsins">
           <div class="q-pa-sm">
@@ -89,7 +87,7 @@
       <q-separator inset spaced/>
 
       <div>
-        <div class="text-h6 q-pa-sm">前200叠加 <q-badge outline color="primary" align="top" > {{this.date}} 09:28 更新</q-badge></div>
+        <div class="text-h6 q-pa-sm" id="前200叠加">前200叠加 <q-badge outline color="primary" align="top" > {{this.date}} 09:28 更新</q-badge></div>
             
         <div class="col-12" v-if="this.rowstock">
           <div class="q-pa-sm">
@@ -124,7 +122,7 @@
       </div>
       <q-separator inset spaced  v-if="loading" />
 
-      <div class="text-h6 q-pa-sm" v-if="loading">中位行业优势 <q-badge outline color="primary" align="top" > {{this.date}} 09:26 更新</q-badge></div>
+      <div class="text-h6 q-pa-sm"  id="中位行业优势" >中位行业优势 <q-badge outline color="primary" align="top" > {{this.date}} 09:26 更新</q-badge></div>
       <div class="col-12" v-if="rowslimitup">
         <div class="q-pa-sm">
           <q-table
@@ -386,6 +384,15 @@ export default({
 
   mounted: function () {
     this.getServerMarketData()
+
+    const result = document.getElementsByClassName('text-h6');
+    const store = useAlinksStore()
+    const alinks = new Array()
+    
+    for (let i = 0; i <  result.length; i++) {
+            alinks.push(result[i].id)
+        }
+    store.setAlinks(alinks) 
   },
 
   methods: {

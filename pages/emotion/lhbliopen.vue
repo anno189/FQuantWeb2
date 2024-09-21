@@ -1,7 +1,7 @@
 <!--竞价一字-->
 <template>
   <template v-for="item in this.data" v-if="this.loading">
-    <div class="text-h6 q-pa-sm"> {{ item.title }}</div>
+    <div class="text-h6 q-pa-sm" :id="item.title+'列表'"> {{ item.title }}列表</div>
     <div class="col-12">
       <div class="q-pa-sm">
         <q-table
@@ -17,7 +17,7 @@
     </div>
     <q-separator inset spaced/>
     
-    <div class="text-h6 q-pa-sm"> {{ item.title }}</div>
+    <div class="text-h6 q-pa-sm" :id="item.title+'分时'"> {{ item.title }}分时</div>
     <div class="row bg-grey-1 q-pa-sm wrap" >
       <template v-for="code in item.code">
         <div class="col-2 col-md-2">
@@ -38,9 +38,26 @@ import { ref, defineComponent } from 'vue'
 export default defineComponent({
   name: 'LhbView',
   
+  
   mounted: function () {
     this.getServerMarketData()
+
+    const result = document.getElementsByClassName('text-h6');
+    const store = useAlinksStore()
+    const alinks = new Array()
+    console.log(result)
+    console.log(result[0])
+    console.log(result[1])
+    console.log(result[2])
     
+    for (let i = 0; i <  result.length; i++) {
+            console.log(i)
+            console.log(result[i])
+    
+            alinks.push(result[i].id)
+        }
+    store.setAlinks(alinks)
+  
   },
   methods: {
     getServerMarketData: async function () {

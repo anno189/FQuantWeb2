@@ -9,7 +9,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     "nuxt-quasar-ui", 
-    "@vite-pwa/nuxt"
+    "@vite-pwa/nuxt",
+    '@pinia/nuxt',  // +
+    '@pinia-plugin-persistedstate/nuxt', // +
   ],
 
   experimental: {
@@ -18,6 +20,12 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     renderJsonPayloads: true,
     typedPages: true,
+  },
+
+  pinia: {
+    autoImports: [
+      'defineStore' // import { defineStore } from 'pinia'  // + 自动引入defineStore 
+    ]
   },
 
   vite: {

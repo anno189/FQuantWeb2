@@ -111,6 +111,15 @@ export default defineComponent({
 
   mounted: function () {
     this.getServerMarketData()
+
+    const result = document.getElementsByClassName('text-h6');
+    const store = useAlinksStore()
+    const alinks = new Array()
+    
+    for (let i = 0; i <  result.length; i++) {
+            alinks.push(result[i].id)
+        }
+    store.setAlinks(alinks) 
   },
   methods: {
     getServerMarketData: async function () {

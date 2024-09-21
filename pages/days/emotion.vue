@@ -4,7 +4,7 @@
     
     <q-tab-panel class="bg-grey-1" name="high10">
       <div class="col-12 col-md"  v-if="emotion.emotion">
-        <div class="text-h6 q-pa-sm">涨停: {{emotion.emotion.up}}；跌停: {{emotion.emotion.down}} </div>
+        <div class="text-h6 q-pa-sm" id="涨停">涨停: {{emotion.emotion.up}}；跌停: {{emotion.emotion.down}} </div>
         
         <div class="text-body1 q-pa-sm">
           新高：{{emotion.emotion.today}}；前高：{{emotion.emotion.yestoday}}；<br />
@@ -14,7 +14,7 @@
 
         <q-separator inset spaced />
 
-        <div class="text-h6 q-pa-sm">高标：{{emotion.highbar.two}}, 涨幅：{{emotion.highbar.mean}}% </div>
+        <div class="text-h6 q-pa-sm" id="高标">高标：{{emotion.highbar.two}}, 涨幅：{{emotion.highbar.mean}}% </div>
         <div class="text-body1 q-pa-sm">
           机会：{{emotion.highbar.chance.count}}；<br />
           板块：{{emotion.highbar.chance.block}}<br />
@@ -47,7 +47,7 @@
 
         <q-separator inset spaced />
 
-        <div class="text-h6 q-pa-sm">注册制新股(20日）</div>
+        <div class="text-h6 q-pa-sm" id="注册制新股">注册制新股(20日）</div>
         <div class="q-pa-sm">
           <q-table
             class="my-sticky-column-table"
@@ -180,10 +180,19 @@ export default defineComponent({
   name: 'EmotionView',
   
   mounted: function () {
-    this.getData()
+    this.getServerMarketData()
+
+    const result = document.getElementsByClassName('text-h6');
+    const store = useAlinksStore()
+    const alinks = new Array()
+    
+    for (let i = 0; i <  result.length; i++) {
+            alinks.push(result[i].id)
+        }
+    store.setAlinks(alinks) 
   },
   methods: {
-    getData: async function () {
+    getServerMarketData: async function () {
       const res = await http.get('https://stock.1dian.site/h5/data/emotion.json', {})
 
       this.emotion = res.data.data.emotion;

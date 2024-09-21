@@ -1,8 +1,7 @@
 <template>
-  <div class="row" >
-
+  <div  >
+    <div class="text-h6 q-pa-sm" id="龙虎榜提示">龙虎榜提示</div>
     <div class="col-12 col-md" v-if="loading">
-      <div class="text-h6 q-pa-sm">龙虎榜提示</div>
       <div class="text-body2 q-pa-sm">
         <b>风险：</b><br />
         - 东方财富: {{ warn.east}}<br />
@@ -29,7 +28,7 @@
   <q-separator inset spaced />
 
   <div>
-    <div class="text-h6 q-pa-sm">接力可能</div>
+    <div class="text-h6 q-pa-sm" id="接力可能列表">接力可能列表</div>
     <div class="col-12" v-if="this.loading">
       <div class="q-pa-sm">
         <div v-if="rowzhengfankuiz.length > 18">
@@ -57,6 +56,7 @@
       </div>
     </div>
   </div>
+  <div class="text-h6 q-pa-sm" id="接力可能分时">接力可能分时</div>
   <div class="row bg-grey-1 q-pa-sm wrap" >
     <template v-for="zcode in this.zcode">
       <div class="col-2 col-md-2">
@@ -68,7 +68,7 @@
   <q-separator inset spaced/>
 
   <div>
-    <div class="text-h6 q-pa-sm">涨停未上榜</div>
+    <div class="text-h6 q-pa-sm" id="涨停未上榜列表">涨停未上榜列表</div>
     <div class="col-12" v-if="this.loading">
       <div class="q-pa-sm">
         <div v-if="rowzhengfankuiw.length > 18">
@@ -93,21 +93,23 @@
           >
           </q-table>
         </div>
-        <div class="row bg-grey-1 q-pa-sm wrap" >
-          <template v-for="wcode in this.wcode">
-            <div class="col-2 col-md-2">
-              <q-img :src="wcode" /> 
-            </div>
-          </template>
-        </div>
       </div>
+    </div>
+
+    <div class="text-h6 q-pa-sm" id="涨停未上榜分时">涨停未上榜分时</div>
+    <div class="row bg-grey-1 q-pa-sm wrap" >
+      <template v-for="wcode in this.wcode">
+        <div class="col-2 col-md-2">
+          <q-img :src="wcode" /> 
+        </div>
+      </template>
     </div>
   </div>
   <q-separator inset spaced/>
 
 
   <div>
-    <div class="text-h6 q-pa-sm">负反馈风险</div>
+    <div class="text-h6 q-pa-sm" id="负反馈风险列表">负反馈风险列表</div>
     <div class="col-12" v-if="this.loading">
       <div class="q-pa-sm">
         <div v-if="rowzhengfankuif.length > 18">
@@ -132,14 +134,15 @@
           >
           </q-table>
         </div>
-        <div class="row bg-grey-1 q-pa-sm wrap" >
-          <template v-for="fcode in this.fcode">
-            <div class="col-2 col-md-2">
-              <q-img :src="fcode" /> 
-            </div>
-          </template>
-        </div>
       </div>
+    </div>
+    <div class="text-h6 q-pa-sm" id="负反馈风险分时">负反馈风险分时</div>
+    <div class="row bg-grey-1 q-pa-sm wrap" >
+      <template v-for="fcode in this.fcode">
+        <div class="col-2 col-md-2">
+          <q-img :src="fcode" /> 
+        </div>
+      </template>
     </div>
   </div>
   <q-separator inset spaced/>
@@ -152,9 +155,21 @@ import { ref, defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'LhbView',
+  created() {
+    
+  },
   
   mounted: function () {
     this.getServerMarketData()
+
+    const result = document.getElementsByClassName('text-h6');
+    const store = useAlinksStore()
+    const alinks = new Array()
+    
+    for (let i = 0; i <  result.length; i++) {
+            alinks.push(result[i].id)
+        }
+    store.setAlinks(alinks)     
     
   },
   methods: {
@@ -254,14 +269,13 @@ export default defineComponent({
           { name: 'step', align: 'left', label: '昨日涨停', field: 'step', sortable: false}
         ]
 
-        
-      this.loading = true;
+      this.loading = true
 
     }
   },
 
   setup () {
-    return { rowzhengfankuiz:ref({}), columnzhengfankuiz:ref({}), rowzhengfankuif:ref({}), columnzhengfankuif:ref({}), rowzhengfankuiw:ref({}), columnzhengfankuiw:ref({}), loading:ref(), warn:ref(), zcode:ref(), fcode:ref(), wcode:ref()};
+    return { rowzhengfankuiz:ref({}), columnzhengfankuiz:ref({}), rowzhengfankuif:ref({}), columnzhengfankuif:ref({}), rowzhengfankuiw:ref({}), columnzhengfankuiw:ref({}), loading:ref(false), warn:ref(), zcode:ref(), fcode:ref(), wcode:ref()};
   }
 });
 

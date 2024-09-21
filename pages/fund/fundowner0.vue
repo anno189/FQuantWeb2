@@ -1,7 +1,7 @@
 <template>
   <div class="bg-grey-1">
   <div class="row">
-    <div class="text-h6 q-pa-sm">菜篮子组合</div>
+    <div class="text-h6 q-pa-sm" id="菜篮子组合">菜篮子组合</div>
   </div>
   <div class="row">
       <v-chart class="chart_big" :option="vlineOption" autoresize/>
@@ -9,7 +9,7 @@
   <q-separator inset spaced />
   <div class="flex-break"></div>
   <div class="row">
-    <div class="text-h6 q-pa-sm">菜篮子组合（对照组）</div>
+    <div class="text-h6 q-pa-sm" id="对照组">菜篮子组合（对照组）</div>
   </div>
   <div class="row">
     <div class="col-12 col-md">
@@ -21,7 +21,7 @@
   </div>
   <q-separator inset spaced />
   <div class="row">
-    <div class="text-h6 q-pa-sm">菜篮子组合（增强组）</div>
+    <div class="text-h6 q-pa-sm" id="增强组">菜篮子组合（增强组）</div>
   </div>
   <div class="row">
     <div class="col-12 col-md">
@@ -33,7 +33,7 @@
   </div>
   <q-separator inset spaced />
   <div class="row">
-    <div class="text-h6 q-pa-sm">菜篮子组合（超级组）</div>
+    <div class="text-h6 q-pa-sm" id="超级组">菜篮子组合（超级组）</div>
   </div>
   <div class="row">
     <div class="col-12 col-md">
@@ -45,7 +45,7 @@
   </div>
   <q-separator inset spaced />
   <div class="row">
-    <div class="text-h6 q-pa-sm">菜篮子组合（应用组）</div>
+    <div class="text-h6 q-pa-sm" id="应用组">菜篮子组合（应用组）</div>
   </div>
   <div class="row">
     <div class="col-12 col-md">
@@ -57,7 +57,7 @@
   </div>
   <q-separator inset spaced />
   <div class="row">
-    <div class="text-h6 q-pa-sm">菜篮子组合（2024）</div>
+    <div class="text-h6 q-pa-sm" id="组合2024">菜篮子组合（2024）</div>
   </div>
   <div class="row">
     <div class="col-12 col-md">
@@ -108,7 +108,17 @@ export default defineComponent({
 
   mounted: function () {
     this.getServerMarketData()
+
+    const result = document.getElementsByClassName('text-h6');
+    const store = useAlinksStore()
+    const alinks = new Array()
+    
+    for (let i = 0; i <  result.length; i++) {
+            alinks.push(result[i].id)
+        }
+    store.setAlinks(alinks) 
   },
+
   methods: {
     getServerMarketData: async function () {
       let params = {}

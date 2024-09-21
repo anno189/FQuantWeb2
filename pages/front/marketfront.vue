@@ -1,39 +1,38 @@
 <template>
 <div class="bg-grey-1">
   <!-- 外盘 -->
-  <div class="text-h6 q-pa-sm">外盘 <UpdateTime />
-  </div>
-  <div class="row bg-grey-1 q-pa-sm">
-    <div class="col-2 col-md">
+  <div class="text-h6 q-pa-sm" id="外盘">外盘 <UpdateTime /> </div>
+  <div class="row bg-grey-1 q-pa-sm wrap">
+    <div class="col-2 col-md2">
       <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.DJIA"/>
     </div>
-    <div class="col-2 col-md">
+    <div class="col-2 col-md2">
       <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.NDX"/>
     </div>
-    <div class="col-2 col-md">
+    <div class="col-2 col-md2">
       <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=251.HXC"/>
     </div>
     
-    <div class="col-2 col-md">
+    <div class="col-2 col-md2">
       <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=102.CL00Y"/>
     </div>
-    <div class="col-2 col-md">
+    <div class="col-2 col-md2">
       <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=101.GC00Y"/>
     </div>
-    <div class="col-2 col-md">
+    <div class="col-2 col-md2">
       <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.N225"/>
     </div>
-    <div class="col-2 col-md">
+    <div class="col-2 col-md2">
       <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.GDAXI"/>
     </div>
 
-    <div class="col-2 col-md">
+    <div class="col-2 col-md2">
       <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.UDI"/>
     </div>
-    <div class="col-2 col-md">
+    <div class="col-2 col-md2">
       <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=133.USDCNH"/>
     </div>
-    <div class="col-2 col-md">
+    <div class="col-2 col-md2">
       <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=119.USDJPY"/>
     </div>
   </div>
@@ -42,7 +41,7 @@
   <q-separator inset spaced/>
 
   <!-- 公告 -->
-  <div class="text-h6 q-pa-sm">活跃股公告 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge></div>
+  <div class="text-h6 q-pa-sm" id="活跃股公告">活跃股公告 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge></div>
   <div class="row bg-grey-1" v-if="loading">
     
     <div class="col-12 q-pl-sm q-pr-sm">
@@ -110,6 +109,16 @@ export default defineComponent({
 
   mounted: function () {
     this.getServerMarketData()
+
+    const result = document.getElementsByClassName('text-h6');
+    const store = useAlinksStore()
+    const alinks = new Array()
+    
+    for (let i = 0; i <  result.length; i++) {
+            alinks.push(result[i].id)
+        }
+    store.setAlinks(alinks) 
+    
   },
   methods: {
     getServerMarketData: async function () {
