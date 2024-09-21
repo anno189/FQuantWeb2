@@ -7,6 +7,9 @@
     <q-separator />
 
     <q-card-section style="max-height: 50vh" class="scroll">
+      <p class="text-weight-bold">v 3.2.4.0921</p>
+      <p>- 调整：调整页面显示结构，增加文档目录功能，基于Pinia功能
+      </p>
       <p class="text-weight-bold">v 3.1.4.0919</p>
       <p>- 新增：竞价结果
       </p>

@@ -1,7 +1,7 @@
 <!--竞价涨幅-->
 <template>
   <template v-for="item in this.data" v-if="this.loading">
-    <div class="text-h6 q-pa-sm"> {{ item.title }}</div>
+    <div class="text-h6 q-pa-sm" :id="item.title+'列表'"> {{ item.title }}</div>
     <div class="col-12">
       <div class="q-pa-sm">
         <div v-if="item.data.length > 18">
@@ -30,7 +30,7 @@
     </div>
     <q-separator inset spaced/>
     
-    <div class="text-h6 q-pa-sm"> {{ item.title }}</div>
+    <div class="text-h6 q-pa-sm" :id="item.title+'分时'"> {{ item.title }}</div>
     <div class="row bg-grey-1 q-pa-sm wrap" >
       <template v-for="code in item.code">
         <div class="col-2 col-md-2">
@@ -53,21 +53,14 @@ export default defineComponent({
   
   mounted: function () {
     this.getServerMarketData()
-
-    const result = document.getElementsByClassName('text-h6');
-    const store = useAlinksStore()
-    const alinks = new Array()
-    
-    for (let i = 0; i <  result.length; i++) {
-            alinks.push(result[i].id)
-        }
-    store.setAlinks(alinks) 
-    
   },
+
   methods: {
     getServerMarketData: async function () {
       
       const res1 = await http.get('https://stock.1dian.site/h5/data/lhb_open_rate.json', {})
+      const store = useAlinksStore()
+      const alinks = new Array()
       
       this.data = res1.data.data.emo
 
@@ -107,10 +100,13 @@ export default defineComponent({
             else
               this.data[j].code[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0."+this.data[j].code[i]
         }
+        alinks.push(this.data[j].title+'列表')
+        alinks.push(this.data[j].title+'分时')
       }
 
-      this.loading = true;
+      store.setAlinks(alinks)
 
+      this.loading = true;
     }
   },
 

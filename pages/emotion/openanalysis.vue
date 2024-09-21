@@ -1,7 +1,7 @@
 <template>
-
+  <div class="text-h6 q-pa-sm" id="竞价结果列表"> 竞价结果 </div>
+    
   <template v-if="this.loading">
-    <div class="text-h6 q-pa-sm"> 竞价结果 </div>
     <div class="col-12">
       <div class="q-pa-sm">
         <q-table
@@ -16,10 +16,11 @@
 
       </div>
     </div>
+  </template>
+  <q-separator inset spaced/>
     
-    <q-separator inset spaced/>
-    
-    <div class="text-h6 q-pa-sm"> 竞价结果 </div>
+  <div class="text-h6 q-pa-sm" id="竞价结果分时"> 竞价结果分时 </div>
+  <template v-if="this.loading">
     <div class="row bg-grey-1 q-pa-sm wrap" >
       <template v-for="code in this.data.code">
         <div class="col-2 col-md-2">
@@ -27,9 +28,10 @@
         </div>
       </template>
     </div>
-    
-    <q-separator inset spaced/>
   </template>
+    
+  <q-separator inset spaced/>
+  
 </template>
 
 <script lang=“ts”>

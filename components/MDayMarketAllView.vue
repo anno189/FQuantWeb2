@@ -1,53 +1,34 @@
 <template>
 <div class="bg-grey-1">
-  <q-card>
-    <q-tabs
-      v-model="tab"
-      dense
-      class="text-grey"
-      active-color="primary"
-      indicator-color="primary"
-      align="left"
-      narrow-indicator
-    >
-      <q-tab name="today" label="今日" />
-    </q-tabs>
+  <div class="text-h6 q-pa-sm" id="今日指数">今日指数</div>
+  <div class="row bg-grey-1 q-pa-sm">
+    <div class="col-3 col-md">
+      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=1.000001"/>
+    </div>
+    <div class="col-3 col-md">
+      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0.399001"/>
+    </div>
+    <div class="col-3 col-md">
+      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0.399006"/>
+    </div>
+    <div class="col-3 col-md">
+      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.HSI"/>
+    </div>
+    <div class="col-3 col-md">
+      <q-img src="https://delaywebquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=220.IFM0"/>
+    </div>
+    <div class="col-3 col-md">
+      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=104.CN00Y"/>
+    </div>
+    <div class="col-3 col-md">
+      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.XIN9"/>
+    </div>
+    <div class="col-3 col-md">
+      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=133.USDCNH"/>
+    </div>
+  </div>
 
-    <q-separator />
-
-    <q-tab-panels v-model="tab" animated>
-      <q-tab-panel name="today">
-        <div class="row bg-grey-1 q-pa-sm">
-          <div class="col-3 col-md">
-            <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=1.000001"/>
-          </div>
-          <div class="col-3 col-md">
-            <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0.399001"/>
-          </div>
-          <div class="col-3 col-md">
-            <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0.399006"/>
-          </div>
-          <div class="col-3 col-md">
-            <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.HSI"/>
-          </div>
-          <div class="col-3 col-md">
-            <q-img src="https://delaywebquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=220.IFM0"/>
-          </div>
-          <div class="col-3 col-md">
-            <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=104.CN00Y"/>
-          </div>
-          <div class="col-3 col-md">
-            <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.XIN9"/>
-          </div>
-          <div class="col-3 col-md">
-            <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=133.USDCNH"/>
-          </div>
-          
-        </div>
-      </q-tab-panel>
-    </q-tab-panels>
-    </q-card>
-  
+      
   <q-separator inset spaced/>
 
   <div class="row bg-grey-1" v-if="DataMarket.mdata">
@@ -103,7 +84,7 @@
   <div class="row bg-grey-1" v-if="DataMarket.mdata">
     <!-- 市场资金 -->
     <div class="col-12 col-md">
-      <div class="text-h6 q-pa-sm">上证指数：</div>
+      <div class="text-h6 q-pa-sm" id="上证指数">上证指数：</div>
       <v-chart class="chart" :option="lTemperaOption" autoresize/>
       <div class="text-body2 q-pa-sm">
       - 涨跌比：上涨和下跌的比例。0.5时上涨票是下跌票的两倍，-0.5时下跌票是上涨票的两倍。
@@ -365,6 +346,15 @@ export default defineComponent({
 
   mounted: function () {
     this.getServerMarketData()
+
+    const result = document.getElementsByClassName('text-h6');
+    const store = useAlinksStore()
+    const alinks = new Array()
+    
+    for (let i = 0; i <  result.length; i++) {
+            alinks.push(result[i].id)
+        }
+    store.setAlinks(alinks) 
   },
   methods: {
     getServerMarketData: async function () {

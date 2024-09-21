@@ -1,4 +1,5 @@
-export const useAlinksStore = defineStore('nuxtStore', () => {
+//保存目录
+export const useAlinksStore = defineStore('MuluStore', () => {
     let alinks = new Array()
     function setAlinks(arr: array) {
         this.alinks = arr

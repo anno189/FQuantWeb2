@@ -37,32 +37,20 @@ import { ref, defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'LhbView',
-  
+
   
   mounted: function () {
     this.getServerMarketData()
 
-    const result = document.getElementsByClassName('text-h6');
-    const store = useAlinksStore()
-    const alinks = new Array()
-    console.log(result)
-    console.log(result[0])
-    console.log(result[1])
-    console.log(result[2])
-    
-    for (let i = 0; i <  result.length; i++) {
-            console.log(i)
-            console.log(result[i])
-    
-            alinks.push(result[i].id)
-        }
-    store.setAlinks(alinks)
-  
+
   },
   methods: {
     getServerMarketData: async function () {
       
       const res1 = await http.get('https://stock.1dian.site/h5/data/lhb_limitopen.json', {})
+      const store = useAlinksStore()
+      const alinks = new Array()
+      
       
       this.data = res1.data.data.emo
 
@@ -96,7 +84,13 @@ export default defineComponent({
               this.data[j].code[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0."+this.data[j].code[i]
         }
 
+        alinks.push(this.data[j].title+'列表')
+        alinks.push(this.data[j].title+'分时')
+
       }
+
+      store.setAlinks(alinks)
+  
 
       this.loading = true;
 
