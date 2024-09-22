@@ -1,6 +1,14 @@
 <template>
   <div class="bg-grey-1" v-if="StockOption.str60_base">
     <div class="row">
+      <div class="text-h6 q-pa-sm" id="涨停突破">涨停突破({{StockOption.limit_corr_ma450.pcount}})</div>
+    </div>
+    <div class="row">
+      <div class="q-pa-sm">{{StockOption.limit_corr_ma450.plist}}</div>
+    </div>
+    <q-separator inset spaced />
+
+    <div class="row">
       <div class="text-h6 q-pa-sm" id="60日突破">60日突破({{StockOption.str60_base.pcount}})</div>
     </div>
     <div class="row">
@@ -83,6 +91,7 @@ export default defineComponent({
       const store = useAlinksStore()
       const alinks = new Array()
 
+      alinks.push('涨停突破')
       alinks.push('60日突破')
       alinks.push('标准心理')
       alinks.push('突破可能')

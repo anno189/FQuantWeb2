@@ -11,7 +11,6 @@ export default defineNuxtConfig({
     "nuxt-quasar-ui", 
     "@vite-pwa/nuxt",
     '@pinia/nuxt',  // +
-    '@pinia-plugin-persistedstate/nuxt', // +
   ],
 
   experimental: {

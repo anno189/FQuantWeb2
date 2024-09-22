@@ -65,13 +65,11 @@ export default {
 
   mounted() {
     console.log('app mounted')
-    
-
-    console.log(this.store.alinks)
+    //console.log(this.store.alinks)
   },
   
   setup() {
-    console.log('setup')
+    //console.log('setup')
     const leftDrawerOpen = ref(false);
     const store = useAlinksStore()
     
