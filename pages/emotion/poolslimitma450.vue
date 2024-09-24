@@ -1,5 +1,12 @@
 <!--竞价放量-->
 <template>
+  <div v-if="this.loading">
+    <div class="text-h6 q-pa-sm" :id="提示"> 提示</div>
+    <div class="q-pa-sm">
+     - 新晋：{{ this.lists.new }} <br />
+     - 退出：{{ this.lists.remove }}
+    </div>
+  </div>
   <template v-for="item in this.data" v-if="this.loading">
     <div class="text-h6 q-pa-sm" :id="item.title+'列表'"> {{ item.title }}</div>
     <div class="col-12">
@@ -76,7 +83,10 @@ export default defineComponent({
       const res1 = await http.get('https://stock.1dian.site/h5/data/Pools_limit_corr_ma450.json', {})
       const store = useAlinksStore()
       const alinks = new Array()
-      
+
+      alinks.push('提示')
+
+      this.lists = res1.data.lists
       this.data = res1.data.data.emo
 
       for (let j = 0; j < this.data.length; j++){
@@ -132,7 +142,7 @@ export default defineComponent({
   },
 
   setup () {
-    return { rowzhengfankuiz:ref({}), columnzhengfankuiz:ref({}), rowzhengfankuif:ref({}), columnzhengfankuif:ref({}), loading:ref(), warn:ref()};
+    return {loading:ref()};
   }
 });
 
