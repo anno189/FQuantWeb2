@@ -12,6 +12,14 @@
           :rows-per-page-options="[10000]"
           row-key="name"
         >
+          <template v-slot:body-cell="props">
+            <q-td
+              :props="props"
+              :class="(props.row.QS == 1)?'bg-red-1':''"
+            >
+              {{props.value}}
+            </q-td>
+          </template>
         </q-table>
 
       </div>
@@ -75,6 +83,7 @@ export default defineComponent({
           { name: 'YQ1', align: 'left', label: '超预期', field: 'YQ1', sortable: false},
           { name: 'YQ0', align: 'left', label: '预期内', field: 'YQ0', sortable: false},
           { name: 'CYQ', align: 'left', label: '断板', field: 'CYQ', sortable: false},
+          { name: 'QS', align: 'left', label: '趋势', field: 'QS', sortable: false},
           { name: 'JJ', align: 'left', label: '放量', field: 'JJ', sortable: false},
           { name: 'RA', align: 'left', label: '涨幅', field: 'RA', sortable: false},
           { name: 'orate', align: 'left', label: '涨幅', field: 'orate', sortable: false},

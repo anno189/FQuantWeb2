@@ -13,6 +13,14 @@
             :rows-per-page-options="[10000]"
             row-key="name"
           >
+            <template v-slot:body-cell="props">
+              <q-td
+                :props="props"
+                :class="(props.row.rate >0 & props.row.rate < 5)?'bg-red-1':(props.row.rate >=5 & props.row.rate < 9)?'bg-red-2':(props.row.rate >=9)?'bg-red-3':(props.row.rate < 0 & props.row.rate > -7 )?'bg-green-1':(props.row.rate <= -7)?'bg-green-3':''"
+              >
+                {{props.value}}
+              </q-td>
+            </template>
           </q-table>
         </div>
         <div v-else>
@@ -24,6 +32,14 @@
             :rows-per-page-options="[10000]"
             row-key="name"
           >
+            <template v-slot:body-cell="props">
+              <q-td
+                :props="props"
+                :class="(props.row.rate >0 & props.row.rate < 5)?'bg-red-1':(props.row.rate >=5 & props.row.rate < 9)?'bg-red-2':(props.row.rate >=9)?'bg-red-3':(props.row.rate < 0 & props.row.rate > -7 )?'bg-green-1':(props.row.rate <= -7)?'bg-green-3':''"
+              >
+                {{props.value}}
+              </q-td>
+            </template>
           </q-table>
         </div>
       </div>
