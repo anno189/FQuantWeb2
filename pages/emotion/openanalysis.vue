@@ -1,5 +1,5 @@
 <template>
-  <div class="text-h6 q-pa-sm" id="竞价结果列表"> 竞价结果 </div>
+  <div class="text-h6 q-pa-sm" id="竞价结果列表"> 竞价结果列表 </div>
     
   <template v-if="this.loading">
     <div class="col-12">

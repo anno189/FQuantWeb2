@@ -76,6 +76,20 @@
   <q-item 
     clickable
     v-ripple
+    :active="link === 'emotionpoolslimitma450'"
+    @click="link = 'emotionpoolslimitma450'"
+    active-class="my-menu-link"
+    to="/emotion/poolslimitma450" exact>
+    <q-item-section>
+      <q-item-label>强势</q-item-label>
+      <q-item-label overline>每日竞价后/盘中更新</q-item-label>
+    </q-item-section>
+  </q-item>
+  <q-separator />
+
+  <q-item 
+    clickable
+    v-ripple
     :active="link === 'emotionruntime'"
     @click="link = 'emotionruntime'"
     active-class="my-menu-link"
