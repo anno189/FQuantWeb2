@@ -1,7 +1,7 @@
 <!--竞价放量-->
 <template>
   <div v-if="this.loading">
-    <div class="text-h6 q-pa-sm" :id="提示"> 提示</div>
+    <div class="text-h6 q-pa-sm" id="提示"> 提示</div>
     <div class="q-pa-sm">
      - 新晋：{{ this.lists.new }} <br />
      - 退出：{{ this.lists.remove }}
