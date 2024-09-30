@@ -17,6 +17,7 @@
     "@vite-pwa/nuxt": "^0.10.0",
     "echarts": "^5.4.3",
     "nuxt": "^3.12.4",
+    "nuxt-pglite": "^0.0.2",
     "nuxt-quasar-ui": "^2.1.4",
     "pinia": "^2.2.2",
     "qs": "^6.13.0",
