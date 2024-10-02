@@ -7,17 +7,22 @@
     <q-separator />
 
     <q-card-section style="max-height: 50vh" class="scroll">
+      <p class="text-weight-bold">v 3.2.5.1002</p>
+      <p>- 调整：盘前-盘前公告-按照公告类型分类显示
+      </p>
       <p class="text-weight-bold">v 3.2.4.0921</p>
-      <p>- 调整：调整页面显示结构，增加文档目录功能，基于Pinia功能
+      <p>- 调整：调整页面显示结构，增加文档目录功能，基于Pinia
       </p>
       <p class="text-weight-bold">v 3.1.4.0919</p>
-      <p>- 新增：竞价结果
+      <p>- 新增：情绪-竞价结果（结合龙虎榜等综合展示）<br />
+        - 新增：情绪-强势<br />
+        - 新增：情绪-盘中涨停
       </p>
       <p class="text-weight-bold">v 3.1.3.0914</p>
       <p>- 新增：情绪模块<br />
-      - 新增：情绪-盘中涨停。<br />
-      - 新增：情绪-竞价一字。<br />
-      - 新增：情绪-竞价涨幅3%统计。<br />
+      - 新增：情绪-盘中涨停<br />
+      - 新增：情绪-竞价一字<br />
+      - 新增：情绪-竞价涨幅3%统计<br />
       </p>
       <p class="text-weight-bold">v 3.1.2.0903</p>
       <p>- 新增：情绪模块<br />

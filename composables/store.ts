@@ -1,3 +1,5 @@
+import { defineStore } from 'pinia' 
+
 //保存目录
 export const useAlinksStore = defineStore('MuluStore', () => {
     let alinks = new Array()

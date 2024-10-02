@@ -7,8 +7,8 @@ const sw = process.env.SW === 'true'
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ["nuxt-quasar-ui", "@vite-pwa/nuxt", // +
-  '@pinia/nuxt', 'nuxt-pglite'],
+  modules: [// +
+  "nuxt-quasar-ui", "@vite-pwa/nuxt", '@pinia/nuxt'],
 
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
@@ -16,12 +16,6 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     renderJsonPayloads: true,
     typedPages: true,
-  },
-
-  pinia: {
-    autoImports: [
-      'defineStore' // import { defineStore } from 'pinia'  // + 自动引入defineStore 
-    ]
   },
 
   vite: {

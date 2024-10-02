@@ -39,9 +39,8 @@
   <div class="row text-caption q-pa-sm"> - 数据来源：东方财富 <br />
   - 更新：每次刷新实时获取</div>
   <q-separator inset spaced/>
-
   <!-- 公告 -->
-  <div class="text-h6 q-pa-sm" id="活跃股公告">活跃股公告 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge></div>
+  <div class="text-h6 q-pa-sm" id="减持公告">减持公告 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge></div>
   <div class="row bg-grey-1" v-if="loading">
     
     <div class="col-12 q-pl-sm q-pr-sm">
@@ -49,45 +48,89 @@
       <q-table
           class="my-sticky-column-table"
           dense flat bordered
-          :rows="rowsReportList"
+          :rows="rowsReportListJc"
           :columns="columnsReportList"
           :rows-per-page-options="[10000]"
           row-key="name"
         >
+        </q-table>
+    </div>
+  </div>
+  <!-- 公告 -->
+  <div class="text-h6 q-pa-sm" id="增持公告">增持公告 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge></div>
+  <div class="row bg-grey-1" v-if="loading">
+    
+    <div class="col-12 q-pl-sm q-pr-sm">
 
-          <template v-slot:body="props">
-            <q-tr :props="props" @click="onRowClick(props.row)">
-              <q-td key="名称" :props="props">
-                {{ props.row.名称 }}
-              </q-td>
-              <q-td key="代码" :props="props">
-                  {{ props.row.code }}
-              </q-td>
-              <q-td key="今日" :props="props">
-                  {{ props.row.today }}
-              </q-td>
-              <q-td key="公告类型" :props="props">
-                  {{ props.row.公告类型 }}
-              </q-td>
-              <q-td key="公告标题" :props="props">
-                <a href="/#/marketfront">{{props.row.公告标题}}</a>
-              </q-td>
-              <q-td key="公告日期" :props="props">
-                  {{ props.row.公告日期 }}
-              </q-td>
-              <q-td key="风格" :props="props">
-                  {{ props.row.blockname }}
-              </q-td>
-      
-            </q-tr>
-          </template>
+      <q-table
+          class="my-sticky-column-table"
+          dense flat bordered
+          :rows="rowsReportListZc"
+          :columns="columnsReportList"
+          :rows-per-page-options="[10000]"
+          row-key="name"
+        >
+        </q-table>
+    </div>
+  </div>
 
+  <!-- 公告 -->
+  <div class="text-h6 q-pa-sm" id="业绩预告">业绩预告 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge></div>
+  <div class="row bg-grey-1" v-if="loading">
+    
+    <div class="col-12 q-pl-sm q-pr-sm">
+
+      <q-table
+          class="my-sticky-column-table"
+          dense flat bordered
+          :rows="rowsReportListYjyg"
+          :columns="columnsReportList"
+          :rows-per-page-options="[10000]"
+          row-key="name"
+        >
+        </q-table>
+    </div>
+  </div>
+
+  <!-- 公告 -->
+  <div class="text-h6 q-pa-sm" id="限售流通">限售流通 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge></div>
+  <div class="row bg-grey-1" v-if="loading">
+    
+    <div class="col-12 q-pl-sm q-pr-sm">
+
+      <q-table
+          class="my-sticky-column-table"
+          dense flat bordered
+          :rows="rowsReportListXslt"
+          :columns="columnsReportList"
+          :rows-per-page-options="[10000]"
+          row-key="name"
+        >
+        </q-table>
+    </div>
+  </div>
+
+  <!-- 公告 -->
+  <div class="text-h6 q-pa-sm" id="其他公告">其他公告 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge></div>
+  <div class="row bg-grey-1" v-if="loading">
+    
+    <div class="col-12 q-pl-sm q-pr-sm">
+
+      <q-table
+          class="my-sticky-column-table"
+          dense flat bordered
+          :rows="rowsReportListAll"
+          :columns="columnsReportList"
+          :rows-per-page-options="[10000]"
+          row-key="name"
+        >
         </q-table>
     </div>
   </div>
   <div class="row text-caption q-pa-sm"> - 数据来源：东方财富 <br />
-  - 周期：报告每2小时更新一次，报告周期为两个交易日  <br />
-  - 范围：活跃股、行业龙头及交易时间内当日涨幅大于9的个股  <br />
+  - 周期：报告周期为两个交易日  <br />
+  - 范围：全市场 <br />
+  - 标记：活跃股、行业龙头及交易时间内当日涨幅大于9的个股  <br />
   - 更新：交易时间内每小时更新一次，非交易时间8:00, 20:00更新2次
   </div>
 
@@ -123,32 +166,41 @@ export default defineComponent({
   methods: {
     getServerMarketData: async function () {
       const res = await http.get('https://stock.1dian.site/h5/data/mfreport.json', {})
-      this.rowsReportList=res.data.report
+      this.rowsReportListAll=res.data.report.all
+      this.rowsReportListJc=res.data.report.jc
+      this.rowsReportListZc=res.data.report.zc
+      this.rowsReportListYjyg=res.data.report.yjyg
+      this.rowsReportListWxh=res.data.report.wxh
+      this.rowsReportListXslt=res.data.report.xslt
+      
       this.ReportDate = res.data.date
 
+      console.log(this.rowsReportListAll)
+
+      /*
       for (const element of this.rowsReportList) {
         element.links = 'https://data.eastmoney.com/notices/detail/'+ element.code + '/' + element.公告代码 + '.html'
         }
+      */
 
-
+      
       this.loading = true  
     }
   },
   
   setup () {
-    const rowsReportList = ref({});
     
     const columnsReportList = ref([
       { name: '名称', align: 'left', label: '名称', field: '名称',  },
-      { name: '代码', align: 'left', label: '代码', field: 'code' },
+      { name: '代码', align: 'left', label: '代码', field: '代码' },
+      { name: '风格', align: 'left', label: '风格', field: 'blockname_'},
       { name: '今日', align: 'left', label: '今日', field: 'today' },
-      { name: '公告标题', align: 'left', label: '公告标题', field: '公告标题', },
-      { name: '公告类型', align: 'left', label: '公告类型', field: '公告类型' },
       { name: '公告日期', align: 'left', label: '公告日期', field: '公告日期' },
-      { name: '风格', align: 'left', label: '风格', field: 'blockname'},
+      { name: '公告类型', align: 'left', label: '公告类型', field: '公告类型' },
+      { name: '公告标题', align: 'left', label: '公告标题', field: '公告标题', },
     ]);
 
-    return { loading:ref(), rowsReportList, columnsReportList, ReportDate:ref(),
+    return { loading:ref(), columnsReportList, ReportDate:ref(),
       onRowClick: (row) =>  window.open(`https://data.eastmoney.com/notices/detail/${row.code}/${row.公告代码}.html`, '_blank'),
      };
   }
