@@ -111,6 +111,25 @@
   </div>
 
   <!-- 公告 -->
+  <div class="text-h6 q-pa-sm" id="重大合同">重大合同 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge></div>
+  <div class="row bg-grey-1" v-if="loading">
+    
+    <div class="col-12 q-pl-sm q-pr-sm">
+
+      <q-table
+          class="my-sticky-column-table"
+          dense flat bordered
+          :rows="rowsReportListZdht"
+          :columns="columnsReportList_0"
+          :rows-per-page-options="[10000]"
+          row-key="name"
+        >
+        </q-table>
+    </div>
+  </div>
+
+
+  <!-- 公告 -->
   <div class="text-h6 q-pa-sm" id="其他公告">其他公告 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge></div>
   <div class="row bg-grey-1" v-if="loading">
     
@@ -172,10 +191,9 @@ export default defineComponent({
       this.rowsReportListYjyg=res.data.report.yjyg
       this.rowsReportListWxh=res.data.report.wxh
       this.rowsReportListXslt=res.data.report.xslt
+      this.rowsReportListZdht=res.data.report.zdht
       
       this.ReportDate = res.data.date
-
-      console.log(this.rowsReportListAll)
 
       /*
       for (const element of this.rowsReportList) {
