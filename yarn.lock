@@ -1018,11 +1018,6 @@
   dependencies:
     mime "^3.0.0"
 
-"@electric-sql/pglite@^0.2.4":
-  version "0.2.9"
-  resolved "https://registry.npmmirror.com/@electric-sql/pglite/-/pglite-0.2.9.tgz#a76742cd3eee103b88d20539c205b8d149765920"
-  integrity sha512-KPItmBmPVZJGOv+qkCXmWyIPUPLQIyN+BVtV/zD+083aWSR/2ReaCUN+HJv6Jw4z9zJ00UCPQkeUXvOLuTlumg==
-
 "@esbuild/aix-ppc64@0.20.2":
   version "0.20.2"
   resolved "https://registry.npmmirror.com/@esbuild/aix-ppc64/-/aix-ppc64-0.20.2.tgz#a70f4ac11c6a1dfc18b8bbb13284155d933b9537"
@@ -1602,32 +1597,6 @@
     unimport "^3.11.0"
     untyped "^1.4.2"
 
-"@nuxt/kit@^3.12.2", "@nuxt/kit@^3.13.0", "@nuxt/kit@^3.13.2":
-  version "3.13.2"
-  resolved "https://registry.npmmirror.com/@nuxt/kit/-/kit-3.13.2.tgz#4c019a87e08c33ec14d1059497ba40568b82bfed"
-  integrity sha512-KvRw21zU//wdz25IeE1E5m/aFSzhJloBRAQtv+evcFeZvuroIxpIQuUqhbzuwznaUwpiWbmwlcsp5uOWmi4vwA==
-  dependencies:
-    "@nuxt/schema" "3.13.2"
-    c12 "^1.11.2"
-    consola "^3.2.3"
-    defu "^6.1.4"
-    destr "^2.0.3"
-    globby "^14.0.2"
-    hash-sum "^2.0.0"
-    ignore "^5.3.2"
-    jiti "^1.21.6"
-    klona "^2.0.6"
-    knitwork "^1.1.0"
-    mlly "^1.7.1"
-    pathe "^1.1.2"
-    pkg-types "^1.2.0"
-    scule "^1.3.0"
-    semver "^7.6.3"
-    ufo "^1.5.4"
-    unctx "^2.3.1"
-    unimport "^3.12.0"
-    untyped "^1.4.2"
-
 "@nuxt/schema@3.13.0", "@nuxt/schema@^3.12.4":
   version "3.13.0"
   resolved "https://registry.npmmirror.com/@nuxt/schema/-/schema-3.13.0.tgz#104ce5fdca095ba98268a3dfe47c92e657d08f0d"
@@ -1644,24 +1613,6 @@
     ufo "^1.5.4"
     uncrypto "^0.1.3"
     unimport "^3.11.0"
-    untyped "^1.4.2"
-
-"@nuxt/schema@3.13.2":
-  version "3.13.2"
-  resolved "https://registry.npmmirror.com/@nuxt/schema/-/schema-3.13.2.tgz#4c1011ebf9fd5f821900bbfc50fd5eff2e663e9b"
-  integrity sha512-CCZgpm+MkqtOMDEgF9SWgGPBXlQ01hV/6+2reDEpJuqFPGzV8HYKPBcIFvn7/z5ahtgutHLzjP71Na+hYcqSpw==
-  dependencies:
-    compatx "^0.1.8"
-    consola "^3.2.3"
-    defu "^6.1.4"
-    hookable "^5.5.3"
-    pathe "^1.1.2"
-    pkg-types "^1.2.0"
-    scule "^1.3.0"
-    std-env "^3.7.0"
-    ufo "^1.5.4"
-    uncrypto "^0.1.3"
-    unimport "^3.12.0"
     untyped "^1.4.2"
 
 "@nuxt/telemetry@^2.5.4":
@@ -1836,22 +1787,13 @@
     "@parcel/watcher-win32-ia32" "2.4.1"
     "@parcel/watcher-win32-x64" "2.4.1"
 
-"@pinia-plugin-persistedstate/nuxt@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npmmirror.com/@pinia-plugin-persistedstate/nuxt/-/nuxt-1.2.1.tgz#15f7c3d172bd6320f6017d9ccf785019a7de1060"
-  integrity sha512-q8s+4aQW/AjBMyeqLL48/qzBR5lcgnvvf1525ovNuKf6Wl9CsoLjPKh/5X8vNoKGwSow4gP7lVmdYPQRypgjgg==
-  dependencies:
-    "@nuxt/kit" "^3.12.2"
-    defu "^6.1.4"
-    pinia-plugin-persistedstate ">=3.2.1"
-
-"@pinia/nuxt@^0.5.4":
-  version "0.5.4"
-  resolved "https://registry.npmmirror.com/@pinia/nuxt/-/nuxt-0.5.4.tgz#4c6109711bb866deafeea4908f139082d75456c3"
-  integrity sha512-nNEs2pq6+Ji5qIyRwmeD9LUdctL8aJ8QMVLTYxUc16cXEOcIIN+MSA8Xudsd0lVETYgEAROT5HiBHnOYRDY3yQ==
+"@pinia/nuxt@^0.5.5":
+  version "0.5.5"
+  resolved "https://registry.npmmirror.com/@pinia/nuxt/-/nuxt-0.5.5.tgz#0e156bbb86b3ccb087006ff505bc0c1b6522e8c3"
+  integrity sha512-wjxS7YqIesh4OLK+qE3ZjhdOJ5pYZQ+VlEmZNtTwzQn1Kavei/khovx7mzXVXNA/mvSPXVhb9xBzhyS3XMURtw==
   dependencies:
     "@nuxt/kit" "^3.9.0"
-    pinia "^2.2.2"
+    pinia "^2.2.3"
 
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"
@@ -2736,24 +2678,6 @@ c12@^1.11.1:
     pkg-types "^1.1.1"
     rc9 "^2.1.2"
 
-c12@^1.11.2:
-  version "1.11.2"
-  resolved "https://registry.npmmirror.com/c12/-/c12-1.11.2.tgz#f8a1e30c10f4b273894a1bcb6944f76c15b56717"
-  integrity sha512-oBs8a4uvSDO9dm8b7OCFW7+dgtVrwmwnrVXYzLm43ta7ep2jCn/0MhoUFygIWtxhyy6+/MG7/agvpY0U1Iemew==
-  dependencies:
-    chokidar "^3.6.0"
-    confbox "^0.1.7"
-    defu "^6.1.4"
-    dotenv "^16.4.5"
-    giget "^1.2.3"
-    jiti "^1.21.6"
-    mlly "^1.7.1"
-    ohash "^1.1.3"
-    pathe "^1.1.2"
-    perfect-debounce "^1.0.0"
-    pkg-types "^1.2.0"
-    rc9 "^2.1.2"
-
 cac@^6.7.14:
   version "6.7.14"
   resolved "https://registry.npmmirror.com/cac/-/cac-6.7.14.tgz#804e1e6f506ee363cb0e3ccbb09cad5dd9870959"
@@ -3196,11 +3120,6 @@ debug@4, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.4, debug@^4.3.5, d
   integrity sha512-O/09Bd4Z1fBrU4VzkhFqVgpPzaGbw6Sm9FEkBT1A/YBXQFGuuSxa1dN2nxgxS34JmKXqYx8CZAwEVoJFImUXIg==
   dependencies:
     ms "2.1.2"
-
-deep-pick-omit@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npmmirror.com/deep-pick-omit/-/deep-pick-omit-1.2.0.tgz#cd14edb242b1eceaeb23527a4eed8b650923c93d"
-  integrity sha512-2CGvfTM2c+IP/MhdRZMpaHhTc6zIlgz3tQXJ/VGAkc7mjMrjqSU28qiI63yEcy+fcYfd/K+NNJcGRzap4M4bqw==
 
 deepmerge@^4.2.2:
   version "4.3.1"
@@ -5079,14 +4998,6 @@ nuxi@^3.12.0:
   optionalDependencies:
     fsevents "~2.3.3"
 
-nuxt-pglite@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.npmmirror.com/nuxt-pglite/-/nuxt-pglite-0.0.2.tgz#2c2211a86296a446f337b608746b29cb13367d3b"
-  integrity sha512-P8SoCh8lS3GwTFmnmcmtChKSje/FMzG6SgSoBf59twzLJpAIeUMSDelLP8fF/SYN76zdpymDKb+tqCL2gS9nMg==
-  dependencies:
-    "@electric-sql/pglite" "^0.2.4"
-    "@nuxt/kit" "^3.13.0"
-
 nuxt-quasar-ui@^2.1.4:
   version "2.1.4"
   resolved "https://registry.npmmirror.com/nuxt-quasar-ui/-/nuxt-quasar-ui-2.1.4.tgz#c7068b6b29ab2277cf459436b19338867ea31199"
@@ -5364,20 +5275,10 @@ picomatch@^4.0.2:
   resolved "https://registry.npmmirror.com/picomatch/-/picomatch-4.0.2.tgz#77c742931e8f3b8820946c76cd0c1f13730d1dab"
   integrity sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==
 
-pinia-plugin-persistedstate@>=3.2.1:
-  version "4.0.2"
-  resolved "https://registry.npmmirror.com/pinia-plugin-persistedstate/-/pinia-plugin-persistedstate-4.0.2.tgz#be58813e68341eb435a1aab893d32b871c44b10a"
-  integrity sha512-KSApXsnGTrWKnAeHgEpYqtzeO84y4NH7uVM0/KMog+/oR2Py8p25tKjHQUmkcNNluzc0rJjFzlv2i5ZTdLeTXA==
-  dependencies:
-    "@nuxt/kit" "^3.13.2"
-    deep-pick-omit "^1.2.0"
-    defu "^6.1.4"
-    destr "^2.0.3"
-
-pinia@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.npmmirror.com/pinia/-/pinia-2.2.2.tgz#dcf576c9a778187d1542c5e6a9f8b8cd5b6aea14"
-  integrity sha512-ja2XqFWZC36mupU4z1ZzxeTApV7DOw44cV4dhQ9sGwun+N89v/XP7+j7q6TanS1u1tdbK4r+1BUx7heMaIdagA==
+pinia@^2.2.3:
+  version "2.2.4"
+  resolved "https://registry.npmmirror.com/pinia/-/pinia-2.2.4.tgz#79b63b231a3da80968ab58f7721f575fe2c509ac"
+  integrity sha512-K7ZhpMY9iJ9ShTC0cR2+PnxdQRuwVIsXDO/WIEV/RnMC/vmSoKDTKW/exNQYPI+4ij10UjXqdNiEHwn47McANQ==
   dependencies:
     "@vue/devtools-api" "^6.6.3"
     vue-demi "^0.14.10"
@@ -6798,25 +6699,6 @@ unimport@^3.10.1, unimport@^3.11.0, unimport@^3.7.2:
     strip-literal "^2.1.0"
     unplugin "^1.12.2"
 
-unimport@^3.12.0:
-  version "3.12.0"
-  resolved "https://registry.npmmirror.com/unimport/-/unimport-3.12.0.tgz#f68e3cfbc60b488f31f4bb13c2e14e2eb58a5bce"
-  integrity sha512-5y8dSvNvyevsnw4TBQkIQR1Rjdbb+XjVSwQwxltpnVZrStBvvPkMPcZrh1kg5kY77kpx6+D4Ztd3W6FOBH/y2Q==
-  dependencies:
-    "@rollup/pluginutils" "^5.1.0"
-    acorn "^8.12.1"
-    escape-string-regexp "^5.0.0"
-    estree-walker "^3.0.3"
-    fast-glob "^3.3.2"
-    local-pkg "^0.5.0"
-    magic-string "^0.30.11"
-    mlly "^1.7.1"
-    pathe "^1.1.2"
-    pkg-types "^1.2.0"
-    scule "^1.3.0"
-    strip-literal "^2.1.0"
-    unplugin "^1.14.1"
-
 unique-string@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmmirror.com/unique-string/-/unique-string-2.0.0.tgz#39c6451f81afb2749de2b233e3f7c5e8843bd89d"
@@ -6857,14 +6739,6 @@ unplugin@^1.10.0, unplugin@^1.12.1, unplugin@^1.12.2, unplugin@^1.3.1:
     acorn "^8.12.1"
     chokidar "^3.6.0"
     webpack-sources "^3.2.3"
-    webpack-virtual-modules "^0.6.2"
-
-unplugin@^1.14.1:
-  version "1.14.1"
-  resolved "https://registry.npmmirror.com/unplugin/-/unplugin-1.14.1.tgz#c76d6155a661e43e6a897bce6b767a1ecc344c1a"
-  integrity sha512-lBlHbfSFPToDYp9pjXlUEFVxYLaue9f9T1HC+4OHlmj+HnMDdz9oZY+erXfoCe/5V/7gKUSY2jpXPb9S7f0f/w==
-  dependencies:
-    acorn "^8.12.1"
     webpack-virtual-modules "^0.6.2"
 
 unstorage@^1.10.2:

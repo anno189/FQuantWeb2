@@ -49,7 +49,7 @@
           class="my-sticky-column-table"
           dense flat bordered
           :rows="rowsReportListJc"
-          :columns="columnsReportList"
+          :columns="columnsReportList_0"
           :rows-per-page-options="[10000]"
           row-key="name"
         >
@@ -66,7 +66,7 @@
           class="my-sticky-column-table"
           dense flat bordered
           :rows="rowsReportListZc"
-          :columns="columnsReportList"
+          :columns="columnsReportList_0"
           :rows-per-page-options="[10000]"
           row-key="name"
         >
@@ -84,7 +84,7 @@
           class="my-sticky-column-table"
           dense flat bordered
           :rows="rowsReportListYjyg"
-          :columns="columnsReportList"
+          :columns="columnsReportList_0"
           :rows-per-page-options="[10000]"
           row-key="name"
         >
@@ -102,7 +102,7 @@
           class="my-sticky-column-table"
           dense flat bordered
           :rows="rowsReportListXslt"
-          :columns="columnsReportList"
+          :columns="columnsReportList_0"
           :rows-per-page-options="[10000]"
           row-key="name"
         >
@@ -120,7 +120,7 @@
           class="my-sticky-column-table"
           dense flat bordered
           :rows="rowsReportListAll"
-          :columns="columnsReportList"
+          :columns="columnsReportList_1"
           :rows-per-page-options="[10000]"
           row-key="name"
         >
@@ -190,7 +190,7 @@ export default defineComponent({
   
   setup () {
     
-    const columnsReportList = ref([
+    const columnsReportList_1 = ref([
       { name: '名称', align: 'left', label: '名称', field: '名称',  },
       { name: '代码', align: 'left', label: '代码', field: '代码' },
       { name: '风格', align: 'left', label: '风格', field: 'blockname_'},
@@ -199,8 +199,18 @@ export default defineComponent({
       { name: '公告类型', align: 'left', label: '公告类型', field: '公告类型' },
       { name: '公告标题', align: 'left', label: '公告标题', field: '公告标题', },
     ]);
+    const columnsReportList_0 = ref([
+      { name: '名称', align: 'left', label: '名称', field: '名称',  },
+      { name: '代码', align: 'left', label: '代码', field: '代码' },
+      { name: '风格', align: 'left', label: '风格', field: 'blockname_'},
+      { name: '今日', align: 'left', label: '今日', field: 'today' },
+      { name: '公告日期', align: 'left', label: '公告日期', field: '公告日期' },
+      { name: '公告标题', align: 'left', label: '公告标题', field: '公告标题', },
+      { name: '公告类型', align: 'left', label: '公告类型', field: '公告类型' },
+      
+    ]);
 
-    return { loading:ref(), columnsReportList, ReportDate:ref(),
+    return { loading:ref(), columnsReportList_0, columnsReportList_1, ReportDate:ref(),
       onRowClick: (row) =>  window.open(`https://data.eastmoney.com/notices/detail/${row.code}/${row.公告代码}.html`, '_blank'),
      };
   }
