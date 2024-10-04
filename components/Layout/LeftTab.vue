@@ -38,8 +38,8 @@
 </template>
 
 <script>
+import http from '../utils/http'
 import { ref } from 'vue';
-import { api } from '~/boot/axios';
 
 export default {
   mounted: function () {
@@ -49,22 +49,13 @@ export default {
   setup() {
     const today = ref(null);
 
-    function loadData () {
-      api.get('https://stock.1dian.site/h5/data/webbaseinfo.json')
-        .then((response) => {
-          today.value = response.data.date
-        })
-        .catch(() => {
-          $q.notify({
-            color: 'negative',
-            position: 'top',
-            message: 'Loading failed',
-            icon: 'report_problem'
-          })
-        })
+    async function loadData () {
+      //const res = await $fetch('https://stock.1dian.site/h5/data/webbaseinfo.json')
+
+      const res = await http.get('https://stock.1dian.site/h5/data/webbaseinfo.json', {})
+      today.value = res.data.date
     }
 
-    
     return {
       tab: ref('mdays'), loadData, today
     };
