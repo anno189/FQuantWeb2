@@ -26,18 +26,41 @@
     </div>
   </template>
   <q-separator inset spaced/>
-    
-  <div class="text-h6 q-pa-sm" id="竞价结果分时"> 竞价结果分时 </div>
+  
+  <div class="text-h6 q-pa-sm" id="竞价超预期"> 竞价超预期 </div>
   <template v-if="this.loading">
     <div class="row bg-grey-1 q-pa-sm wrap" >
-      <template v-for="code in this.data.code">
+      <template v-for="code in this.YQ1data">
         <div class="col-2 col-md-2">
           <q-img :src="code" /> 
         </div>
       </template>
     </div>
   </template>
-    
+  <q-separator inset spaced/>
+
+  <div class="text-h6 q-pa-sm" id="竞价预期内"> 竞价预期内 </div>
+  <template v-if="this.loading">
+    <div class="row bg-grey-1 q-pa-sm wrap" >
+      <template v-for="code in this.YQ0data">
+        <div class="col-2 col-md-2">
+          <q-img :src="code" /> 
+        </div>
+      </template>
+    </div>
+  </template>
+  <q-separator inset spaced/>
+
+  <div class="text-h6 q-pa-sm" id="断板高开"> 断板高开 </div>
+  <template v-if="this.loading">
+    <div class="row bg-grey-1 q-pa-sm wrap" >
+      <template v-for="code in this.CYQdata">
+        <div class="col-2 col-md-2">
+          <q-img :src="code" /> 
+        </div>
+      </template>
+    </div>
+  </template>
   <q-separator inset spaced/>
   
 </template>
@@ -75,11 +98,19 @@ export default defineComponent({
             this.data.code[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=1."+this.data.code[i]
           else
             this.data.code[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=0."+this.data.code[i]
+
+          if (this.data.data[i].YQ1 == '1')
+            this.YQ1data.push(this.data.code[i])
+          if (this.data.data[i].YQ0 == '1')
+            this.YQ0data.push(this.data.code[i])
+          if (this.data.data[i].CYQ == '1')
+            this.CYQdata.push(this.data.code[i])
       }
 
       this.anaslysiscolumns = [
           { name: 'code', align: 'left', label: '代码', field: 'code', sortable: false},
           { name: 'name', align: 'left', label: '名称', field: 'name', sortable: false},
+          { name: 'report', align: 'left', label: '报告', field: 'report', sortable: false},
           { name: 'YQ1', align: 'left', label: '超预期', field: 'YQ1', sortable: false},
           { name: 'YQ0', align: 'left', label: '预期内', field: 'YQ0', sortable: false},
           { name: 'CYQ', align: 'left', label: '断板', field: 'CYQ', sortable: false},
@@ -100,7 +131,7 @@ export default defineComponent({
   },
 
   setup () {
-    return { loading:ref(), anaslysiscolumns:ref()};
+    return { loading:ref(), anaslysiscolumns:ref(), YQ1data:new Array(), YQ0data:new Array(), CYQdata:new Array()};
   }
 });
 

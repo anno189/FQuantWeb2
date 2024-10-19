@@ -1,44 +1,5 @@
 <template>
 <div class="bg-grey-1">
-  <!-- 外盘 -->
-  <div class="text-h6 q-pa-sm" id="外盘">外盘 <UpdateTime /> </div>
-  <div class="row bg-grey-1 q-pa-sm wrap">
-    <div class="col-2 col-md2">
-      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.DJIA"/>
-    </div>
-    <div class="col-2 col-md2">
-      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.NDX"/>
-    </div>
-    <div class="col-2 col-md2">
-      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=251.HXC"/>
-    </div>
-    
-    <div class="col-2 col-md2">
-      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=102.CL00Y"/>
-    </div>
-    <div class="col-2 col-md2">
-      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=101.GC00Y"/>
-    </div>
-    <div class="col-2 col-md2">
-      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.N225"/>
-    </div>
-    <div class="col-2 col-md2">
-      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.GDAXI"/>
-    </div>
-
-    <div class="col-2 col-md2">
-      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=100.UDI"/>
-    </div>
-    <div class="col-2 col-md2">
-      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=133.USDCNH"/>
-    </div>
-    <div class="col-2 col-md2">
-      <q-img src="https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid=119.USDJPY"/>
-    </div>
-  </div>
-  <div class="row text-caption q-pa-sm"> - 数据来源：东方财富 <br />
-  - 更新：每次刷新实时获取</div>
-  <q-separator inset spaced/>
   <!-- 公告 -->
   <div class="text-h6 q-pa-sm" id="减持公告">减持公告 <q-badge outline color="primary" align="top" >{{this.ReportDate}} 更新</q-badge></div>
   <div class="row bg-grey-1" v-if="loading">

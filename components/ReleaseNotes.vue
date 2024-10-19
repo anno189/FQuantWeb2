@@ -7,6 +7,11 @@
     <q-separator />
 
     <q-card-section style="max-height: 50vh" class="scroll">
+      <p class="text-weight-bold">v 3.2.6.1018</p>
+      <p>- 调整：盘前-盘前公告-按照公告类型分类显示<br />
+        - 新增：盘前-外盘<br />
+        - 调整：情绪-竞价结果的过滤条件和显示分类
+      </p>
       <p class="text-weight-bold">v 3.2.5.1002</p>
       <p>- 调整：盘前-盘前公告-按照公告类型分类显示
       </p>

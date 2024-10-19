@@ -1,7 +1,20 @@
 <template>
   <q-item-label header class="bg-grey-3" v-if="date">盘前 ({{date}})</q-item-label>
-  
-  
+  <q-separator />
+
+  <q-item 
+    clickable
+    v-ripple
+    :active="link === 'marketouterdisc'"
+    @click="link = 'marketouterdisc'"
+    active-class="my-menu-link"
+    to="/front/marketouterdisc" exact>
+    <q-item-section>
+      <q-item-label>外盘数据</q-item-label>
+      <q-item-label overline> - 实时</q-item-label>
+      <q-item-label caption>- 外盘数据汇总</q-item-label>
+    </q-item-section>
+  </q-item>
   <q-separator />
 
   <q-item 
@@ -17,8 +30,8 @@
       <q-item-label caption>- 盘前公告信息汇总</q-item-label>
     </q-item-section>
   </q-item>
-
   <q-separator />
+
   <q-item 
     clickable
     v-ripple
