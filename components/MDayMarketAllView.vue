@@ -422,6 +422,8 @@ export default defineComponent({
       this.lMaeketCOption.series[4].data = res2.data.data.marketC.series[3].data
       this.lMaeketCOption.series[5].data = res2.data.data.marketC.series[4].data
       this.lMaeketCOption.series[6].data = res2.data.data.marketC.series[5].data
+      this.lMaeketCOption.series[7].data = res2.data.data.marketC.series[6].data
+      this.lMaeketCOption.series[8].data = res2.data.data.marketC.series[7].data
       
       this.lLBAmountOption.xAxis.data = res2.data.data.min.min1.categories
       this.lLBAmountOption.series[0].data = this.DataMarket.LB.upcount
@@ -1003,7 +1005,7 @@ export default defineComponent({
             trigger: 'axis'
           },
           legend: {
-            data:['上证指数','沪深300','微盘股','近期强势', '北证50', '高标', '中位'],
+            data:['上证指数','沪深300','微盘股','近期强势', '北证50', '高标', '中位', '低位', '退潮'],
           },
           grid: {
             left: '3%',
@@ -1027,6 +1029,8 @@ export default defineComponent({
             {name:'北证50',type:'line',symbol:'none',data:[]},
             {name:'高标',type:'line',symbol:'none',data:[]},
             {name:'中位',type:'line',symbol:'none',data:[]},
+            {name:'低位',type:'line',symbol:'none',data:[]},
+            {name:'退潮',type:'line',symbol:'none',data:[]},
           ]
     });
     
