@@ -73,7 +73,7 @@
         - 高标涨幅：按±10比例等比分配，每格5%。<br />
         - 涨跌比：上涨票数/全市场票数。<br />
         - 全市场平均涨幅，：每格3%，最高涨幅±6%。<br />
-        - 开板比例（不包含 ST ）：每格18%，最高72%。<br />
+        - 封板比例（不包含 ST ）：每格25%，最高100%。<br />
         </div>
     </div> 
   </div>
@@ -625,7 +625,7 @@ export default defineComponent({
         radius: 80,
         indicator: [
            {name: '资金量', max: 100},
-           {name: '炸板', max: 100},
+           {name: '封成', max: 100},
            {name: '涨跌比', max: 100},
            {name: '平均涨幅', max: 100},
            {name: '连板', max: 100},
@@ -735,7 +735,7 @@ export default defineComponent({
             trigger: 'axis'
         },
         legend: {
-            data:['资金量','开板率','涨跌比','平均涨幅','连板','高标涨幅'],
+            data:['资金量','封板率','涨跌比','平均涨幅','连板','高标涨幅'],
         },
         grid: {
             left: '3%',
@@ -761,7 +761,7 @@ export default defineComponent({
                 data:[]
             },
             {
-                name:'开板率',
+                name:'封板率',
                 type:'line',
                 symbol:'none',
                 data:[]
