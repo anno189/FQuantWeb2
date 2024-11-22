@@ -7,6 +7,13 @@
     <q-separator />
 
     <q-card-section style="max-height: 50vh" class="scroll">
+      
+      <p class="text-weight-bold">v 3.2.7.1122</p>
+      <p>- 调整：盘中-实时市场-市场温度计，调整开板率为封成率，重新计算市场温度，保持正反馈统计的一致性。<br />
+        - 调整：盘中-实时市场-情绪指数，新增退潮涨跌曲线。<br />
+        - 调整：数据，高标、中位、低位、退潮的分类。<br />
+        - 新增：数据，开盘涨幅和最高涨幅。
+      </p>
       <p class="text-weight-bold">v 3.2.6.1018</p>
       <p>- 调整：盘前-盘前公告-按照公告类型分类显示<br />
         - 新增：盘前-外盘<br />
