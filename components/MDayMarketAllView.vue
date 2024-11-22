@@ -164,17 +164,7 @@
       </div>
     </div>
      -->
-    <!-- 市场资金 -->
-    <div class="col-12 col-md">
-     <div class="divide-y divide-dashed w-full">
-        <div class="text-h6 q-pa-sm">量比(持续放量)</div>
-        <v-chart class="chart" :option="lLBAmountOption" autoresize/>
-        <div class="text-body2 q-pa-sm">
-        - 数据每分钟更新一次 <br />
-        - 个股连续4分钟量比增加
-        </div>
-      </div>
-    </div> 
+    
 
     <!-- 高标涨跌 -->
     <div class="col-12 col-md">
@@ -187,21 +177,6 @@
       </div>
     </div>
 
-    <!-- 高标涨跌 -->
-    <div class="col-12 col-md">
-      <div class="divide-y divide-dashed w-full">
-       
-      </div>
-    </div>
-    
-    
-  </div>
-  <q-separator inset spaced />
-
-
-  <!-- 结构化 -->
-  <div class="flex-break"></div>
-  <div class="row bg-grey-1" v-if="DataMarket.mdata">
     <!-- 结构化涨跌比例 -->
     <div class="col-12 col-md">
       <div class="divide-y divide-dashed w-full">
@@ -223,16 +198,9 @@
         </div>
       </div>
     </div> 
-
-    <!-- 高标涨跌 -->
-    <div class="col-12 col-md">
-      <div class="divide-y divide-dashed w-full">
-       
-      </div>
-    </div>
-    
   </div>
   <q-separator inset spaced />
+
 
   <div class="flex-break"></div>
 
