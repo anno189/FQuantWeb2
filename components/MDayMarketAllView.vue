@@ -28,7 +28,6 @@
     </div>
   </div>
 
-      
   <q-separator inset spaced/>
 
   <div class="row bg-grey-1" v-if="DataMarket.mdata">

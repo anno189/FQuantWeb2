@@ -73,6 +73,7 @@
 
 <script lang=“ts”>
 import http from '../utils/http'
+import { ref, defineComponent } from 'vue'
 
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
@@ -87,7 +88,6 @@ import {
   DatasetComponent
 } from 'echarts/components'
 import VChart from 'vue-echarts'
-import { ref, defineComponent } from 'vue'
 
 use([
   CanvasRenderer,
@@ -124,6 +124,8 @@ export default defineComponent({
       let params = {}
       const res1 = await http.get('https://stock.1dian.site/h5/data/str60p20_echarts_lines.json', params)
       this.v1lineOption=res1.data
+
+      console.log(this.v1lineOption)
 
       const res2 = await http.get('https://stock.1dian.site/h5/data/str60p20_echarts_pie.json', params)
       this.v1pieOption=res2.data

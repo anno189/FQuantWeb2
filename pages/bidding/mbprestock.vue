@@ -33,6 +33,34 @@
 
       <q-separator inset spaced/>
 
+      <div class="flex-break"></div>
+      <div class="text-h6 q-pa-sm" id="情绪反馈">情绪反馈</div>
+        
+      <div class="row bg-grey-1" v-if="loading">
+        <!-- 市场资金 -->
+        <div class="col-12 col-md">
+         <div class="divide-y divide-dashed w-full">
+            <v-chart class="chart" :option="M3Option" autoresize/>
+          </div>
+        </div> 
+        <div class="col-12 col-md">
+          <div class="divide-y divide-dashed w-full">
+            <v-chart class="chart" :option="M2Option" autoresize/>
+            
+          </div>
+        </div>
+        <div class="col-12 col-md">
+          <div class="divide-y divide-dashed w-full">
+            <v-chart class="chart" :option="M1Option" autoresize/>
+            
+          </div>
+        </div>
+      </div>
+
+      <q-separator inset spaced />
+
+
+
       <div class="text-h6 q-pa-sm" id="竞价情况">竞价情况 <q-badge outline color="primary" align="top" > {{this.date}} 09:28 更新</q-badge></div>
          
       <div>
@@ -355,10 +383,11 @@
 
 <script lang=“ts”>
 import http from '../utils/http'
-import { ref } from 'vue'
+import { ref, defineComponent } from 'vue'
+
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
-import { LineChart, } from 'echarts/charts'
+import { LineChart, GaugeChart } from 'echarts/charts'
 import {
   GridComponent,
   TooltipComponent,
@@ -367,10 +396,10 @@ import {
 } from 'echarts/components'
 import VChart from 'vue-echarts'
 
-
 use([
   CanvasRenderer,
   LineChart,
+  GaugeChart,
   GridComponent,
   TooltipComponent,
   LegendComponent,
@@ -397,11 +426,38 @@ export default({
 
   methods: {
     getServerMarketData: async function () {
-      
+      const res1 = await http.get('https://stock.1dian.site/h5/data/stock_open_m3.json', {})
+      this.M3Option = JSON.parse(JSON.stringify(res1.data), function (key, v) {
+             if (key === "formatter" && v.indexOf("function")  > -1) {
+                 return eval("(" + v + ")");
+             } else {
+                 return v;
+             }
+          
+        })
+
+      const res2 = await http.get('https://stock.1dian.site/h5/data/stock_open_m2.json', {})
+      this.M2Option = JSON.parse(JSON.stringify(res2.data), function (key, v) {
+             if (key === "formatter" && v.indexOf("function")  > -1) {
+                 return eval("(" + v + ")");
+             } else {
+                 return v;
+             }
+          
+        })
+
+      const res3 = await http.get('https://stock.1dian.site/h5/data/stock_open_m1.json', {})
+      this.M1Option = JSON.parse(JSON.stringify(res3.data), function (key, v) {
+             if (key === "formatter" && v.indexOf("function")  > -1) {
+                 return eval("(" + v + ")");
+             } else {
+                 return v;
+             }
+          
+        })
+
       const response = await http.get('https://stock.1dian.site//h5/data/mbprestockdata.json', {})
 
-      //this.ones = response.data.one
-      //this.twos = response.data.two
       this.three = response.data.three
 
       this.rowslimitup = response.data.lists.limitup
@@ -552,7 +608,7 @@ export default({
 
 
     
-    return { lPreStockDataOption, rowslimitup:ref(), rowslimitdown:ref(), rowsnegative:ref(), rowshigh:ref(), rowstop20:ref(), columnslimitup, columnstop20, columnstart, columnsins, columnstock, rowsmiddle:ref(), rowslow:ref(), ones:ref(), twos:ref(), three:ref(), tab: ref('start'), emote:ref(), loading:ref(), rowstart:ref(), rowsins:ref(), rowstock:ref(), date:ref()};
+    return { lPreStockDataOption, rowslimitup:ref(), rowslimitdown:ref(), rowsnegative:ref(), rowshigh:ref(), rowstop20:ref(), columnslimitup, columnstop20, columnstart, columnsins, columnstock, rowsmiddle:ref(), rowslow:ref(), ones:ref(), twos:ref(), three:ref(), tab: ref('start'), emote:ref(), loading:ref(), rowstart:ref(), rowsins:ref(), rowstock:ref(), date:ref(), M3Option:ref({}), M2Option:ref({}), M1Option:ref({})};
       
   }
 });
