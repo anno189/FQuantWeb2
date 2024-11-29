@@ -34,7 +34,7 @@
       <q-separator inset spaced/>
 
       <div class="flex-break"></div>
-      <div class="text-h6 q-pa-sm" id="情绪反馈">情绪反馈</div>
+      <div class="text-h6 q-pa-sm" id="情绪反馈">情绪反馈 <q-badge outline color="primary" align="top" > {{this.date}} 09:28 更新</q-badge></div>
         
       <div class="row bg-grey-1" v-if="loading">
         <!-- 市场资金 -->
@@ -42,17 +42,70 @@
          <div class="divide-y divide-dashed w-full">
             <v-chart class="chart" :option="M3Option" autoresize/>
           </div>
+
+          <div class="text-body2 q-pa-sm">
+            <div v-if="this.M0Option.M3.up.length > 0">
+              一字涨停：<br />
+              <ul>
+                <li v-for="item in this.M0Option.M3.up" :key="item.id">
+                {{ item }}
+                </li>
+              </ul>
+            </div>
+            <div v-if="this.M0Option.M3.do.length > 0">
+              一字跌停：<br />
+              <ul>
+                <li v-for="item in this.M0Option.M3.do" :key="item.id">
+                {{ item }}
+                </li>
+              </ul>
+            </div>
+          </div>
         </div> 
         <div class="col-12 col-md">
           <div class="divide-y divide-dashed w-full">
             <v-chart class="chart" :option="M2Option" autoresize/>
-            
+          </div>
+          <div class="text-body2 q-pa-sm">
+            <div v-if="this.M0Option.M2.up.length > 0">
+              一字涨停：<br />
+              <ul>
+                <li v-for="item in this.M0Option.M2.up" :key="item.id">
+                {{ item }}
+                </li>
+              </ul>
+            </div>
+            <div v-if="this.M0Option.M2.do.length > 0">
+              一字跌停：<br />
+              <ul>
+                <li v-for="item in this.M0Option.M2.do" :key="item.id">
+                {{ item }}
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="col-12 col-md">
           <div class="divide-y divide-dashed w-full">
             <v-chart class="chart" :option="M1Option" autoresize/>
-            
+          </div>
+          <div class="text-body2 q-pa-sm">
+            <div v-if="this.M0Option.M1.up.length > 0">
+              一字涨停：<br />
+              <ul>
+                <li v-for="item in this.M0Option.M1.up" :key="item.id">
+                {{ item }}
+                </li>
+              </ul>
+            </div>
+            <div v-if="this.M0Option.M1.do.length > 0">
+              一字跌停：<br />
+              <ul>
+                <li v-for="item in this.M0Option.M1.do" :key="item.id">
+                {{ item }}
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -456,12 +509,15 @@ export default({
           
         })
 
-      const response = await http.get('https://stock.1dian.site//h5/data/mbprestockdata.json', {})
+      const res4 = await http.get('https://stock.1dian.site/h5/data/stock_open_M_list.json', {})
+      this.M0Option = res4.data.data
 
+      console.log(this.M0Option)
+
+      const response = await http.get('https://stock.1dian.site//h5/data/mbprestockdata.json', {})
       this.three = response.data.three
 
       this.rowslimitup = response.data.lists.limitup
-
       this.rowslimitdown = response.data.lists.limitdown
       this.rowsnegative = response.data.lists.negative
       this.rowshigh = response.data.lists.high
@@ -470,7 +526,6 @@ export default({
       this.rowslow = response.data.lists.low
       this.rowsrecommend = response.data.lists.recommend
       this.emote = response.data.emote
-      
       
       this.lPreStockDataOption.series[0].data = response.data.line0.top10list
       this.lPreStockDataOption.series[1].data = response.data.line0.top50list
@@ -608,7 +663,7 @@ export default({
 
 
     
-    return { lPreStockDataOption, rowslimitup:ref(), rowslimitdown:ref(), rowsnegative:ref(), rowshigh:ref(), rowstop20:ref(), columnslimitup, columnstop20, columnstart, columnsins, columnstock, rowsmiddle:ref(), rowslow:ref(), ones:ref(), twos:ref(), three:ref(), tab: ref('start'), emote:ref(), loading:ref(), rowstart:ref(), rowsins:ref(), rowstock:ref(), date:ref(), M3Option:ref({}), M2Option:ref({}), M1Option:ref({})};
+    return { lPreStockDataOption, rowslimitup:ref(), rowslimitdown:ref(), rowsnegative:ref(), rowshigh:ref(), rowstop20:ref(), columnslimitup, columnstop20, columnstart, columnsins, columnstock, rowsmiddle:ref(), rowslow:ref(), ones:ref(), twos:ref(), three:ref(), tab: ref('start'), emote:ref(), loading:ref(), rowstart:ref(), rowsins:ref(), rowstock:ref(), date:ref(), M3Option:ref({}), M2Option:ref({}), M1Option:ref({}), M0Option:ref({})};
       
   }
 });
