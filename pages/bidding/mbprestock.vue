@@ -111,7 +111,58 @@
       </div>
 
       <q-separator inset spaced />
+      <div class="flex-break"></div>
 
+       <div class="row bg-grey-1" v-if="loading">
+        <!-- 市场资金 -->
+        <div class="col-12 col-md">
+          <div class="divide-y divide-dashed w-full">
+            <v-chart class="chart" :option="M4Option" autoresize/>
+          </div>
+
+          <div class="text-body2 q-pa-sm">
+            <div v-if="this.M0Option.M4.up.length > 0">
+              一字涨停：<br />
+              <ul>
+                <li v-for="item in this.M0Option.M4.up" :key="item.id">
+                {{ item }}
+                </li>
+              </ul>
+            </div>
+            <div v-if="this.M0Option.M4.do.length > 0">
+              一字跌停：<br />
+              <ul>
+                <li v-for="item in this.M0Option.M4.do" :key="item.id">
+                {{ item }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md">
+          <div class="text-h6 q-pa-sm"> 非情绪涨跌停</div>
+          <div class="text-body2 q-pa-sm">
+            <div v-if="this.M0Option.M0.up.length > 0">
+              一字涨停：<br />
+              <ul>
+                <li v-for="item in this.M0Option.M0.up" :key="item.id">
+                {{ item }}
+                </li>
+              </ul>
+            </div>
+            <div v-if="this.M0Option.M0.do.length > 0">
+              一字跌停：<br />
+              <ul>
+                <li v-for="item in this.M0Option.M0.do" :key="item.id">
+                {{ item }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md">
+        </div>
+      </div>
 
 
       <div class="text-h6 q-pa-sm" id="竞价情况">竞价情况 <q-badge outline color="primary" align="top" > {{this.date}} 09:28 更新</q-badge></div>
@@ -509,8 +560,18 @@ export default({
           
         })
 
-      const res4 = await http.get('https://stock.1dian.site/h5/data/stock_open_M_list.json', {})
-      this.M0Option = res4.data.data
+      const res4 = await http.get('https://stock.1dian.site/h5/data/stock_open_m4.json', {})
+      this.M4Option = JSON.parse(JSON.stringify(res4.data), function (key, v) {
+             if (key === "formatter" && v.indexOf("function")  > -1) {
+                 return eval("(" + v + ")");
+             } else {
+                 return v;
+             }
+          
+        })
+
+      const res5 = await http.get('https://stock.1dian.site/h5/data/stock_open_M_list.json', {})
+      this.M0Option = res5.data.data
 
       console.log(this.M0Option)
 
@@ -663,7 +724,7 @@ export default({
 
 
     
-    return { lPreStockDataOption, rowslimitup:ref(), rowslimitdown:ref(), rowsnegative:ref(), rowshigh:ref(), rowstop20:ref(), columnslimitup, columnstop20, columnstart, columnsins, columnstock, rowsmiddle:ref(), rowslow:ref(), ones:ref(), twos:ref(), three:ref(), tab: ref('start'), emote:ref(), loading:ref(), rowstart:ref(), rowsins:ref(), rowstock:ref(), date:ref(), M3Option:ref({}), M2Option:ref({}), M1Option:ref({}), M0Option:ref({})};
+    return { lPreStockDataOption, rowslimitup:ref(), rowslimitdown:ref(), rowsnegative:ref(), rowshigh:ref(), rowstop20:ref(), columnslimitup, columnstop20, columnstart, columnsins, columnstock, rowsmiddle:ref(), rowslow:ref(), ones:ref(), twos:ref(), three:ref(), tab: ref('start'), emote:ref(), loading:ref(), rowstart:ref(), rowsins:ref(), rowstock:ref(), date:ref(), M3Option:ref({}), M2Option:ref({}), M1Option:ref({}), M4Option:ref({}), M0Option:ref({})};
       
   }
 });
