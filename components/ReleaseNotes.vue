@@ -7,7 +7,11 @@
     <q-separator />
 
     <q-card-section style="max-height: 50vh" class="scroll">
-      
+       <p class="text-weight-bold">v 3.2.8.1130</p>
+      <p>- 新增：竞价-情绪反馈-市场温度计。<br />
+        - 调整：竞价-行业统计<br />
+        - 调整：竞价-前200叠加。
+      </p>
       <p class="text-weight-bold">v 3.2.7.1122</p>
       <p>- 调整：盘中-实时市场-市场温度计，调整开板率为封成率，重新计算市场温度，保持正反馈统计的一致性。<br />
         - 调整：盘中-实时市场-情绪指数，新增退潮涨跌曲线。<br />
