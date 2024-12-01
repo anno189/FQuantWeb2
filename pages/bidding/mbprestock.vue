@@ -670,6 +670,9 @@ export default({
       { name: '涨幅', align: 'right', label: '涨幅', field: 'orate_200', sortable: true },
       { name: '200多头', align: 'right', label: '200多头', field: 'count_up', sortable: true },
       { name: '涨幅', align: 'right', label: '涨幅', field: 'orate_up', sortable: true },
+      { name: '高标', align: 'right', label: '高标', field: 'm3mean', sortable: true },
+      { name: '中位', align: 'right', label: '中位', field: 'm2mean', sortable: true },
+      { name: '低位', align: 'right', label: '低位', field: 'm1mean', sortable: true },
     ]);
 
     
