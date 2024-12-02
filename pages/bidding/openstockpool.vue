@@ -3,7 +3,20 @@
   <div class="text-h6 q-pa-sm" id="全部">全部</div>
   <div class="col-12">
     <div class="q-pa-sm">
+      {{ n0 }}
+    </div>
+  </div>
+  <div class="text-h6 q-pa-sm" id="推荐一">推荐一</div>
+  <div class="col-12">
+    <div class="q-pa-sm">
       {{ n1 }}
+    </div>
+  </div>
+  <q-separator inset spaced/>
+  <div class="text-h6 q-pa-sm" id="推荐二">推荐二</div>
+  <div class="col-12">
+    <div class="q-pa-sm">
+      {{ n2 }}
     </div>
   </div>
   <q-separator inset spaced/>
@@ -58,12 +71,15 @@ export default defineComponent({
       const res1 = await http.get('https://stock.1dian.site/h5/data/stockopenstatus.json', {})
       const store = useAlinksStore()
       const alinks = new Array()
-      alinks.push('全部')
+      alinks.push('推荐一')
+      alinks.push('推荐二')
       alinks.push('概念一')
       alinks.push('概念二')
 
       this.data = res1.data
+      this.n0 = res1.data.n0.name
       this.n1 = res1.data.n1.name
+      this.n2 = res1.data.n2.name
       this.h1 = res1.data.h1.name
       this.h2 = res1.data.h2.name
       
