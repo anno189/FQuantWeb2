@@ -10,10 +10,24 @@
     active-class="my-menu-link"
     to="/bidding/mbprestock" exact>
     <q-item-section>
-      <q-item-label>竞价结果</q-item-label>
+      <q-item-label>竞价概况</q-item-label>
       <q-item-label overline>9:26</q-item-label>
       <q-item-label caption>- 汇总集合竞价情况。
       </q-item-label>
+    </q-item-section>
+  </q-item>
+  <q-separator />
+
+  <q-item 
+    clickable
+    v-ripple
+    :active="link === 'emotionlhbliopen'"
+    @click="link = 'emotionlhbliopen'"
+    active-class="my-menu-link"
+    to="/bidding/openstockpool" exact>
+    <q-item-section>
+      <q-item-label>竞价池</q-item-label>
+      <q-item-label overline>每日 09:28 更新</q-item-label>
     </q-item-section>
   </q-item>
   <q-separator />
