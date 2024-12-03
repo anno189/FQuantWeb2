@@ -20,6 +20,17 @@
     </div>
   </div>
   <q-separator inset spaced/>
+  
+  <div v-if="n3 != ''">
+    <div class="text-h6 q-pa-sm" id="叠加">叠加</div>
+    <div class="col-12">
+      <div class="q-pa-sm">
+        {{ n3 }}
+      </div>
+    </div>
+    <q-separator inset spaced/>
+  </div>
+
   <div class="text-h6 q-pa-sm" id="概念一">概念一（{{h1ins}}（{{h1count}}））</div>
   <div class="col-12">
     <div class="q-pa-sm">
@@ -87,6 +98,7 @@ export default defineComponent({
       const alinks = new Array()
       alinks.push('推荐一')
       alinks.push('推荐二')
+      alinks.push('叠加')
       alinks.push('概念一')
       alinks.push('概念二')
       alinks.push('概念三')
@@ -95,6 +107,7 @@ export default defineComponent({
       this.n0 = res1.data.n0.name
       this.n1 = res1.data.n1.name
       this.n2 = res1.data.n2.name
+      this.n3 = res1.data.n3.name
       this.h1name = res1.data.h1.name
       this.h2name = res1.data.h2.name
       this.h3name = res1.data.h3.name
