@@ -20,22 +20,36 @@
     </div>
   </div>
   <q-separator inset spaced/>
-  <div class="text-h6 q-pa-sm" id="概念一">概念一</div>
+  <div class="text-h6 q-pa-sm" id="概念一">概念一（{{h1ins}}（{{h1count}}））</div>
   <div class="col-12">
     <div class="q-pa-sm">
-      {{ h1 }}
+      {{ h1name }}
     </div>
   </div>
   <q-separator inset spaced/>
 
-  <div class="text-h6 q-pa-sm" id="概念二">概念二</div>
-  <div class="col-12">
-    <div class="q-pa-sm">
-      {{ h2 }}
+  <div v-if="h2count > 0">
+
+    <div class="text-h6 q-pa-sm" id="概念二">概念二（{{h2ins}}（{{h2count}}））</div>
+    <div class="col-12">
+      <div class="q-pa-sm">
+        {{ h2name }}
+      </div>
     </div>
+
+    <q-separator inset spaced/>
   </div>
 
-  <q-separator inset spaced/>
+  <div v-if="h3count > 0">
+    <div class="text-h6 q-pa-sm" id="概念三">概念三（{{h3ins}}（{{h3count}}））</div>
+    <div class="col-12">
+      <div class="q-pa-sm">
+        {{ h3name }}
+      </div>
+    </div>
+
+    <q-separator inset spaced/>
+  </div>
 
   <template v-for="item in data.ins" v-if="loading">
     <div class="text-h6 q-pa-sm" :id="item.insname+'('+item.upcount+')'"> {{ item.insname }}({{item.upcount}})</div>
@@ -75,13 +89,21 @@ export default defineComponent({
       alinks.push('推荐二')
       alinks.push('概念一')
       alinks.push('概念二')
+      alinks.push('概念三')
 
       this.data = res1.data
       this.n0 = res1.data.n0.name
       this.n1 = res1.data.n1.name
       this.n2 = res1.data.n2.name
-      this.h1 = res1.data.h1.name
-      this.h2 = res1.data.h2.name
+      this.h1name = res1.data.h1.name
+      this.h2name = res1.data.h2.name
+      this.h3name = res1.data.h3.name
+      this.h1ins = res1.data.h1.insname
+      this.h2ins = res1.data.h2.insname
+      this.h3ins = res1.data.h3.insname
+      this.h1count = res1.data.h1.count
+      this.h2count = res1.data.h2.count
+      this.h3count = res1.data.h3.count
       
       for (let j = 0; j < this.data.ins.length; j++){
         for (let i = 0; i <  this.data.ins[j].code.length; i++) {
@@ -103,7 +125,7 @@ export default defineComponent({
   },
 
   setup () {
-    return { n1:ref(), data:ref(), loading:ref()};
+    return { h1: ref(), h2:ref(), h3:ref(), data:ref(), loading:ref()};
   }
 });
 
