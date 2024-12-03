@@ -7,7 +7,10 @@
     <q-separator />
 
     <q-card-section style="max-height: 50vh" class="scroll">
-       <p class="text-weight-bold">v 3.2.8.1130</p>
+      <p class="text-weight-bold">v 3.2.9.1203</p>
+      <p>- 新增：竞价-竞价池
+      </p>
+      <p class="text-weight-bold">v 3.2.8.1130</p>
       <p>- 新增：竞价-情绪反馈-市场温度计。<br />
         - 调整：竞价-行业统计<br />
         - 调整：竞价-前200叠加。
