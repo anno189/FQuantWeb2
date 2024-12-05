@@ -78,9 +78,13 @@ export default defineComponent({
           else if ( colz[i] == 'code')
             columnsz[i] = { name: colz[i], align: 'left', label: '代码', field: colz[i], sortable: false}
           else if ( colz[i] == 'liutongshizhi')
-            columnsz[i] = { name: colz[i], align: 'left', label: '市值', field: colz[i], sortable: false}
+            columnsz[i] = { name: colz[i], align: 'left', label: '市值', field: colz[i], sortable: true}
           else if ( colz[i] == 'time')
-            columnsz[i] = { name: colz[i], align: 'left', label: '时间', field: colz[i], sortable: false}
+            columnsz[i] = { name: colz[i], align: 'left', label: '时间', field: colz[i], sortable: true}
+          else if ( colz[i] == 'hcount')
+            columnsz[i] = { name: colz[i], align: 'left', label: '高度', field: colz[i], sortable: true}
+          else if ( colz[i] == 'memos')
+            columnsz[i] = { name: colz[i], align: 'left', label: '备注', field: colz[i], sortable: true}
           else
             columnsz[i] = { name: colz[i], align: 'left', label: colz[i], field: colz[i], sortable: false}
         }
