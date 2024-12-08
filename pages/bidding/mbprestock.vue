@@ -164,6 +164,33 @@
         </div>
       </div>
 
+      <div class="text-h6 q-pa-sm" id="竞价统计">竞价统计 <q-badge outline color="primary" align="top" > {{this.date}} 09:28 更新</q-badge></div>
+
+      <div>
+        <div class="col-12" v-if="this.rowstockopen">
+          <div class="q-pa-sm">
+            <q-table
+              class="my-sticky-column-table"
+              dense
+              bordered
+              :rows="rowstockopen"
+              :columns="columnstockopen"
+              :rows-per-page-options="[10000]"
+              row-key="name"
+            >
+              <template v-slot:body-cell="props">
+                <q-td
+                  :props="props"
+                  :class="(props.row.t_ == '今日开盘跌停' | props.row.t_ == '退潮' | props.row.t_ == '昨日回撤')?'bg-green-1':(props.row.t_ == '低位' | props.row.t_ == '中位' | props.row.t_ == '高位')?'bg-red-1':(props.row.t_ == '竞价涨幅' | props.row.t_ == '昨日涨停' | props.row.t_ == '今日开盘涨停' )?'bg-red-2':''"
+                >
+                  {{props.value}}
+                </q-td>
+              </template>
+            </q-table>
+          </div>
+        </div>
+      </div>
+      <q-separator inset spaced/>
 
       <div class="text-h6 q-pa-sm" id="竞价情况">竞价情况 <q-badge outline color="primary" align="top" > {{this.date}} 09:28 更新</q-badge></div>
          
@@ -182,14 +209,10 @@
             </q-table>
           </div>
         </div>
-
-        
       </div>
-
       <q-separator inset spaced/>
 
       <div>
-
         <div class="text-h6 q-pa-sm" id="前200板块统计">前200板块统计 <q-badge outline color="primary" align="top" > {{this.date}} 09:28 更新</q-badge></div>
             
         <div class="col-12" v-if="this.rowsins">
@@ -573,7 +596,6 @@ export default({
       const res5 = await http.get('https://stock.1dian.site/h5/data/stock_open_M_list.json', {})
       this.M0Option = res5.data.data
 
-      console.log(this.M0Option)
 
       const response = await http.get('https://stock.1dian.site//h5/data/mbprestockdata.json', {})
       this.three = response.data.three
@@ -598,14 +620,21 @@ export default({
 
       this.date = response.data.date
 
-      this.loading = true  
 
       const responsestart = await http.get('https://stock.1dian.site//h5/data/openstatus.json', {})
       
       this.rowstart = responsestart.data.data
       this.rowsins = responsestart.data.ins
       this.rowstock = responsestart.data.stocks
-      
+
+      const responsestockopen = await http.get('https://stock.1dian.site//h5/data/openstatus1.json', {})
+      this.rowstockopen = responsestockopen.data.data
+
+      console.log(this.rowstart)
+      console.log(this.rowstockopen)
+
+      this.loading = true 
+
     }
   },
 
@@ -648,6 +677,25 @@ export default({
             { name:'一字撮合', type:'line', ymbol:'none', data:[], },
           ]
     });
+
+    const columnstockopen = ref([
+      { name: '分类', align: 'left', label: '分类', field: 't_', sortable: false},
+      { name: '交通运输', align: 'right', label: '交通运输', field: '交通运输', sortable: true},
+      { name: 'AI', align: 'right', label: 'AI', field: 'AI', sortable: true},
+      { name: '医疗健康', align: 'right', label: '医疗健康', field: '医疗健康', sortable: true },
+      { name: '地产', align: 'right', label: '地产', field: '地产', sortable: true },
+      { name: '数据', align: 'right', label: '数据', field: '数据', sortable: true },
+      { name: '新基建', align: 'right', label: '新基建', field: '新基建', sortable: true },
+      { name: '新材料', align: 'right', label: '新材料', field: '新材料', sortable: true },
+      { name: '新能源', align: 'right', label: '新能源', field: '新能源', sortable: true },
+      { name: '智能设备', align: 'right', label: '智能设备', field: '智能设备', sortable: true },
+      { name: '消费', align: 'right', label: '消费', field: '消费', sortable: true },
+      { name: '消费电子', align: 'right', label: '消费电子', field: '地产', sortable: true },
+      { name: '环保', align: 'right', label: '环保', field: '环保', sortable: true },
+      { name: '能源', align: 'right', label: '能源', field: '能源', sortable: true },
+      { name: '装备', align: 'right', label: '装备', field: '装备', sortable: true },
+      { name: '金融', align: 'right', label: '金融', field: '金融', sortable: true },
+    ]);
 
     const columnstart = ref([
       { name: '分类', align: 'left', label: '分类', field: 'type_', sortable: false},
@@ -727,7 +775,7 @@ export default({
 
 
     
-    return { lPreStockDataOption, rowslimitup:ref(), rowslimitdown:ref(), rowsnegative:ref(), rowshigh:ref(), rowstop20:ref(), columnslimitup, columnstop20, columnstart, columnsins, columnstock, rowsmiddle:ref(), rowslow:ref(), ones:ref(), twos:ref(), three:ref(), tab: ref('start'), emote:ref(), loading:ref(), rowstart:ref(), rowsins:ref(), rowstock:ref(), date:ref(), M3Option:ref({}), M2Option:ref({}), M1Option:ref({}), M4Option:ref({}), M0Option:ref({})};
+    return { lPreStockDataOption, rowslimitup:ref(), rowslimitdown:ref(), rowsnegative:ref(), rowshigh:ref(), rowstop20:ref(), columnslimitup, columnstop20, columnstart, columnsins, columnstock, rowsmiddle:ref(), rowslow:ref(), ones:ref(), twos:ref(), three:ref(), tab: ref('start'), emote:ref(), loading:ref(), rowstart:ref(), rowsins:ref(), rowstock:ref(), date:ref(), M3Option:ref({}), M2Option:ref({}), M1Option:ref({}), M4Option:ref({}), M0Option:ref({}), columnstockopen, rowstockopen:ref()};
       
   }
 });
