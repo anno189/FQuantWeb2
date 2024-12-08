@@ -680,21 +680,22 @@ export default({
 
     const columnstockopen = ref([
       { name: '分类', align: 'left', label: '分类', field: 't_', sortable: false},
-      { name: '交通运输', align: 'right', label: '交通运输', field: '交通运输', sortable: true},
       { name: 'AI', align: 'right', label: 'AI', field: 'AI', sortable: true},
-      { name: '医疗健康', align: 'right', label: '医疗健康', field: '医疗健康', sortable: true },
-      { name: '地产', align: 'right', label: '地产', field: '地产', sortable: true },
       { name: '数据', align: 'right', label: '数据', field: '数据', sortable: true },
-      { name: '新基建', align: 'right', label: '新基建', field: '新基建', sortable: true },
-      { name: '新材料', align: 'right', label: '新材料', field: '新材料', sortable: true },
-      { name: '新能源', align: 'right', label: '新能源', field: '新能源', sortable: true },
       { name: '智能设备', align: 'right', label: '智能设备', field: '智能设备', sortable: true },
-      { name: '消费', align: 'right', label: '消费', field: '消费', sortable: true },
       { name: '消费电子', align: 'right', label: '消费电子', field: '地产', sortable: true },
-      { name: '环保', align: 'right', label: '环保', field: '环保', sortable: true },
-      { name: '能源', align: 'right', label: '能源', field: '能源', sortable: true },
       { name: '装备', align: 'right', label: '装备', field: '装备', sortable: true },
       { name: '金融', align: 'right', label: '金融', field: '金融', sortable: true },
+      { name: '新材料', align: 'right', label: '新材料', field: '新材料', sortable: true },
+      { name: '新能源', align: 'right', label: '新能源', field: '新能源', sortable: true },
+      { name: '消费', align: 'right', label: '消费', field: '消费', sortable: true },
+      { name: '新基建', align: 'right', label: '新基建', field: '新基建', sortable: true },
+      { name: '医疗健康', align: 'right', label: '医疗健康', field: '医疗健康', sortable: true },
+      { name: '地产', align: 'right', label: '地产', field: '地产', sortable: true },
+      { name: '环保', align: 'right', label: '环保', field: '环保', sortable: true },
+      { name: '能源', align: 'right', label: '能源', field: '能源', sortable: true },
+      { name: '交通运输', align: 'right', label: '交通运输', field: '交通运输', sortable: true},
+      
     ]);
 
     const columnstart = ref([
