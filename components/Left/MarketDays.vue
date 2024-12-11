@@ -16,7 +16,21 @@
       <q-item-label caption>- 实时统计市场状况，指数类每分钟更新，其余统计根据情况每5分钟、每15分钟或每30分钟更新</q-item-label>
     </q-item-section>
   </q-item>
+  <q-separator />
 
+  <q-item 
+    clickable
+    v-ripple
+    :active="link === 'emotionruntime'"
+    @click="link = 'emotionruntime'"
+    active-class="my-menu-link"
+    to="/emotion/runtime" exact>
+    <q-item-section>
+      <q-item-label>盘中涨停</q-item-label>
+      <q-item-label overline>9:30 - 15:00</q-item-label>
+      <q-item-label caption>- 统计盘中涨停时间和概念分类</q-item-label>
+    </q-item-section>
+  </q-item>
   <q-separator />
 
   <q-item 
@@ -32,7 +46,6 @@
       <q-item-label caption>- 统计高标、涨跌停情况，反应当天市场情绪，每分钟更新</q-item-label>
     </q-item-section>
   </q-item>
-
   <q-separator />
 
   <q-item 
@@ -48,7 +61,6 @@
       <q-item-label caption>- 统计宽指、行业，每分钟更新</q-item-label>
     </q-item-section>
   </q-item>
-
   <q-separator />
   <!--
   <q-item 
