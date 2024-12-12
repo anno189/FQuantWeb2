@@ -9,7 +9,6 @@
           <div class="text-body2 q-pa-sm">
             <b>9:25 竞价结束：</b><br />
             - 撮合成交：{{three.allamount}}亿<br />
-            
             <q-separator spaced/>
 
             <b>9:25 竞价一字：</b><br />
@@ -17,8 +16,11 @@
             - 涨停封单：{{three.fd}}亿<br />
             - 涨停列表：{{three.lists0}}<br />
             - ST：{{three.lists1}}<br />
-
             <q-separator spaced/>
+            - 离群：{{awaycrowds.lists1}}<br />
+            - 概念：{{awaycrowds.lists2}}<br />
+            <q-separator spaced/>
+
             - 一字跌停：{{three.lists2}}<br />
           </div>
         </div>
@@ -599,6 +601,9 @@ export default({
 
       const response = await http.get('https://stock.1dian.site//h5/data/mbprestockdata.json', {})
       this.three = response.data.three
+      this.awaycrowds = response.data.awaycrowds
+
+      console.log(this.awaycrowds)
 
       this.rowslimitup = response.data.lists.limitup
       this.rowslimitdown = response.data.lists.limitdown
@@ -629,9 +634,6 @@ export default({
 
       const responsestockopen = await http.get('https://stock.1dian.site//h5/data/openstatus1.json', {})
       this.rowstockopen = responsestockopen.data.data
-
-      console.log(this.rowstart)
-      console.log(this.rowstockopen)
 
       this.loading = true 
 
@@ -776,7 +778,7 @@ export default({
 
 
     
-    return { lPreStockDataOption, rowslimitup:ref(), rowslimitdown:ref(), rowsnegative:ref(), rowshigh:ref(), rowstop20:ref(), columnslimitup, columnstop20, columnstart, columnsins, columnstock, rowsmiddle:ref(), rowslow:ref(), ones:ref(), twos:ref(), three:ref(), tab: ref('start'), emote:ref(), loading:ref(), rowstart:ref(), rowsins:ref(), rowstock:ref(), date:ref(), M3Option:ref({}), M2Option:ref({}), M1Option:ref({}), M4Option:ref({}), M0Option:ref({}), columnstockopen, rowstockopen:ref()};
+    return { lPreStockDataOption, rowslimitup:ref(), rowslimitdown:ref(), rowsnegative:ref(), rowshigh:ref(), rowstop20:ref(), columnslimitup, columnstop20, columnstart, columnsins, columnstock, rowsmiddle:ref(), rowslow:ref(), ones:ref(), twos:ref(), three:ref(), awaycrowds:ref(), tab: ref('start'), emote:ref(), loading:ref(), rowstart:ref(), rowsins:ref(), rowstock:ref(), date:ref(), M3Option:ref({}), M2Option:ref({}), M1Option:ref({}), M4Option:ref({}), M0Option:ref({}), columnstockopen, rowstockopen:ref()};
       
   }
 });
