@@ -18,7 +18,8 @@
             - ST：{{three.lists1}}<br />
             <q-separator spaced/>
             - 离群：{{awaycrowds.lists1}}<br />
-            - 概念：{{awaycrowds.lists2}}<br />
+            - 首板：{{awaycrowds.lists2}}<br />
+            - 概念：{{awaycrowds.lists3}}<br />
             <q-separator spaced/>
 
             - 一字跌停：{{three.lists2}}<br />
