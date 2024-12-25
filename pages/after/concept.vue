@@ -17,7 +17,7 @@
             <template v-slot:body-cell="props">
               <q-td
                 :props="props"
-                :class="(props.row.Today == '看多')?'bg-red-3':(props.row.Today == '高位整理')?'bg-red-1':(props.row.Today == '震荡上行')?'bg-red-2':(props.row.Today == '看空, 量能不足, 空')?'bg-green-3':(props.row.Today == '震荡下行')?'bg-green-2':(props.row.Today == '低位整理')?'bg-green-1':''"
+                :class="(props.row.Today == '看多')?'bg-red-3':(props.row.Today == '高位整理')?'bg-red-1':(props.row.Today == '震荡上行')?'bg-red-2':(props.row.Today == '看空, 量能不足, 空')?'bg-green-3':(props.row.Today == '震荡下行, 量能不足, 空')?'bg-green-2':(props.row.Today == '高位整理, 量能不足, 空')?'bg-green-1':''"
               >
                 {{props.value}}
               </q-td>
