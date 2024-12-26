@@ -153,6 +153,11 @@
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+        <div class="col-12 col-md">
+          <div class="text-body2 q-pa-sm">
+            <div class="text-h6 q-pa-sm"></div>
             <div v-if="this.M0Option.M0.do.length > 0">
               一字跌停：<br />
               <ul>
@@ -162,8 +167,6 @@
               </ul>
             </div>
           </div>
-        </div>
-        <div class="col-12 col-md">
         </div>
       </div>
 
