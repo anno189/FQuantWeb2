@@ -686,6 +686,9 @@ export default({
 
     const columnstockopen = ref([
       { name: '分类', align: 'left', label: '分类', field: 't_', sortable: false},
+      { name: 'T0', align: 'right', label: '概念一', field: 'T0', sortable: true},
+      { name: 'T1', align: 'right', label: '概念二', field: 'T1', sortable: true},
+      { name: 'T2', align: 'right', label: '概念三', field: 'T2', sortable: true},
       { name: 'AI', align: 'right', label: 'AI', field: 'AI', sortable: true},
       { name: '数据', align: 'right', label: '数据', field: '数据', sortable: true },
       { name: '智能设备', align: 'right', label: '智能设备', field: '智能设备', sortable: true },
