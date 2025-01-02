@@ -183,7 +183,27 @@
               :columns="columnstockopen"
               :rows-per-page-options="[10000]"
               row-key="name"
-            >
+              :visible-columns="visibleColumns"
+            > 
+              <template v-slot:top>
+                <q-space />
+                <q-select
+                  v-model="visibleColumns"
+                  multiple
+                  outlined
+                  dense
+                  options-dense
+                  :display-value="$q.lang.table.columns"
+                  emit-value
+                  map-options
+                  :options="columnstockopen"
+                  option-value="name"
+                  options-cover
+                  style="min-width: 150px"
+                />
+                <q-space />
+              </template>
+
               <template v-slot:body-cell="props">
                 <q-td
                   :props="props"
@@ -692,15 +712,14 @@ export default({
       { name: 'AI', align: 'right', label: 'AI', field: 'AI', sortable: true},
       { name: '数据', align: 'right', label: '数据', field: '数据', sortable: true },
       { name: '智能设备', align: 'right', label: '智能设备', field: '智能设备', sortable: true },
-      { name: '消费电子', align: 'right', label: '消费电子', field: '地产', sortable: true },
+      { name: '消费电子', align: 'right', label: '消费电子', field: '消费电子', sortable: true },
       { name: '装备', align: 'right', label: '装备', field: '装备', sortable: true },
       { name: '金融', align: 'right', label: '金融', field: '金融', sortable: true },
       { name: '新材料', align: 'right', label: '新材料', field: '新材料', sortable: true },
       { name: '新能源', align: 'right', label: '新能源', field: '新能源', sortable: true },
       { name: '消费', align: 'right', label: '消费', field: '消费', sortable: true },
-      { name: '新基建', align: 'right', label: '新基建', field: '新基建', sortable: true },
+      { name: '基建', align: 'right', label: '基建', field: '基建', sortable: true },
       { name: '医疗健康', align: 'right', label: '医疗健康', field: '医疗健康', sortable: true },
-      { name: '地产', align: 'right', label: '地产', field: '地产', sortable: true },
       { name: '环保', align: 'right', label: '环保', field: '环保', sortable: true },
       { name: '能源', align: 'right', label: '能源', field: '能源', sortable: true },
       { name: '交通运输', align: 'right', label: '交通运输', field: '交通运输', sortable: true},
@@ -785,8 +804,7 @@ export default({
 
 
     
-    return { lPreStockDataOption, rowslimitup:ref(), rowslimitdown:ref(), rowsnegative:ref(), rowshigh:ref(), rowstop20:ref(), columnslimitup, columnstop20, columnstart, columnsins, columnstock, rowsmiddle:ref(), rowslow:ref(), ones:ref(), twos:ref(), three:ref(), awaycrowds:ref(), tab: ref('start'), emote:ref(), loading:ref(), rowstart:ref(), rowsins:ref(), rowstock:ref(), date:ref(), M3Option:ref({}), M2Option:ref({}), M1Option:ref({}), M4Option:ref({}), M0Option:ref({}), columnstockopen, rowstockopen:ref()};
-      
+    return { lPreStockDataOption, rowslimitup:ref(), rowslimitdown:ref(), rowsnegative:ref(), rowshigh:ref(), rowstop20:ref(), columnslimitup, columnstop20, columnstart, columnsins, columnstock, rowsmiddle:ref(), rowslow:ref(), ones:ref(), twos:ref(), three:ref(), awaycrowds:ref(), tab: ref('start'), emote:ref(), loading:ref(), rowstart:ref(), rowsins:ref(), rowstock:ref(), date:ref(), M3Option:ref({}), M2Option:ref({}), M1Option:ref({}), M4Option:ref({}), M0Option:ref({}), columnstockopen, rowstockopen:ref(), visibleColumns: ref(['分类', 'T0', 'T1', 'T2', 'AI', '数据', '智能设备', '智能设备', '消费电子', '装备', '金融', '新材料', '新能源', '消费', '基建', '医疗健康', '环保', '能源', '交通运输'])};      
   }
 });
 </script>
