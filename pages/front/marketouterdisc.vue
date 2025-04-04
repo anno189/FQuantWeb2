@@ -80,17 +80,10 @@ export default defineComponent({
   },
   
   setup () {
-    const OUTINDEX = ['100.DJIA', '107.SPY', '100.NDX', '251.HXC', '107.YANG', '100.N225', '100.GDAXI']
+    const OUTINDEX = ['100.DJIA', '100.SPX', '100.NDX', '251.HXC', '107.YANG', '100.N225', '100.GDAXI']
     const OUT001 = ['105.NVDA', '105.AAPL', '105.MSFT', '105.GOOG', '105.AMZN', '105.TSLA', '105.META']
-    const OUT002 = ['102.CL00Y', '101.GC00Y']
+    const OUT002 = ['102.CL00Y', '112.M00Y', '101.GC00Y', '101.SI00Y', '100.BDI']
     const OUT003 = ['100.UDI', '133.USDCNH', '119.USDJPY']
-
-    /*
-    for (let i = 0; i <  OUTINDEX.length; i++) {
-          OUTINDEX[i] = "https://webquotepic.eastmoney.com/GetPic.aspx?imageType=WAPINDEX2&nid="+OUTINDEX[i]
-          console.log(OUTINDEX[i])
-        }
-    */
 
     return { loading:ref(), OUTINDEX, OUT001, OUT002, OUT003};
   }
