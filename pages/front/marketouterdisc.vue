@@ -80,7 +80,7 @@ export default defineComponent({
   },
   
   setup () {
-    const OUTINDEX = ['100.DJIA', '100.SPX', '100.NDX', '251.HXC', '107.YANG', '107.VIXY', '100.N225', '100.GDAXI']
+    const OUTINDEX = ['100.DJIA', '100.SPX', '100.NDX', '251.HXC', '107.YANG', '107.VIXY', '100.N225', '100.GDAXI', '103.YM00Y', '103.ES00Y', '103.NQ00Y']
     const OUT001 = ['105.NVDA', '105.AAPL', '105.MSFT', '105.GOOGL', '105.META',  '105.AMZN', '105.TSLA', '106.BRK_B', '106.LLY']
     const OUT002 = ['102.CL00Y', '102.NG00Y', '101.GC00Y', '101.SI00Y', '101.HG00Y', '100.BDI', '100.CRB']
     const OUT003 = ['100.UDI', '133.USDCNH', '119.USDJPY', '119.USDEUR', '103.FV00Y', '103.TY00Y']
