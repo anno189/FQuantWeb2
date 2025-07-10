@@ -4,18 +4,18 @@
     <div class="col-12 col-md" v-if="loading">
       <div class="text-body2 q-pa-sm">
         <b>风险：</b><br />
-        - 东方财富: {{ warn.east}}<br />
-        - 开源证券: {{ warn.kaiyuan}}<br />
-        - 量化基金: {{ warn.lianghuajj}}<br />
-        - 量化打板: {{ warn.lianghuadb}}<br />
-        - 独占: {{ warn.duzhan}}<br />
+        - <b>东方财富:</b> {{ warn.east}}<br />
+        - <b>开源证券:</b> {{ warn.kaiyuan}}<br />
+        - <b>量化基金:</b> {{ warn.lianghuajj}}<br />
+        - <b>量化打板:</b> {{ warn.lianghuadb}}<br />
+        - <b>独占:</b> {{ warn.duzhan}}<br />
         <q-separator spaced/>
         <b>游资：</b><br />
         - <span class="text-green">桑田路</span>: {{ warn.sangtianlu}}<br />
         - <span class="text-green">朱雀大街</span>: {{ warn.zhuquedajie}}<br />
         - <span class="text-green">上塘路</span>: {{ warn.shangtanglu}}<br />
         - <span class="text-red">中关村大街</span>: {{ warn.zhongguancundajie}}<br />
-        - <span class="text-red">珍珠路</span>: {{ warn.zhenzhulu}}<br />
+        - <span class="text-red">天童南路</span>: {{ warn.tiantongnanlu}}<br />
         - <span class="text-red">太平南路</span>: {{ warn.taipingnanlu}}<br />
         - <span class="text-red">鼓楼南路</span>: {{ warn.gulounanlu}}<br />
         - <span class="text-red">和源路</span>: {{ warn.heyuanlu}}<br />
