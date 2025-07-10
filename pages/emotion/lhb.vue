@@ -6,7 +6,8 @@
         <b>风险：</b><br />
         - 东方财富: {{ warn.east}}<br />
         - 开源证券: {{ warn.kaiyuan}}<br />
-        - 量化: {{ warn.lianghua}}<br />
+        - 量化基金: {{ warn.lianghuajj}}<br />
+        - 量化打板: {{ warn.lianghuadb}}<br />
         - 独占: {{ warn.duzhan}}<br />
         <q-separator spaced/>
         <b>游资：</b><br />
