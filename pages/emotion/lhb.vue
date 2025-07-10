@@ -19,6 +19,8 @@
         - <span class="text-red">太平南路(新一)</span>: {{ warn.taipingnanlu}}<br />
         - <span class="text-red">中山东路</span>: {{ warn.zhongshandonglu}}<br />
         - <span class="text-red">和源路</span>: {{ warn.heyuanlu}}<br />
+        - <span class="text-red">中泰湖北</span>: {{ warn.zhongtaihubei}}<br />
+        
         <q-separator spaced/>
         <b>负反馈：</b><br />
         {{ warn.fufankui }}<br />
