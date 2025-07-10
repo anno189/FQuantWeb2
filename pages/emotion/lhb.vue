@@ -16,8 +16,8 @@
         - <span class="text-green">上塘路</span>: {{ warn.shangtanglu}}<br />
         - <span class="text-red">中关村大街</span>: {{ warn.zhongguancundajie}}<br />
         - <span class="text-red">天童南路</span>: {{ warn.tiantongnanlu}}<br />
-        - <span class="text-red">太平南路</span>: {{ warn.taipingnanlu}}<br />
-        - <span class="text-red">鼓楼南路</span>: {{ warn.gulounanlu}}<br />
+        - <span class="text-red">太平南路(新一)</span>: {{ warn.taipingnanlu}}<br />
+        - <span class="text-red">中山东路</span>: {{ warn.zhongshandonglu}}<br />
         - <span class="text-red">和源路</span>: {{ warn.heyuanlu}}<br />
         <q-separator spaced/>
         <b>负反馈：</b><br />
