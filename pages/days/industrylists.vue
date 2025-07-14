@@ -1,6 +1,31 @@
 <template>
 <q-page style="padding-top: 46px" class="bg-grey-1">
    <q-tab-panels v-model="tab" animated>
+    <q-tab-panel name="limit">
+      <div class="col-12" v-if="rowsLimit">
+        <!-- <div class="text-h6 q-pa-sm">宽指</div> -->
+        <div class="q-pa-sm">
+          <q-table
+            class="my-sticky-column-table"
+            dense
+            bordered
+            :rows="rowsLimit"
+            :columns="columnsLimit"
+            :rows-per-page-options="[10000]"
+            row-key="name"
+          >
+            <template v-slot:body-cell="props">
+            <q-td
+              :props="props"
+              :class="(props.row.scount >= 5)?'bg-green-1':(props.row.bsum > 1000)?'bg-red-4':((props.row.bsum > 500) & (props.row.bcount > 3))?'bg-red-3':(props.row.asum >1500)?'bg-red-2':(props.row.scount <=2)?'bg-red-1':''"
+            >
+              {{props.value}}
+            </q-td>
+          </template>
+        </q-table>
+        </div>
+      </div>
+    </q-tab-panel>
     <q-tab-panel name="index">
       <div class="col-12" v-if="rowsM">
         <!-- <div class="text-h6 q-pa-sm">宽指</div> -->
@@ -92,7 +117,8 @@
           align="justify"
           narrow-indicator
         >
-          <q-tab name="index" label=" 宽指" />
+          <q-tab name="limit" label="涨停" />
+          <q-tab name="index" label="宽指" />
           <q-tab name="industry" label="行业" />
           <q-tab name="concept" label="概念" />
         </q-tabs>
@@ -130,10 +156,13 @@ export default({
     getServerMarketData: async function () {
       let params = {
       }
-      const response = await http.get('https://stock.1dian.site/h5/data/index.json', params)
-      this.rowsI1 = response.data.data.I3.series
-      this.rowsM = response.data.data.M.series;
-      this.rowsCon = response.data.data.con.series;
+      const response0 = await http.get('https://stock.1dian.site/h5/data/index.json', params)
+      this.rowsI1 = response0.data.data.I3.series
+      this.rowsM = response0.data.data.M.series;
+      this.rowsCon = response0.data.data.con.series;
+
+      const response1 = await http.get('https://stock.1dian.site/h5/data/limit_block.json', params)
+      this.rowsLimit = response1.data.data.limit_block
       
     }
   },
@@ -142,6 +171,23 @@ export default({
     const rowsI1 = ref(null);
     const rowsM = ref(null);
     const rowsCon = ref(null);
+    const rowsLimit = ref(null);
+
+    const columnsLimit = ref([
+      { name: '分类', align: 'left', label: '分类', field: 'n1name', sortable: true},
+      { name: '名称', align: 'left', label: '名称', field: 'blockname', sortable: true},
+      { name: '涨停数', align: 'right', label: '涨停数', field: 'acount', sortable: true},
+      { name: '强度', align: 'right', label: '强度', field: 'asum', sortable: true},
+      { name: '平均强度', align: 'right', label: '平均强度', field: 'amean', sortable: true },
+      { name: '连板数', align: 'right', label: '连板数', field: 'bcount', sortable: true },
+      { name: '强度', align: 'right', label: '强度', field: 'bsum', sortable: true},
+      { name: '平均强度', align: 'right', label: '平均强度', field: 'bmean', sortable: true },
+      { name: '首板数', align: 'right', label: '首板数', field: 'ccount', sortable: true },
+      { name: '强度', align: 'right', label: '强度', field: 'csum', sortable: true},
+      { name: '平均强度', align: 'right', label: '平均强度', field: 'cmean', sortable: true },
+      { name: '炸板数', align: 'right', label: '炸板数', field: 'scount', sortable: true },
+      { name: '涨幅', align: 'right', label: '涨幅', field: 'srate', sortable: true },
+    ]);
 
     const columnsM = ref([
       { name: '名称', align: 'left', label: '名称', field: 'name', sortable: true},
@@ -189,7 +235,7 @@ export default({
       { name: '上涨', align: 'right', label: '上涨', field: 'up_count', sortable: true },
       { name: '下跌', align: 'right', label: '下跌', field: 'down_count', sortable: true },
     ]);
-    return { columnsI1, rowsI1, rowsM, columnsM, rowsCon, columnsCon,  tab: ref('index') };
+    return { columnsI1, rowsI1, rowsM, columnsM, rowsCon, columnsCon,  rowsLimit, columnsLimit, tab: ref('limit') };
       
   }
 });
