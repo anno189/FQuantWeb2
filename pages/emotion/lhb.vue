@@ -21,7 +21,8 @@
         - <span class="text-red">和源路</span>: {{ warn.heyuanlu}}<br />
         - <span class="text-red">中泰湖北</span>: {{ warn.zhongtaihubei}}<br />
         - <span class="text-red">章盟主</span>: {{ warn.zhangmengzhu}}<br />
-        
+        - <span class="text-red">陈小群</span>: {{ warn.chenxiaoqun}}<br />
+        - <span class="text-red">光复路</span>: {{ warn.guangfulu}}<br />
         <q-separator spaced/>
         <b>负反馈：</b><br />
         {{ warn.fufankui }}<br />
