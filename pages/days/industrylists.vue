@@ -273,6 +273,12 @@ export default({
 
 </style>
 
+<style scoped>
+.chart {
+  height: 520px;
+}
+</style>
+
 
 
 
