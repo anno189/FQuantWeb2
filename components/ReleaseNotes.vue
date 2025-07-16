@@ -7,8 +7,9 @@
     <q-separator />
 
     <q-card-section style="max-height: 50vh" class="scroll">
-      <p class="text-weight-bold">v 3.2.10.0714</p>
-      <p>- 新增：盘中-板块-涨停
+      <p class="text-weight-bold">v 3.2.10.0716</p>
+      <p>- 新增：盘中-板块-涨停<br />
+        - 调整：情绪-龙虎榜<br />
       </p>
       <p class="text-weight-bold">v 3.2.9.1203</p>
       <p>- 新增：竞价-竞价池
@@ -34,9 +35,7 @@
       </p>
       <p class="text-weight-bold">v 3.2.4.0921</p>
       <p>- 调整：调整页面显示结构，增加文档目录功能，基于Pinia
-      </p>
-      <p class="text-weight-bold">v 3.1.4.0919</p>
-      <p>- 新增：情绪-竞价结果（结合龙虎榜等综合展示）<br />
+        - 新增：情绪-竞价结果（结合龙虎榜等综合展示）<br />
         - 新增：情绪-强势<br />
         - 新增：情绪-盘中涨停
       </p>
@@ -49,9 +48,7 @@
       <p class="text-weight-bold">v 3.1.2.0903</p>
       <p>- 新增：情绪模块<br />
       - 新增：情绪-竞价-竞价放量选出来的标的。<br />
-      </p>
-      <p class="text-weight-bold">v 3.1.1.0901</p>
-      <p>- 新增：情绪模块<br />
+      - 新增：情绪模块<br />
       - 新增：情绪-龙虎榜-根据上板营业部的历史反馈做出统计。<br />
       </p>
       <p class="text-weight-bold">v 3.0.1.0825</p>

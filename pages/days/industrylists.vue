@@ -3,7 +3,7 @@
    <q-tab-panels v-model="tab" animated>
     <q-tab-panel name="limit">
       <div class="col-12" v-if="rowsLimit">
-        <!-- <div class="text-h6 q-pa-sm">宽指</div> -->
+        <!-- <div class="text-h6 q-pa-sm">情绪</div> -->
         <div class="q-pa-sm">
           <q-table
             class="my-sticky-column-table"
@@ -25,6 +25,11 @@
         </q-table>
         </div>
       </div>
+      <q-separator inset spaced />
+      <div class="q-pa-sm">
+        <v-chart class="chart" :option="stocklimiyblockOption" autoresize ref="stocklimiyblockChart"/>
+      </div>
+      
     </q-tab-panel>
     <q-tab-panel name="index">
       <div class="col-12" v-if="rowsM">
@@ -163,6 +168,11 @@ export default({
 
       const response1 = await http.get('https://stock.1dian.site/h5/data/limit_block.json', params)
       this.rowsLimit = response1.data.data.limit_block
+
+      const response2 = await http.get('https://stock.1dian.site/h5/data/limit_block_line.json', params)
+      //console.log(res.data)
+      this.stocklimiyblockOption = response2.data
+
       
     }
   },
@@ -172,6 +182,8 @@ export default({
     const rowsM = ref(null);
     const rowsCon = ref(null);
     const rowsLimit = ref(null);
+    const stocklimiyblockOption = ref({});
+    
 
     const columnsLimit = ref([
       { name: '分类', align: 'left', label: '分类', field: 'n1name', sortable: true},
@@ -235,7 +247,7 @@ export default({
       { name: '上涨', align: 'right', label: '上涨', field: 'up_count', sortable: true },
       { name: '下跌', align: 'right', label: '下跌', field: 'down_count', sortable: true },
     ]);
-    return { columnsI1, rowsI1, rowsM, columnsM, rowsCon, columnsCon,  rowsLimit, columnsLimit, tab: ref('limit') };
+    return { columnsI1, rowsI1, rowsM, columnsM, rowsCon, columnsCon,  rowsLimit, columnsLimit, stocklimiyblockOption, tab: ref('limit') };
       
   }
 });
