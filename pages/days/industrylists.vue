@@ -26,8 +26,10 @@
         </div>
       </div>
       <q-separator inset spaced />
-      <div class="q-pa-sm">
-        <v-chart class="chart" :option="stocklimiyblockOption" autoresize ref="stocklimiyblockChart"/>
+      <div class="col-12" v-if="rowsLimit">
+        <div class="q-pa-sm">
+          <v-chart class="chart" :option="stocklimiyblockOption" autoresize ref="stocklimiyblockChart"/>
+        </div>
       </div>
       
     </q-tab-panel>
@@ -138,11 +140,42 @@
 
 <script lang=“ts”>
 import http from '../utils/http'
-import { ref } from 'vue'
+
+import { use } from 'echarts/core'
+import { CanvasRenderer } from 'echarts/renderers'
+import {
+  LineChart,
+  } from 'echarts/charts'
+import {
+  GridComponent,
+  TooltipComponent,
+  LegendComponent,
+  MarkAreaComponent,
+  TitleComponent,
+  VisualMapComponent,
+  DatasetComponent
+} from 'echarts/components'
+import VChart from 'vue-echarts'
+import { ref, defineComponent } from 'vue'
+
+use([
+  CanvasRenderer,
+  LineChart,
+  MarkAreaComponent,
+  GridComponent,
+  TooltipComponent,
+  LegendComponent,
+  TitleComponent,
+  VisualMapComponent,
+  DatasetComponent
+])
 
 
 export default({
   name: 'IndustryListView',
+  components: {
+    VChart
+  },
   
   mounted: function () {
     this.getServerMarketData()
@@ -159,8 +192,7 @@ export default({
 
   methods: {
     getServerMarketData: async function () {
-      let params = {
-      }
+      let params = {}
       const response0 = await http.get('https://stock.1dian.site/h5/data/index.json', params)
       this.rowsI1 = response0.data.data.I3.series
       this.rowsM = response0.data.data.M.series;
@@ -170,7 +202,6 @@ export default({
       this.rowsLimit = response1.data.data.limit_block
 
       const response2 = await http.get('https://stock.1dian.site/h5/data/limit_block_line.json', params)
-      //console.log(res.data)
       this.stocklimiyblockOption = response2.data
 
       
