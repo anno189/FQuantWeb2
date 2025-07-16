@@ -3,6 +3,9 @@
     <div class="text-h6 q-pa-sm" id="龙虎榜提示">龙虎榜提示</div>
     <div class="col-12 col-md" v-if="loading">
       <div class="text-body2 q-pa-sm">
+        <b>多：</b><br />
+        {{ warn.duo}}<br />
+        <q-separator spaced/>
         <b>风险：</b><br />
         - <b>东方财富:</b> {{ warn.east}}<br />
         - <b>开源证券:</b> {{ warn.kaiyuan}}<br />
