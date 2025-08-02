@@ -147,6 +147,8 @@ export default defineComponent({
 </script>
 
 <style lang="sass">
+.my-sticky-header-height-table
+  height: 580px
 
 .my-sticky-header-column-table
   
