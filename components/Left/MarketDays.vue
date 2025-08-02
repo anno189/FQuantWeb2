@@ -41,9 +41,24 @@
     active-class="my-menu-link"
     to="/days/emotion" exact>
     <q-item-section>
-      <q-item-label>情绪</q-item-label>
+      <q-item-label>涨跌停</q-item-label>
       <q-item-label overline>9:30 - 15:00</q-item-label>
       <q-item-label caption>- 统计高标、涨跌停情况，反应当天市场情绪，每分钟更新</q-item-label>
+    </q-item-section>
+  </q-item>
+  <q-separator />
+
+  <q-item 
+    clickable
+    v-ripple
+    :active="link === 'emotion02'"
+    @click="link = 'emotion02'"
+    active-class="my-menu-link"
+    to="/days/emotion02" exact>
+    <q-item-section>
+      <q-item-label>情绪</q-item-label>
+      <q-item-label overline>9:30 - 15:00</q-item-label>
+      <q-item-label caption>- 统计高标、中位、低位、负反馈情况，实时更新</q-item-label>
     </q-item-section>
   </q-item>
   <q-separator />

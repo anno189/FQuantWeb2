@@ -7,6 +7,9 @@
     <q-separator />
 
     <q-card-section style="max-height: 50vh" class="scroll">
+      <p class="text-weight-bold">v 3.2.11.0802</p>
+      <p>- 新增：盘中-情绪：高标、中位、低位、退潮、负反馈日内走势<br />
+      </p>
       <p class="text-weight-bold">v 3.2.10.0716</p>
       <p>- 新增：盘中-板块-涨停<br />
         - 调整：情绪-龙虎榜<br />
