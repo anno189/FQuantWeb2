@@ -66,6 +66,20 @@
   <q-item 
     clickable
     v-ripple
+    :active="link === 'stock_open_con'"
+    @click="link = 'stock_open_con'"
+    active-class="my-menu-link"
+    to="/days/stock_open_con" exact>
+    <q-item-section>
+      <q-item-label>优势概念</q-item-label>
+      <q-item-label overline>9:30 - 15:00</q-item-label>
+      <q-item-label caption>- 统计3日、报团、20日、条件的实时情况</q-item-label>
+    </q-item-section>
+  </q-item>
+
+  <q-item 
+    clickable
+    v-ripple
     :active="link === 'industrylists'"
     @click="link = 'industrylists'"
     active-class="my-menu-link"
