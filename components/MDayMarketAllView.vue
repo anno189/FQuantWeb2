@@ -335,8 +335,10 @@ export default defineComponent({
       this.AmountOption.series[2].data = this.DataMarket.mdata.today.YGAmount
 
       this.lAmountOption.xAxis.data = this.DataMarket.Amount.categories
-      //console.log(this.DataMarket.Amount.openamount)
+      //console.log(this.DataMarket.Amount.series[3].data)
       //this.lAmountOption.series[2].markLine.data[0].yAxis = this.DataMarket.Amount.openamount
+      this.lAmountOption.series[3].data = this.DataMarket.Amount.series[3].data
+    
       this.lAmountOption.series[2].data = this.DataMarket.Amount.series[2].data
       this.lAmountOption.series[1].data = this.DataMarket.Amount.series[1].data
       this.lAmountOption.series[0].data = this.DataMarket.Amount.series[0].data
@@ -539,7 +541,7 @@ export default defineComponent({
         trigger: 'axis'
       },
       legend: {
-        data:['当日成交','5日均量','今日预估'],
+        data:['当日成交','5日均量','今日预估','昨日预估'],
       },
       grid: {
         left: '3%',
@@ -557,7 +559,7 @@ export default defineComponent({
       },
       series: [
         {
-          name:'当日成交',
+          name:'成交量',
           type:'bar',
           data:[],
           itemStyle:{
@@ -571,6 +573,18 @@ export default defineComponent({
         },
         {
           name:'今日预估',
+          type:'line',
+          data:[],
+          markLine:{
+            symbol: 'none',
+            data:[{
+              yAxis: 0,
+            },
+            ]
+          },
+        },
+        {
+          name:'昨日预估',
           type:'line',
           data:[],
           markLine:{
