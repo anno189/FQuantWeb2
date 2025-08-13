@@ -337,6 +337,7 @@ export default defineComponent({
       this.lAmountOption.xAxis.data = this.DataMarket.Amount.categories
       //console.log(this.DataMarket.Amount.openamount)
       //this.lAmountOption.series[2].markLine.data[0].yAxis = this.DataMarket.Amount.openamount
+      this.lAmountOption.series[3].data = this.DataMarket.Amount.series[3].data
       this.lAmountOption.series[2].data = this.DataMarket.Amount.series[2].data
       this.lAmountOption.series[1].data = this.DataMarket.Amount.series[1].data
       this.lAmountOption.series[0].data = this.DataMarket.Amount.series[0].data
