@@ -381,8 +381,7 @@ export default defineComponent({
       this.lMaeketBOption.series[2].data = res2.data.data.marketB.series[2].data
       this.lMaeketBOption.series[3].data = res2.data.data.marketB.series[3].data
       this.lMaeketBOption.series[4].data = res2.data.data.marketB.series[4].data
-      this.lMaeketBOption.series[5].data = res2.data.data.marketB.series[5].data
-
+      
       this.lMaeketCOption.xAxis.data = res2.data.data.min.min1.categories
       this.lMaeketCOption.series[0].data = res2.data.data.marketA.series[0].data
       this.lMaeketCOption.series[1].data = res2.data.data.marketC.series[0].data
