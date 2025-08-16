@@ -832,7 +832,7 @@ export default defineComponent({
             trigger: 'axis'
           },
           legend: {
-            data:['上证指数','券商','银行','黄金','股指期货','香港恒生'],
+            data:['上证指数','券商','银行','黄金','互联金额'],
           },
           grid: {
             left: '3%',
@@ -874,13 +874,7 @@ export default defineComponent({
               data:[]
             },
             {
-              name:'股指期货',
-              type:'line',
-              symbol:'none',
-              data:[]
-            },
-            {
-              name:'香港恒生',
+              name:'互联金额',
               type:'line',
               symbol:'none',
               data:[]
