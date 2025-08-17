@@ -198,6 +198,39 @@
       </div>
     </div> 
   </div>
+
+  <q-separator inset spaced />
+  
+  <div class="flex-break"></div>
+  <div class="row bg-grey-1" v-if="DataMarket.mdata">
+    <!-- 高标涨跌 -->
+    <div class="col-12 col-md">
+      <div class="divide-y divide-dashed w-full">
+        <div class="text-h6 q-pa-sm">涨停概念</div>
+        <v-chart class="chart" :option="lLimitOption" autoresize/>
+        <div class="text-body2 q-pa-sm">
+        - 数据每分钟更新一次 <br />
+        </div>
+      </div>
+    </div>
+
+    <!-- 结构化涨跌比例 -->
+    <div class="col-12 col-md">
+      
+    </div>
+
+    <!-- 市场资金
+    <div class="col-12 col-md">
+     <div class="divide-y divide-dashed w-full">
+        <div class="text-h6 q-pa-sm">市值涨跌</div>
+        <v-chart class="chart" :option="lSHizhiR2Option" autoresize/>
+        <div class="text-body2 q-pa-sm">
+        - 数据每分钟更新一次 <br />
+        </div>
+      </div>
+    </div> 
+     -->
+  </div>
   <q-separator inset spaced />
 
 
@@ -392,11 +425,11 @@ export default defineComponent({
       this.lMaeketCOption.series[6].data = res2.data.data.marketC.series[5].data
       this.lMaeketCOption.series[7].data = res2.data.data.marketC.series[6].data
       this.lMaeketCOption.series[8].data = res2.data.data.marketC.series[7].data
-      
+      /*
       this.lLBAmountOption.xAxis.data = res2.data.data.min.min1.categories
       this.lLBAmountOption.series[0].data = this.DataMarket.LB.upcount
       this.lLBAmountOption.series[1].data = this.DataMarket.LB.downcount
-
+      */
       this.lRateCountOption.xAxis.data = res2.data.data.min.min1.categories
       this.lRateCountOption.series[0].data = res2.data.data.rate.up10
       this.lRateCountOption.series[1].data = res2.data.data.rate.up05
@@ -420,6 +453,20 @@ export default defineComponent({
       this.lSHizhiR2Option.series[3].data = res2.data.data.r2.z4
       this.lSHizhiR2Option.series[4].data = res2.data.data.r2.z5
       this.lSHizhiR2Option.series[5].data = res2.data.data.marketA.series[4].data
+
+      this.lLimitOption.xAxis.data = res2.data.data.min.min1.categories
+      this.lLimitOption.series[0].data = res2.data.data.l.新能源
+      this.lLimitOption.series[1].data = res2.data.data.l.基建
+      this.lLimitOption.series[2].data = res2.data.data.l.新材料
+      this.lLimitOption.series[3].data = res2.data.data.l.环保化工
+      this.lLimitOption.series[4].data = res2.data.data.l.消费
+      this.lLimitOption.series[5].data = res2.data.data.l.智能设备
+      this.lLimitOption.series[6].data = res2.data.data.l.医疗健康
+      this.lLimitOption.series[7].data = res2.data.data.l.AI
+      this.lLimitOption.series[8].data = res2.data.data.l.交通运输
+      this.lLimitOption.series[9].data = res2.data.data.l.金融
+      this.lLimitOption.series[10].data = res2.data.data.l.算力芯片
+      this.lLimitOption.series[11].data = res2.data.data.l.break
       
       //console.log(res2.data.data.r2.z2)
 
@@ -1007,7 +1054,44 @@ export default defineComponent({
             {name:'退潮',type:'line',symbol:'none',data:[]},
           ]
     });
-    
+
+    const lLimitOption = ref({
+      tooltip: {
+            trigger: 'axis'
+          },
+          legend: {
+            data:['新能源', '基建', '新材料', '环保化工', '消费', '智能设备', '医疗健康', 'AI', '交通运输', '金融', '算力芯片', '炸板'],
+          },
+          grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+          },
+          xAxis: {
+            data: [],
+            axisLine:{onZero:false},
+            axisLabel:{interval:14},
+          },
+          yAxis: {
+            type: 'value',
+          },
+          series: [
+            {name:'新能源',type:'line',symbol:'none',data:[]},
+            {name:'基建',type:'line',symbol:'none',data:[]},
+            {name:'新材料',type:'line',symbol:'none',data:[]},
+            {name:'环保化工',type:'line',symbol:'none',data:[]},
+            {name:'消费',type:'line',symbol:'none',data:[]},
+            {name:'智能设备',type:'line',symbol:'none',data:[]},
+            {name:'医疗健康',type:'line',symbol:'none',data:[]},
+            {name:'AI',type:'line',symbol:'none',data:[]},
+            {name:'交通运输',type:'line',symbol:'none',data:[]},
+            {name:'金融',type:'line',symbol:'none',data:[]},
+            {name:'算力芯片',type:'line',symbol:'none',data:[]},
+            {name:'炸板',type:'line',symbol:'none',data:[]},
+          ]
+    });
+    /*
     const lLBAmountOption = ref({
       tooltip: {
             trigger: 'axis'
@@ -1033,7 +1117,7 @@ export default defineComponent({
             {name:'上涨',type:'line',symbol:'none',data:[]},
             {name:'下跌',type:'line',symbol:'none',data:[]}
           ]
-    });
+    });*/
     /*
     const lNorthAmountOption = ref({
       tooltip: {
@@ -1114,8 +1198,8 @@ export default defineComponent({
       { name: '标签', align: 'center', label: '标签', field: 'tag' },
     ]);
 
-    //lNorthAmountOption, 
-    return { loading:ref(), AmountOption, lAmountOption, rTemperaOption, lTemperaOption, lRateOption, lTempera5minOption, lMaeketAOption, lRateCountOption, lSHizhiR1Option, lSHizhiR2Option, lMaeketBOption, lMaeketCOption, lLBAmountOption, lLBInsOption, DataMarket, rowsTagList, columnsTagList, rowsDataList, columnsDataList, tab: ref('today') };
+    //lNorthAmountOption, lLBAmountOption, 
+    return { loading:ref(), AmountOption, lAmountOption, rTemperaOption, lTemperaOption, lRateOption, lTempera5minOption, lMaeketAOption, lRateCountOption, lSHizhiR1Option, lSHizhiR2Option, lLimitOption, lMaeketBOption, lMaeketCOption, lLBInsOption, DataMarket, rowsTagList, columnsTagList, rowsDataList, columnsDataList, tab: ref('today') };
 
   }
   
