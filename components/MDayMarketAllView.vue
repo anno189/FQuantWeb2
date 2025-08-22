@@ -130,8 +130,7 @@
         <v-chart class="chart" :option="lMaeketBOption" autoresize/>
         <div class="text-body2 q-pa-sm">
         - 数据每分钟更新一次<br />
-        - 恒生指数数据滞后15分钟<br />
-        - 恒生指数交易时间11:30~12:00内数据未显示。
+        - 恒生指数、股指期货数据暂时无法取数
         </div>
       </div>
     </div>
@@ -282,6 +281,9 @@
             </q-td>
           </template>
         </q-table>
+        <div class="text-body2 q-pa-sm">
+        - 成交金额为合成数据，与实际成交金额不一致。 <br />
+        </div>
       </div>
     </div>
   </div>
