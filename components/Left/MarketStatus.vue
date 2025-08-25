@@ -49,6 +49,22 @@
       </q-item-label>
     </q-item-section>
   </q-item>
+
+  <q-separator />
+  <q-item 
+    clickable
+    v-ripple
+    :active="link === 'stockconcepthotlist'"
+    @click="link = 'stockconcepthotlist'"
+    active-class="my-menu-link"
+    to="/status/stockconcepthotlist" exact>
+    <q-item-section>
+      <q-item-label>主题概念</q-item-label>
+      <q-item-label overline>每日8点，18点更新2次</q-item-label>
+      <q-item-label caption>- 近3个交易日主题概念新增个股
+      </q-item-label>
+    </q-item-section>
+  </q-item>
   
 </template>
 
