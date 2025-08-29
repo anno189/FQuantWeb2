@@ -70,38 +70,53 @@ export default defineComponent({
     ]);
 
     return { loading:ref(), rowStockconcepthotlist, columnStockconcepthotlist, tab: ref('mstatusdata')};
-      
   }
 });
 </script>
 
 
 <style lang="sass">
-.my-sticky-column-table
-  thead tr:first-child th:first-child
-    /* bg color is important for th; just specify one */
-    background-color: #fff
+.my-sticky-header-height-table
+  height: 580px
 
+.my-sticky-header-column-table
+  
   td:first-child
+    /* bg color is important for td; just specify one */
     background-color: #f5f5dc
 
-  th:first-child,
-  td:first-child
+  tr th
     position: sticky
-    left: 0
+    /* higher than z-index for td below */
+    z-index: 2
+    /* bg color is important; just specify one */
+    background: #f5f5dc
+
+  /* this will be the loading indicator */
+  thead tr:last-child th
+    /* height of all previous header rows */
+    top: 48px
+    /* highest z-index */
+    z-index: 3
+  thead tr:first-child th
+    top: 0
+    z-index: 1
+  tr:first-child th:first-child
+    /* highest z-index */
+    z-index: 3
+
+  td:first-child
     z-index: 1
 
-.top-title
-  z-index: 100
+  td:first-child, th:first-child
+    position: sticky
+    left: 0
 
-.chart
-  height: 520px
-
+  /* prevent scrolling behind sticky top row on focus */
+  tbody
+    /* height of all previous header rows */
+    scroll-margin-top: 48px
 </style>
-
-
-
-
 
 
 
