@@ -11,6 +11,7 @@
     <v-chart class="chart" :option="marketstrcountOption" autoresize ref="marketstrcountChart"/>
   </div>
   <q-separator inset spaced />
+  <!--
   <div class="q-pa-sm">
     <v-chart class="chart" :option="marketrzrq00Option" autoresize ref="marketrzrqChart"/>
   </div>
@@ -19,6 +20,7 @@
     <v-chart class="chart" :option="marketrzrq01Option" autoresize ref="marketrzrqChart"/>
   </div>
   <q-separator inset spaced />
+-->
   <!--北向数据
   <div class="q-pa-sm">
     <v-chart class="chart" :option="markettonOption" autoresize ref="markettonChart"/>
@@ -90,13 +92,13 @@ export default defineComponent({
 
       const res3 = await http.get('https://stock.1dian.site/h5/data/market_str_count.json', params)
       this.marketstrcountOption = res3.data
-
+      /*
       const res4 = await http.get('https://stock.1dian.site/h5/data/market_rzrq_00.json', params)
       this.marketrzrq00Option = res4.data
 
       const res6 = await http.get('https://stock.1dian.site/h5/data/market_rzrq_01.json', params)
       this.marketrzrq01Option = res6.data
-
+      */
       /*
       const res5 = await http.get('https://stock.1dian.site/h5/data/market_ton.json', params)
       this.markettonOption = res5.data

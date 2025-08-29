@@ -16,7 +16,7 @@
   <div class="q-pa-sm">
     <v-chart class="chart" :option="marketIndustry2Amount" autoresize ref="marketIndustry2AmountChart"/>
   </div>
-  
+  <!--
   <q-separator inset spaced />
   <div class="q-pa-sm">
     <v-chart class="chart" :option="marketAmountCount" autoresize ref="marketAmountCountChart"/>
@@ -26,7 +26,7 @@
   <div class="q-pa-sm">
     <v-chart class="chart" :option="marketInsOneCount" autoresize ref="marketInsOneCountChart"/>
   </div>
-  
+  -->
 </template>
 
 <script lang=“ts”>
@@ -99,13 +99,13 @@ export default defineComponent({
 
       const res4 = await http.get('https://stock.1dian.site/h5/data/industry_amount_industry2.json', params)
       this.marketIndustry2Amount = res4.data
-
+      /*
       const res5 = await http.get('https://stock.1dian.site/h5/data/marketAmountCount.json', params)
       this.marketAmountCount = res5.data
 
       const res6 = await http.get('https://stock.1dian.site/h5/data/marketInsOneCount.json', params)
       this.marketInsOneCount = res6.data
-
+      */
     }
   },
 
