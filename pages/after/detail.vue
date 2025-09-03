@@ -1,5 +1,9 @@
 <template>
   <div class="q-pa-sm">
+    <v-chart class="chart" :option="marketshizhiquantileOption" autoresize ref="marketshizhiquantileChart"/>
+  </div>
+  <q-separator inset spaced />
+  <div class="q-pa-sm">
     <v-chart class="chart" :option="marketamountpercentOption" autoresize ref="marketamountpercentChart"/>
   </div>
   <q-separator inset spaced />
@@ -82,16 +86,17 @@ export default defineComponent({
   },
   methods: {
     getServerMarketData: async function () {
-      let params = {
-      }
-      const res1 = await http.get('https://stock.1dian.site/h5/data/market_amount_percent.json', params)
+      const res1 = await http.get('https://stock.1dian.site/h5/data/market_amount_percent.json', {})
       this.marketamountpercentOption = res1.data
 
-      const res2 = await http.get('https://stock.1dian.site/h5/data/market_line_status.json', params)
+      const res2 = await http.get('https://stock.1dian.site/h5/data/market_line_status.json', {})
       this.martetlinestatusOption = res2.data
 
-      const res3 = await http.get('https://stock.1dian.site/h5/data/market_str_count.json', params)
+      const res3 = await http.get('https://stock.1dian.site/h5/data/market_str_count.json', {})
       this.marketstrcountOption = res3.data
+
+      const res4 = await http.get('https://stock.1dian.site/h5/data/bar_marketshizhiquantile.json', {})
+      this.marketshizhiquantileOption = res4.data
       /*
       const res4 = await http.get('https://stock.1dian.site/h5/data/market_rzrq_00.json', params)
       this.marketrzrq00Option = res4.data
@@ -103,7 +108,6 @@ export default defineComponent({
       const res5 = await http.get('https://stock.1dian.site/h5/data/market_ton.json', params)
       this.markettonOption = res5.data
       */
-
     }
   },
 
@@ -111,12 +115,13 @@ export default defineComponent({
     const marketamountpercentOption = ref({});
     const martetlinestatusOption = ref({});
     const marketstrcountOption = ref({});
-    const marketrzrq00Option = ref({});
-    const marketrzrq01Option = ref({});
+    const marketshizhiquantileOption = ref({});
+    //const marketrzrq00Option = ref({});
+    //const marketrzrq01Option = ref({});
     //const markettonOption = ref({});
     
-    return { marketamountpercentOption, martetlinestatusOption, marketstrcountOption, marketrzrq00Option, marketrzrq01Option };
-    //, markettonOption};
+    return { marketamountpercentOption, martetlinestatusOption, marketstrcountOption, marketshizhiquantileOption};
+    //marketrzrq00Option, marketrzrq01Option , markettonOption};
 
   }
   
