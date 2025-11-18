@@ -114,7 +114,7 @@
     </q-item-section>
   </q-item>
   <q-separator />
-  -->
+  
   <q-item 
     clickable
     v-ripple
@@ -128,6 +128,7 @@
     </q-item-section>
   </q-item>
   <q-separator />
+  -->
 </template>
 
 <script>
