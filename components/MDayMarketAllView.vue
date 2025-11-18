@@ -32,11 +32,11 @@
 
   <div class="row bg-grey-1" v-if="DataMarket.mdata">
     <div class="col-12 col-md">
-        <div class="text-h6 q-pa-sm">交易时间：{{this.DataMarket.mdata.nows.mins}}分钟，{{DataMarket.mdata.nows.Amount.AmountText}}</div>
+        <div class="text-h6 q-pa-sm">时间：{{this.DataMarket.mdata.nows.mins}}分钟，{{DataMarket.mdata.nows.Amount.AmountText}}</div>
         
         <v-chart class="chart" :option="AmountOption" autoresize ref="AmountChart"/>
         
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
           上证指数：{{DataMarket.mdata.nows.SH000001.close}}，{{DataMarket.mdata.nows.SH000001.rate}}%，{{DataMarket.mdata.nows.SH000001.amount}}亿<br />
           <!-- 其中：上证{{DataMarket.mdata.nows.Amount.SHAmount}}亿，科创板：{{DataMarket.mdata.nows.Amount.KCAmount}}亿<br />-->
           深证成指：{{DataMarket.mdata.nows.SZ399001.close}}，{{DataMarket.mdata.nows.SZ399001.rate}}%，{{DataMarket.mdata.nows.SZ399001.amount}}亿<br />
@@ -48,12 +48,12 @@
     <!-- 市场资金 -->
     <div class="col-12 col-md">
 
-        <div class="text-h6 q-pa-sm">市场资金：预计{{DataMarket.mdata.Forecast.SHVolumn}}亿</div>
+        <div class="text-h6 q-pa-sm">资金：预计{{DataMarket.mdata.Forecast.SHVolumn}}亿</div>
         <v-chart class="chart" :option="lAmountOption" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 预估数据在1分钟、5分钟、每15分钟运算。
         </div>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
           {{DataMarket.mdata.Forecast.mins}}分钟: <br />
           - 预计今日沪市成交金额{{DataMarket.mdata.Forecast.SHVolumn}}亿，<br />
           - 昨日沪市成交金额{{DataMarket.mdata.yestoday.SHAmount}}亿。<br />
@@ -63,9 +63,9 @@
 
     <!-- 市场资金 -->
     <div class="col-12 col-md">
-        <div class="text-h6 q-pa-sm">市场温度：{{DataMarket.mdata.nows.tempera.avg}}℃</div>
+        <div class="text-h6 q-pa-sm">温度：{{DataMarket.mdata.nows.tempera.avg}}℃</div>
         <v-chart class="chart" :option="rTemperaOption" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 数据每5分钟更新。<br />
         - 资金量：最大为15,000亿, 每格3750亿元。<br />
         - 连板：最大阈值为56个，每格14支票。<br />
@@ -85,7 +85,7 @@
     <div class="col-12 col-md">
       <div class="text-h6 q-pa-sm" id="上证指数">上证指数：</div>
       <v-chart class="chart" :option="lTemperaOption" autoresize/>
-      <div class="text-body2 q-pa-sm">
+      <div class="text-caption q-pa-sm">
       - 涨跌比：上涨和下跌的比例。0.5时上涨票是下跌票的两倍，-0.5时下跌票是上涨票的两倍。
       </div>
 
@@ -94,7 +94,7 @@
       <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">市场涨跌：</div>
         <v-chart class="chart" :option="lRateOption" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         上涨({{DataMarket.Rate.upcount}})，下跌({{DataMarket.Rate.downcount}})<br />
         {{DataMarket.Rate.upText}}<br />
         {{DataMarket.Rate.downText}} <br />
@@ -105,7 +105,7 @@
       <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">市场温度：</div>
         <v-chart class="chart" :option="lTempera5minOption" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 数据每5分钟更新一次，是今日温度的详细图表
         </div>
       </div>
@@ -119,7 +119,7 @@
      <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">宽指指数：</div>
         <v-chart class="chart" :option="lMaeketAOption" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 数据每分钟更新一次
         </div>
       </div>
@@ -128,7 +128,7 @@
       <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">金融指数：</div>
         <v-chart class="chart" :option="lMaeketBOption" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 数据每分钟更新一次<br />
         - 恒生指数、股指期货数据暂时无法取数
         </div>
@@ -138,7 +138,7 @@
       <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">情绪指数：</div>
         <v-chart class="chart" :option="lMaeketCOption" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 数据每分钟更新一次 <br />
         - 判断当前市场的大小盘风格
         </div>
@@ -155,7 +155,7 @@
       <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">北向数据</div>
         <v-chart class="chart" :option="lNorthAmountOption" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 数据每分钟更新一次 <br />
         - 数据源：东方财富
         </div>
@@ -169,7 +169,7 @@
       <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">日内高标</div>
         <v-chart class="chart" :option="lRateCountOption" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 数据每分钟更新一次 <br />
         </div>
       </div>
@@ -180,7 +180,7 @@
       <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">市值涨跌比例</div>
         <v-chart class="chart" :option="lSHizhiR1Option" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 数据每分钟更新一次 <br />
         </div>
       </div>
@@ -191,7 +191,7 @@
      <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">市值涨跌</div>
         <v-chart class="chart" :option="lSHizhiR2Option" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 数据每分钟更新一次 <br />
         </div>
       </div>
@@ -207,7 +207,7 @@
       <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">涨停概念</div>
         <v-chart class="chart" :option="lLimitOption" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 数据每分钟更新一次 <br />
         </div>
       </div>
@@ -223,7 +223,7 @@
      <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">市值涨跌</div>
         <v-chart class="chart" :option="lSHizhiR2Option" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 数据每分钟更新一次 <br />
         </div>
       </div>
@@ -281,7 +281,7 @@
             </q-td>
           </template>
         </q-table>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 成交金额为合成数据，与实际成交金额不一致。 <br />
         </div>
       </div>
@@ -298,7 +298,7 @@
      <div class="divide-y divide-dashed w-full">
         <div class="text-h6 q-pa-sm">行业放量（±4%）</div>
         <v-chart class="chartbig" :option="lLBInsOption" autoresize/>
-        <div class="text-body2 q-pa-sm">
+        <div class="text-caption q-pa-sm">
         - 数据每分钟更新一次 <br />
         - 每分钟放量个股行业统计
         </div>
