@@ -11,7 +11,20 @@
     active-class="my-menu-link"
     to="/emotion/yidong" exact>
     <q-item-section>
-      <q-item-label>异动</q-item-label>
+      <q-item-label>异动-今日</q-item-label>
+      <q-item-label overline>每晚19:00 更新</q-item-label>
+    </q-item-section>
+  </q-item>
+  <q-separator />
+  <q-item 
+    clickable
+    v-ripple
+    :active="link === 'emotionyidong2'"
+    @click="link = 'emotionyidong2'"
+    active-class="my-menu-link"
+    to="/emotion/yidong2" exact>
+    <q-item-section>
+      <q-item-label>异动-昨日</q-item-label>
       <q-item-label overline>每晚19:00 更新</q-item-label>
     </q-item-section>
   </q-item>
