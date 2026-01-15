@@ -2,6 +2,20 @@
   <q-item-label header class="bg-grey-3" v-if="date">盘后分析 ({{date}})</q-item-label>
   
   <q-separator />
+
+  <q-item 
+    clickable
+    v-ripple
+    :active="link === 'emotionyidong'"
+    @click="link = 'emotionyidong'"
+    active-class="my-menu-link"
+    to="/emotion/yidong" exact>
+    <q-item-section>
+      <q-item-label>异动</q-item-label>
+      <q-item-label overline>每晚19:00 更新</q-item-label>
+    </q-item-section>
+  </q-item>
+  <q-separator />
   
   <q-item 
     clickable
