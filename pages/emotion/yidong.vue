@@ -12,6 +12,14 @@
           :rows-per-page-options="[10000]"
           row-key="name"
         >
+          <template v-slot:body-cell="props">
+            <q-td
+              :props="props"
+              :class="(props.row.RATE >0 & props.row.RATE < 5)?'bg-red-1':(props.row.RATE >=5 & props.row.RATE < 9)?'bg-red-2':(props.row.RATE >=9)?'bg-red-3':(props.row.RATE < 0 & props.row.RATE > -7 )?'bg-green-1':(props.row.RATE <= -7)?'bg-green-3':''"
+            >
+              {{props.value}}
+            </q-td>
+          </template>
         </q-table>
       </div>
     </div>
