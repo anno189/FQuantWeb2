@@ -85,6 +85,10 @@ export default defineComponent({
             columnsz[i] = { name: colz[i], align: 'left', label: '日内涨幅', field: colz[i], sortable: false}
           else if ( colz[i] == 'HSL')
             columnsz[i] = { name: colz[i], align: 'left', label: '日内换手', field: colz[i], sortable: false}
+          else if ( colz[i] == 'JG9')
+            columnsz[i] = { name: colz[i], align: 'left', label: '9日涨幅', field: colz[i], sortable: false}
+          else if ( colz[i] == 'JG29')
+            columnsz[i] = { name: colz[i], align: 'left', label: '29日涨幅', field: colz[i], sortable: false}
           else
             columnsz[i] = { name: colz[i], align: 'left', label: colz[i], field: colz[i], sortable: false}
         }
