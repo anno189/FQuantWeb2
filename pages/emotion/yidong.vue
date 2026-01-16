@@ -1,5 +1,8 @@
 <!--竞价一字-->
 <template>
+  <div class="text-h6 q-pa-sm" v-if="this.loading"> 异动代码 </div>
+  <div class="q-pa-sm"> {{ this.lists }} </div>
+  <q-separator inset spaced/>
   <template v-for="item in this.data" v-if="this.loading">
     <div class="text-h6 q-pa-sm" :id="item.title+'列表'"> {{ item.title }}列表 ( {{this.date}})</div>
     <div class="col-12">
@@ -59,7 +62,10 @@ export default defineComponent({
       const store = useAlinksStore()
       const alinks = new Array()
       
+      //console.log(res1.data.data)
+
       this.date = res1.data.data.date
+      this.lists = res1.data.data.lists
       this.data = res1.data.data.jianguan
 
       for (let j = 0; j < this.data.length; j++){
@@ -89,6 +95,10 @@ export default defineComponent({
             columnsz[i] = { name: colz[i], align: 'left', label: '9日涨幅', field: colz[i], sortable: false}
           else if ( colz[i] == 'JG29')
             columnsz[i] = { name: colz[i], align: 'left', label: '29日涨幅', field: colz[i], sortable: false}
+          else if ( colz[i] == 'P10')
+            columnsz[i] = { name: colz[i], align: 'left', label: '10日偏离', field: colz[i], sortable: false}
+          else if ( colz[i] == 'P30')
+            columnsz[i] = { name: colz[i], align: 'left', label: '30日偏离', field: colz[i], sortable: false}
           else
             columnsz[i] = { name: colz[i], align: 'left', label: colz[i], field: colz[i], sortable: false}
         }

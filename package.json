@@ -14,7 +14,6 @@
     "@pinia/nuxt": "^0.5.5",
     "@quasar/extras": "^1.16.12",
     "@vite-pwa/nuxt": "^0.10.0",
-    "caniuse-lite": "^1.0.30001727",
     "echarts": "^5.4.3",
     "nuxt": "^3.12.4",
     "nuxt-quasar-ui": "^2.1.4",

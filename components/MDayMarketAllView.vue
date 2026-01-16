@@ -418,15 +418,15 @@ export default defineComponent({
       this.lMaeketBOption.series[4].data = res2.data.data.marketB.series[4].data
       
       this.lMaeketCOption.xAxis.data = res2.data.data.min.min1.categories
-      this.lMaeketCOption.series[0].data = res2.data.data.marketA.series[0].data
-      this.lMaeketCOption.series[1].data = res2.data.data.marketC.series[0].data
-      this.lMaeketCOption.series[2].data = res2.data.data.marketC.series[1].data
-      this.lMaeketCOption.series[3].data = res2.data.data.marketC.series[2].data
-      this.lMaeketCOption.series[4].data = res2.data.data.marketC.series[3].data
-      this.lMaeketCOption.series[5].data = res2.data.data.marketC.series[4].data
-      this.lMaeketCOption.series[6].data = res2.data.data.marketC.series[5].data
-      this.lMaeketCOption.series[7].data = res2.data.data.marketC.series[6].data
-      this.lMaeketCOption.series[8].data = res2.data.data.marketC.series[7].data
+      this.lMaeketCOption.series[0].data = res2.data.data.marketC.series[0].data
+      this.lMaeketCOption.series[1].data = res2.data.data.marketC.series[1].data
+      this.lMaeketCOption.series[2].data = res2.data.data.marketC.series[2].data
+      this.lMaeketCOption.series[3].data = res2.data.data.marketC.series[3].data
+      this.lMaeketCOption.series[4].data = res2.data.data.marketC.series[4].data
+      this.lMaeketCOption.series[5].data = res2.data.data.marketC.series[5].data
+      this.lMaeketCOption.series[6].data = res2.data.data.marketC.series[6].data
+      this.lMaeketCOption.series[7].data = res2.data.data.marketC.series[7].data
+      this.lMaeketCOption.series[8].data = res2.data.data.marketC.series[8].data
       /*
       this.lLBAmountOption.xAxis.data = res2.data.data.min.min1.categories
       this.lLBAmountOption.series[0].data = this.DataMarket.LB.upcount
@@ -1028,7 +1028,7 @@ export default defineComponent({
             trigger: 'axis'
           },
           legend: {
-            data:['上证指数','沪深300','微盘股','近期强势', '北证50', '高标', '中位', '低位', '退潮'],
+            data:['沪深300','微盘股','近期强势', '北证50', '高标', '中位', '低位', '退潮', '异动'],
           },
           grid: {
             left: '3%',
