@@ -1045,7 +1045,6 @@ export default defineComponent({
             type: 'value',
           },
           series: [
-            {name:'上证指数',type:'line',symbol:'none',data:[]},
             {name:'沪深300',type:'line',symbol:'none',data:[]},
             {name:'微盘股',type:'line',symbol:'none',data:[]},
             {name:'近期强势',type:'line',symbol:'none',data:[]},
@@ -1054,6 +1053,7 @@ export default defineComponent({
             {name:'中位',type:'line',symbol:'none',data:[]},
             {name:'低位',type:'line',symbol:'none',data:[]},
             {name:'退潮',type:'line',symbol:'none',data:[]},
+            {name:'异动',type:'line',symbol:'none',data:[]},
           ]
     });
 
